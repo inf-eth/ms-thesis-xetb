@@ -1,0 +1,409 @@
+$begin '$base_index$'
+  $begin 'properties'
+    all_levels=000000000000
+    time(year=000000002011, month=000000000005, day=000000000009, hour=000000000015, min=000000000000, sec=000000000013)
+    version=000000000000
+  $end 'properties'
+  $begin '$base_index$'
+    $index$(pos=000000009307, lin=000000000371, lvl=000000000000)
+  $end '$base_index$'
+$end '$base_index$'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=58, Instance=\'SetupDefinition\', Solution=-1, VersionID=269)'='SolutionBlock99'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=100, VersionID=269)'='SolutionBlock91'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=103, VersionID=269)'='SolutionBlock92'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=106, VersionID=269)'='SolutionBlock93'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=145, VersionID=269)'='SolutionBlock94'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=148, VersionID=269)'='SolutionBlock95'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=151, VersionID=269)'='SolutionBlock96'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=154, VersionID=269)'='SolutionBlock97'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=206, VersionID=269)'='SolutionBlock98'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=59, VersionID=269)'='SolutionBlock80'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=60, VersionID=269)'='SolutionBlock81'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=63, VersionID=269)'='SolutionBlock82'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=76, VersionID=269)'='SolutionBlock83'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=79, VersionID=269)'='SolutionBlock84'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=82, VersionID=269)'='SolutionBlock85'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=85, VersionID=269)'='SolutionBlock86'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=88, VersionID=269)'='SolutionBlock87'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=91, VersionID=269)'='SolutionBlock88'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=94, VersionID=269)'='SolutionBlock89'
+	'SolutionKey(SimSetup=58, Instance=\'SolutionDefinition\', Solution=97, VersionID=269)'='SolutionBlock90'
+$end 'BlockMapName'
+$begin 'SolutionBlock1'
+	ProductName=''
+	CircuitName='HFSSDesign1'
+	VersionID=269
+	PostProcess=false
+	LossLess=true
+	NextUniqueID=314
+	MoveBackwards=false
+	$begin 'VariationIDs'
+		Map(V='', ID=74)
+	$end 'VariationIDs'
+	$begin 'LinkedDataList'
+	$end 'LinkedDataList'
+$end 'SolutionBlock1'
+$begin 'SolutionBlock80'
+	SolutionName='Adaptive_1'
+	SolutionID=59
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock80'
+$begin 'SolutionBlock81'
+	SolutionName='LastAdaptive'
+	SolutionID=60
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock81'
+$begin 'SolutionBlock82'
+	SolutionName='Sweep1'
+	SolutionID=63
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=true
+		StartFreq=1000000000
+		StopFreq=15000000000
+		StepSize=56224899.59839356
+		SolutionType=4
+		CenterFreq=8000000000
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=0
+$end 'SolutionBlock82'
+$begin 'SolutionBlock83'
+	SolutionName='Adaptive_2'
+	SolutionID=76
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock83'
+$begin 'SolutionBlock84'
+	SolutionName='Adaptive_3'
+	SolutionID=79
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock84'
+$begin 'SolutionBlock85'
+	SolutionName='Adaptive_4'
+	SolutionID=82
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock85'
+$begin 'SolutionBlock86'
+	SolutionName='Adaptive_5'
+	SolutionID=85
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock86'
+$begin 'SolutionBlock87'
+	SolutionName='Adaptive_6'
+	SolutionID=88
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock87'
+$begin 'SolutionBlock88'
+	SolutionName='Adaptive_7'
+	SolutionID=91
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock88'
+$begin 'SolutionBlock89'
+	SolutionName='Adaptive_8'
+	SolutionID=94
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock89'
+$begin 'SolutionBlock90'
+	SolutionName='Adaptive_9'
+	SolutionID=97
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock90'
+$begin 'SolutionBlock91'
+	SolutionName='Adaptive_10'
+	SolutionID=100
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock91'
+$begin 'SolutionBlock92'
+	SolutionName='Adaptive_11'
+	SolutionID=103
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock92'
+$begin 'SolutionBlock93'
+	SolutionName='Adaptive_12'
+	SolutionID=106
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock93'
+$begin 'SolutionBlock94'
+	SolutionName='Adaptive_13'
+	SolutionID=145
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock94'
+$begin 'SolutionBlock95'
+	SolutionName='Adaptive_14'
+	SolutionID=148
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock95'
+$begin 'SolutionBlock96'
+	SolutionName='Adaptive_15'
+	SolutionID=151
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock96'
+$begin 'SolutionBlock97'
+	SolutionName='Adaptive_16'
+	SolutionID=154
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock97'
+$begin 'SolutionBlock98'
+	SolutionName='Adaptive_17'
+	SolutionID=206
+	V=269
+	$begin 'States'
+	$end 'States'
+	$begin 'Definition'
+		SamplingInterpolation=false
+		Frequencies(7000000000)
+		SolutionType=6
+		CenterFreq=0
+	$end 'Definition'
+	IsImported=false
+	IsTable=false
+	IsMatrixDataTable=false
+	SweepID=-1
+$end 'SolutionBlock98'
+$begin 'SolutionBlock99'
+	SimSetupID=58
+	SimSetupName='Setup1'
+	VersionID=269
+	IsImported=false
+	IsTable=false
+	SolveSetupID=0
+$end 'SolutionBlock99'
+$begin '$index$'
+	$begin '$index$'
+		SolutionBlock80(pos=2874, lin=38, lvl=0)
+		SolutionBlock81(pos=3201, lin=55, lvl=0)
+		SolutionBlock82(pos=3530, lin=72, lvl=0)
+		SolutionBlock83(pos=3909, lin=91, lvl=0)
+		SolutionBlock84(pos=4236, lin=108, lvl=0)
+		SolutionBlock85(pos=4563, lin=125, lvl=0)
+		SolutionBlock86(pos=4890, lin=142, lvl=0)
+		SolutionBlock87(pos=5217, lin=159, lvl=0)
+		SolutionBlock88(pos=5544, lin=176, lvl=0)
+		SolutionBlock89(pos=5871, lin=193, lvl=0)
+		SolutionBlock90(pos=6198, lin=210, lvl=0)
+		SolutionBlock91(pos=6525, lin=227, lvl=0)
+		SolutionBlock92(pos=6854, lin=244, lvl=0)
+		SolutionBlock93(pos=7183, lin=261, lvl=0)
+		SolutionBlock94(pos=7512, lin=278, lvl=0)
+		SolutionBlock95(pos=7841, lin=295, lvl=0)
+		SolutionBlock96(pos=8170, lin=312, lvl=0)
+		SolutionBlock97(pos=8499, lin=329, lvl=0)
+		SolutionBlock98(pos=8828, lin=346, lvl=0)
+		SolutionBlock99(pos=9157, lin=363, lvl=0)
+		SolutionBlock1(pos=2586, lin=24, lvl=0)
+		BlockMapName(pos=370, lin=1, lvl=0)
+		$base_index$(pos=0, lin=1, lvl=0)
+		$index$(pos=9307, lin=371, lvl=0)
+	$end '$index$'
+$end '$index$'
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

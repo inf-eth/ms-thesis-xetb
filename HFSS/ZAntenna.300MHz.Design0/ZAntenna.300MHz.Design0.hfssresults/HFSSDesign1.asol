@@ -1,20 +1,30 @@
 $begin '$base_index$'
   $begin 'properties'
     all_levels=000000000000
-    time(year=000000002011, month=000000000008, day=000000000001, hour=000000000020, min=000000000038, sec=000000000051)
+    time(year=000000002011, month=000000000008, day=000000000002, hour=000000000018, min=000000000016, sec=000000000046)
     version=000000000000
   $end 'properties'
   $begin '$base_index$'
-    $index$(pos=000000008270, lin=000000000135, lvl=000000000000)
+    $index$(pos=000000004022, lin=000000000135, lvl=000000000000)
   $end '$base_index$'
 $end '$base_index$'
+$begin 'BlockMapName'
+	FileHeader='SolutionBlock1'
+	'SolutionKey(SimSetup=78, Instance=\'SetupDefinition\', Solution=-1, VersionID=585)'='SolutionBlock66'
+	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=110, VersionID=585)'='SolutionBlock64'
+	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=133, VersionID=585)'='SolutionBlock65'
+	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=79, VersionID=585)'='SolutionBlock60'
+	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=80, VersionID=585)'='SolutionBlock61'
+	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=83, VersionID=585)'='SolutionBlock62'
+	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=97, VersionID=585)'='SolutionBlock63'
+$end 'BlockMapName'
 $begin 'SolutionBlock1'
 	ProductName=''
 	CircuitName='HFSSDesign1'
-	VersionID=442
+	VersionID=585
 	PostProcess=false
 	LossLess=true
-	NextUniqueID=461
+	NextUniqueID=604
 	MoveBackwards=false
 	$begin 'VariationIDs'
 		Map(V='', ID=95)
@@ -22,20 +32,10 @@ $begin 'SolutionBlock1'
 	$begin 'LinkedDataList'
 	$end 'LinkedDataList'
 $end 'SolutionBlock1'
-$begin 'BlockMapName'
-	FileHeader='SolutionBlock1'
-	'SolutionKey(SimSetup=78, Instance=\'SetupDefinition\', Solution=-1, VersionID=442)'='SolutionBlock35'
-	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=110, VersionID=442)'='SolutionBlock33'
-	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=133, VersionID=442)'='SolutionBlock34'
-	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=79, VersionID=442)'='SolutionBlock29'
-	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=80, VersionID=442)'='SolutionBlock30'
-	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=83, VersionID=442)'='SolutionBlock31'
-	'SolutionKey(SimSetup=78, Instance=\'SolutionDefinition\', Solution=97, VersionID=442)'='SolutionBlock32'
-$end 'BlockMapName'
-$begin 'SolutionBlock29'
+$begin 'SolutionBlock60'
 	SolutionName='Adaptive_1'
 	SolutionID=79
-	V=442
+	V=585
 	$begin 'States'
 	$end 'States'
 	$begin 'Definition'
@@ -48,11 +48,11 @@ $begin 'SolutionBlock29'
 	IsTable=false
 	IsMatrixDataTable=false
 	SweepID=-1
-$end 'SolutionBlock29'
-$begin 'SolutionBlock30'
+$end 'SolutionBlock60'
+$begin 'SolutionBlock61'
 	SolutionName='LastAdaptive'
 	SolutionID=80
-	V=442
+	V=585
 	$begin 'States'
 	$end 'States'
 	$begin 'Definition'
@@ -65,16 +65,16 @@ $begin 'SolutionBlock30'
 	IsTable=false
 	IsMatrixDataTable=false
 	SweepID=-1
-$end 'SolutionBlock30'
-$begin 'SolutionBlock31'
+$end 'SolutionBlock61'
+$begin 'SolutionBlock62'
 	SolutionName='Sweep1'
 	SolutionID=83
-	V=442
+	V=585
 	$begin 'States'
 	$end 'States'
 	$begin 'Definition'
 		SamplingInterpolation=false
-		Frequencies(100000000, 103614457.8313253, 107228915.6626506, 110843373.4939759, 114457831.3253012, 118072289.1566265, 121686746.9879518, 125301204.8192771, 128915662.6506024, 132530120.4819277, 136144578.313253, 139759036.1445783, 143373493.9759036, 146987951.8072289, 150602409.6385542, 154216867.4698795, 157831325.3012048, 161445783.1325301, 165060240.9638554, 168674698.7951807, 172289156.626506, 175903614.4578313, 179518072.2891566, 183132530.1204819, 186746987.9518072, 190361445.7831326, 193975903.6144579, 197590361.4457831, 201204819.2771084, 204819277.1084337, 208433734.9397591, 212048192.7710843, 215662650.6024097, 219277108.433735, 222891566.2650603, 226506024.0963855, 230120481.9277108, 233734939.7590362, 237349397.5903615, 240963855.4216868, 244578313.2530121, 248192771.0843374, 251807228.9156627, 255421686.746988, 259036144.5783133, 262650602.4096386, 266265060.2409639, 269879518.0722892, 273493975.9036145, 277108433.7349398, 280722891.5662651, 284337349.3975904, 287951807.2289157, 291566265.060241, 295180722.8915663, 298795180.7228916, 302409638.5542169, 306024096.3855422, 309638554.2168675, 313253012.0481928, 316867469.8795181, 320481927.7108434, 324096385.5421687, 327710843.373494, 331325301.2048193, 334939759.0361446, 338554216.8674699, 342168674.6987952, 345783132.5301205, 349397590.3614458, 353012048.1927711, 356626506.0240964, 360240963.8554217, 363855421.686747, 367469879.5180723, 371084337.3493976, 374698795.1807229, 378313253.0120482, 381927710.8433735, 385542168.6746988, 389156626.5060241, 392771084.3373494, 396385542.1686747, 400000000, 403614457.8313253, 407228915.6626506, 410843373.4939759, 414457831.3253012, 418072289.1566265, 421686746.9879518, 425301204.8192771, 428915662.6506025, 432530120.4819278, 436144578.3132531, 439759036.1445783, 443373493.9759036, 446987951.8072289, 450602409.6385542, 454216867.4698796, 457831325.3012049, 461445783.1325302, 465060240.9638555, 468674698.7951807, 472289156.626506, 475903614.4578313, 479518072.2891567, 483132530.120482, 486746987.9518073, 490361445.7831326, 493975903.6144579, 497590361.4457831, 501204819.2771084, 504819277.1084338, 508433734.9397591, 512048192.7710844, 515662650.6024097, 519277108.433735, 522891566.2650603, 526506024.0963856, 530120481.9277109, 533734939.7590362, 537349397.5903615, 540963855.4216868, 544578313.2530121, 548192771.0843374, 551807228.9156628, 555421686.7469881, 559036144.5783134, 562650602.4096386, 566265060.2409639, 569879518.0722892, 573493975.9036145, 577108433.7349398, 580722891.5662651, 584337349.3975904, 587951807.2289157, 591566265.060241, 595180722.8915663, 598795180.7228916, 602409638.5542169, 606024096.3855422, 609638554.2168675, 613253012.0481927, 616867469.879518, 620481927.7108433, 624096385.5421687, 627710843.373494, 631325301.2048193, 634939759.0361446, 638554216.8674699, 642168674.6987952, 645783132.5301205, 649397590.3614458, 653012048.1927711, 656626506.0240964, 660240963.8554218, 663855421.6867471, 667469879.5180724, 671084337.3493977, 674698795.180723, 678313253.0120482, 681927710.8433735, 685542168.6746988, 689156626.5060241, 692771084.3373494, 696385542.1686747, 700000000, 703614457.8313253, 707228915.6626506, 710843373.493976, 714457831.3253013, 718072289.1566266, 721686746.9879519, 725301204.8192772, 728915662.6506025, 732530120.4819278, 736144578.3132531, 739759036.1445783, 743373493.9759036, 746987951.8072289, 750602409.6385542, 754216867.4698795, 757831325.3012049, 761445783.1325302, 765060240.9638555, 768674698.7951808, 772289156.6265061, 775903614.4578314, 779518072.2891567, 783132530.120482, 786746987.9518073, 790361445.7831326, 793975903.6144579, 797590361.4457831, 801204819.2771084, 804819277.1084337, 808433734.9397591, 812048192.7710844, 815662650.6024097, 819277108.433735, 822891566.2650603, 826506024.0963856, 830120481.9277109, 833734939.7590362, 837349397.5903615, 840963855.4216868, 844578313.2530121, 848192771.0843374, 851807228.9156627, 855421686.7469881, 859036144.5783134, 862650602.4096386, 866265060.2409639, 869879518.0722892, 873493975.9036145, 877108433.7349398, 880722891.5662651, 884337349.3975904, 887951807.2289157, 891566265.060241, 895180722.8915663, 898795180.7228916, 902409638.5542169, 906024096.3855423, 909638554.2168676, 913253012.0481929, 916867469.8795182, 920481927.7108434, 924096385.5421687, 927710843.373494, 931325301.2048193, 934939759.0361446, 938554216.8674699, 942168674.6987952, 945783132.5301205, 949397590.3614458, 953012048.1927712, 956626506.0240965, 960240963.8554218, 963855421.6867471, 967469879.5180724, 971084337.3493977, 974698795.180723, 978313253.0120482, 981927710.8433735, 985542168.6746988, 989156626.5060241, 992771084.3373494, 996385542.1686747, 1000000000)
+		Frequencies(100000000, 110000000, 120000000, 130000000, 140000000, 150000000, 160000000, 170000000, 180000000, 190000000, 200000000, 210000000, 220000000, 230000000, 240000000, 250000000, 260000000, 270000000, 280000000, 290000000, 300000000, 310000000, 320000000, 330000000, 340000000, 350000000, 360000000, 370000000, 380000000, 390000000, 400000000, 410000000, 420000000, 430000000, 440000000, 450000000, 460000000, 470000000, 480000000, 490000000, 500000000)
 		SolutionType=6
 		CenterFreq=0
 	$end 'Definition'
@@ -82,11 +82,11 @@ $begin 'SolutionBlock31'
 	IsTable=false
 	IsMatrixDataTable=false
 	SweepID=0
-$end 'SolutionBlock31'
-$begin 'SolutionBlock32'
+$end 'SolutionBlock62'
+$begin 'SolutionBlock63'
 	SolutionName='Adaptive_2'
 	SolutionID=97
-	V=442
+	V=585
 	$begin 'States'
 	$end 'States'
 	$begin 'Definition'
@@ -99,11 +99,11 @@ $begin 'SolutionBlock32'
 	IsTable=false
 	IsMatrixDataTable=false
 	SweepID=-1
-$end 'SolutionBlock32'
-$begin 'SolutionBlock33'
+$end 'SolutionBlock63'
+$begin 'SolutionBlock64'
 	SolutionName='Adaptive_3'
 	SolutionID=110
-	V=442
+	V=585
 	$begin 'States'
 	$end 'States'
 	$begin 'Definition'
@@ -116,11 +116,11 @@ $begin 'SolutionBlock33'
 	IsTable=false
 	IsMatrixDataTable=false
 	SweepID=-1
-$end 'SolutionBlock33'
-$begin 'SolutionBlock34'
+$end 'SolutionBlock64'
+$begin 'SolutionBlock65'
 	SolutionName='Adaptive_4'
 	SolutionID=133
-	V=442
+	V=585
 	$begin 'States'
 	$end 'States'
 	$begin 'Definition'
@@ -133,28 +133,28 @@ $begin 'SolutionBlock34'
 	IsTable=false
 	IsMatrixDataTable=false
 	SweepID=-1
-$end 'SolutionBlock34'
-$begin 'SolutionBlock35'
+$end 'SolutionBlock65'
+$begin 'SolutionBlock66'
 	SimSetupID=78
 	SimSetupName='Setup1'
-	VersionID=442
+	VersionID=585
 	IsImported=false
 	IsTable=false
 	SolveSetupID=0
-$end 'SolutionBlock35'
+$end 'SolutionBlock66'
 $begin '$index$'
 	$begin '$index$'
-		SolutionBlock29(pos=1477, lin=25, lvl=0)
-		SolutionBlock30(pos=1803, lin=42, lvl=0)
-		SolutionBlock31(pos=2131, lin=59, lvl=0)
-		SolutionBlock32(pos=7140, lin=76, lvl=0)
-		SolutionBlock33(pos=7466, lin=93, lvl=0)
-		SolutionBlock34(pos=7793, lin=110, lvl=0)
-		SolutionBlock35(pos=8120, lin=127, lvl=0)
-		SolutionBlock1(pos=370, lin=1, lvl=0)
-		BlockMapName(pos=658, lin=15, lvl=0)
+		SolutionBlock60(pos=1477, lin=25, lvl=0)
+		SolutionBlock61(pos=1803, lin=42, lvl=0)
+		SolutionBlock62(pos=2131, lin=59, lvl=0)
+		SolutionBlock63(pos=2892, lin=76, lvl=0)
+		SolutionBlock64(pos=3218, lin=93, lvl=0)
+		SolutionBlock65(pos=3545, lin=110, lvl=0)
+		SolutionBlock66(pos=3872, lin=127, lvl=0)
+		SolutionBlock1(pos=1189, lin=11, lvl=0)
+		BlockMapName(pos=370, lin=1, lvl=0)
 		$base_index$(pos=0, lin=1, lvl=0)
-		$index$(pos=8270, lin=135, lvl=0)
+		$index$(pos=4022, lin=135, lvl=0)
 	$end '$index$'
 $end '$index$'
-                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             

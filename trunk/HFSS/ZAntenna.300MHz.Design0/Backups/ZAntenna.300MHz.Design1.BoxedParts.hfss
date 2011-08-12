@@ -90,7 +90,7 @@ $begin 'AnsoftProject'
 							IDServerObjectTypeID=0
 							IDServerRangeMin=0
 							IDServerRangeMax=2146483647
-							NextUniqueID=1003
+							NextUniqueID=846
 							MoveBackwards=false
 						$end 'AnsoftRangedIDServer'
 						$begin 'AnsoftRangedIDServer'
@@ -563,10 +563,10 @@ $begin 'AnsoftProject'
 										CoordinateSystemID=-1
 										XPosition='0mm'
 										YPosition='0mm'
-										ZPosition='0.0003mm'
+										ZPosition='0mm'
 										XSize='0.0003mm'
 										YSize='2mm'
-										ZSize='(4.14-0.0003) mm'
+										ZSize='4.14mm'
 									$end 'BoxParameters'
 									ParentPartID=440
 									$begin 'OperationIdentity'
@@ -613,10 +613,10 @@ $begin 'AnsoftProject'
 										CoordinateSystemID=-1
 										XPosition='0mm'
 										YPosition='12.12mm'
-										ZPosition='0.0003mm'
+										ZPosition='0mm'
 										XSize='0.0003mm'
 										YSize='2mm'
-										ZSize='(4.14-0.0003) mm'
+										ZSize='4.14mm'
 									$end 'BoxParameters'
 									ParentPartID=468
 									$begin 'OperationIdentity'
@@ -663,10 +663,10 @@ $begin 'AnsoftProject'
 										CoordinateSystemID=-1
 										XPosition='0mm'
 										YPosition='7.46mm'
-										ZPosition='0.0003mm'
-										XSize='0.0003mm'
+										ZPosition='0mm'
+										XSize='0.003mm'
 										YSize='0.6mm'
-										ZSize='(1.4-0.0003) mm'
+										ZSize='1.4mm'
 									$end 'BoxParameters'
 									ParentPartID=496
 									$begin 'OperationIdentity'
@@ -1710,6 +1710,7 @@ $begin 'AnsoftProject'
 		$begin 'PortFieldDisplay'
 			$begin 'PortFieldDisplay'
 				ScaleFactor=5
+				Solution='Setup1 : LastAdaptive'
 				Frequency='0.3GHz'
 				ColorR=255
 				ColorG=1
@@ -1941,7 +1942,7 @@ $begin 'AnsoftProject'
 								ID=3
 								name='Sweep1:SolutionPointSet 1'
 								CurrentIndex=3
-								SolutionVersion=559
+								SolutionVersion=533
 								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
 								$begin 'SubSweeps'
 									$begin 'Freq'
@@ -1973,7 +1974,7 @@ $begin 'AnsoftProject'
 								ID=4
 								name='Sweep1:SolutionPointSet 2'
 								CurrentIndex=2
-								SolutionVersion=559
+								SolutionVersion=533
 								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
 								$begin 'SubSweeps'
 									$begin 'Freq'
@@ -2005,7 +2006,7 @@ $begin 'AnsoftProject'
 								ID=5
 								name='Sweep1:SolutionPointSet 3'
 								CurrentIndex=2
-								SolutionVersion=559
+								SolutionVersion=533
 								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
 								$begin 'SubSweeps'
 									$begin 'Freq'
@@ -2037,7 +2038,7 @@ $begin 'AnsoftProject'
 								ID=6
 								name='Sweep1:SolutionPointSet 4'
 								CurrentIndex=2
-								SolutionVersion=559
+								SolutionVersion=533
 								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
 								$begin 'SubSweeps'
 									$begin 'Freq'
@@ -2178,15 +2179,15 @@ $begin 'AnsoftProject'
 				$end 'Solution'
 			$end 'SimSetup'
 			$begin 'Version ID Map'
-				V=559
+				V=533
 				$begin 'Setup'
 					N='Setup1'
-					V=559
-					Soln(N='Adaptive_1', V=559)
-					Soln(N='LastAdaptive', V=559)
-					Soln(N='Sweep1', V=559)
-					Soln(N='Adaptive_2', V=559)
-					Soln(N='Adaptive_3', V=559)
+					V=533
+					Soln(N='Adaptive_1', V=533)
+					Soln(N='LastAdaptive', V=533)
+					Soln(N='Sweep1', V=533)
+					Soln(N='Adaptive_2', V=533)
+					Soln(N='Adaptive_3', V=533)
 				$end 'Setup'
 			$end 'Version ID Map'
 			$begin 'ID Map'
@@ -2212,7 +2213,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -4, -23, 44, 44, 1119, 488), OrientationMatrix(-0.117742426693439, -0.0715504810214043, 0.156888484954834, 0, 0.172430351376534, -0.047253455966711, 0.10785323381424, 0, -0.00145357428118587, 0.19038262963295, 0.0857336595654488, 0, 0.218483805656433, -0.849067807197571, -8.76864624023438, 1, 0, 0.601701080799103, 2.40030026435852, -1.63043594360352, 0.0478919148445129, -37.4431838989258, 52.9026985168457), Drawings[20: 'WavePort', 'AirBox', 'RightPlate', 'AntennaHorizontalSection', 'AntennaLeftPlate', 'AntennaRightPlate', 'Box1', 'Box2', 'Box3', 'Box4', 'Box5', 'Box6', 'Box7', 'Box8', 'Box9', 'Box10', 'CoaxOuter', 'CoaxPin', 'Ground', 'LeftPlate'], 'View Data'('Render Mode'=1))))
+						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -4, -23, 44, 44, 1119, 488), OrientationMatrix(-0.117742426693439, -0.0715504810214043, 0.156888484954834, 0, 0.172430351376534, -0.047253455966711, 0.10785323381424, 0, -0.00145357428118587, 0.19038262963295, 0.0857336595654488, 0, 0.218483805656433, -0.849067807197571, -8.76864624023438, 1, 0, 0.661836624145508, 2.34016466140747, -3.23562574386597, 1.65308165550232, -37.4431838989258, 52.9026985168457), Drawings[20: 'CoaxOuter', 'CoaxPin', 'WavePort', 'AirBox', 'AntennaLeftPlate', 'AntennaHorizontalSection', 'LeftPlate', 'AntennaRightPlate', 'Box1', 'Box2', 'Box3', 'Box4', 'Box5', 'Box6', 'Box7', 'Box8', 'Box9', 'Box10', 'Ground', 'RightPlate'], 'View Data'('Render Mode'=1))))
 					$end 'EditorWindow'
 					$begin 'ReportWindow'
 						'XY Plot 1'(Report2D())

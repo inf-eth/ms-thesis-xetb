@@ -1710,6 +1710,7 @@ $begin 'AnsoftProject'
 		$begin 'PortFieldDisplay'
 			$begin 'PortFieldDisplay'
 				ScaleFactor=5
+				Solution='Setup1 : LastAdaptive'
 				Frequency='0.3GHz'
 				ColorR=255
 				ColorG=1
@@ -2036,7 +2037,7 @@ $begin 'AnsoftProject'
 							$begin 'SolutionPointSet'
 								ID=6
 								name='Sweep1:SolutionPointSet 4'
-								CurrentIndex=2
+								CurrentIndex=3
 								SolutionVersion=559
 								SimValueContext(3, 0, 2, 0, true, false, -1, 1, 0, 1, 1)
 								$begin 'SubSweeps'
@@ -2057,6 +2058,11 @@ $begin 'AnsoftProject'
 								$begin 'Traces'
 									$begin 'Trace2D'
 										name='Design 0:Solution 83:Pointset 6:Trace2D 1'
+										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
+										Y(Desc='St(WavePort1,WavePort1)', CatID=34, FuncID=11, IsInteger=false, Units='', Y='dB(St(WavePort1,WavePort1))')
+									$end 'Trace2D'
+									$begin 'Trace2D'
+										name='Design 0:Solution 83:Pointset 6:Trace2D 2'
 										X(Desc='Freq', CatID=1, FuncID=0, IsInteger=false, Units='GHz', X='Freq')
 										Y(Desc='St(WavePort1,WavePort1)', CatID=34, FuncID=11, IsInteger=false, Units='', Y='dB(St(WavePort1,WavePort1))')
 									$end 'Trace2D'
@@ -2212,13 +2218,14 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						'3D Modeler'(Editor3d(View(WindowPos(3, -1, -1, -4, -23, 44, 44, 1119, 488), OrientationMatrix(-0.117742426693439, -0.0715504810214043, 0.156888484954834, 0, 0.172430351376534, -0.047253455966711, 0.10785323381424, 0, -0.00145357428118587, 0.19038262963295, 0.0857336595654488, 0, 0.218483805656433, -0.849067807197571, -8.76864624023438, 1, 0, 0.601701080799103, 2.40030026435852, -1.63043594360352, 0.0478919148445129, -37.4431838989258, 52.9026985168457), Drawings[20: 'WavePort', 'AirBox', 'RightPlate', 'AntennaHorizontalSection', 'AntennaLeftPlate', 'AntennaRightPlate', 'Box1', 'Box2', 'Box3', 'Box4', 'Box5', 'Box6', 'Box7', 'Box8', 'Box9', 'Box10', 'CoaxOuter', 'CoaxPin', 'Ground', 'LeftPlate'], 'View Data'('Render Mode'=1))))
+						'3D Modeler'(Editor3d(View(WindowPos(5, -1, -1, -4, -23, 44, 44, 1119, 488), OrientationMatrix(-0.117742426693439, -0.0715504810214043, 0.156888484954834, 0, 0.172430351376534, -0.047253455966711, 0.10785323381424, 0, -0.00145357428118587, 0.19038262963295, 0.0857336595654488, 0, 0.218483805656433, -0.849067807197571, -8.76864624023438, 1, 0, -0.183422908186913, 3.18542408943176, -1.63043594360352, 0.0478918552398682, -37.4431838989258, 52.9026985168457), Drawings[20: 'WavePort', 'AirBox', 'RightPlate', 'AntennaHorizontalSection', 'AntennaLeftPlate', 'AntennaRightPlate', 'Box1', 'Box2', 'Box3', 'Box4', 'Box5', 'Box6', 'Box7', 'Box8', 'Box9', 'Box10', 'CoaxOuter', 'CoaxPin', 'Ground', 'LeftPlate'], 'View Data'('Render Mode'=1))))
 					$end 'EditorWindow'
 					$begin 'ReportWindow'
 						'XY Plot 1'(Report2D())
 						'XY Plot 2'(Report2D())
 						'XY Plot 3'(Report2D())
 						'XY Plot 4'(Report2D())
+						'XY Plot 5'(Report2D(View(WindowPos(3, -1, -1, -4, -23, 88, 88, 786, 508))))
 					$end 'ReportWindow'
 				$end 'WindowPosition'
 				$begin 'Reports'
@@ -2976,6 +2983,222 @@ $begin 'AnsoftProject'
 									AutoTraceTitle=''
 									UserTraceTitle=''
 									UseAutoTraceTitle=false
+									$begin 'Attribute'
+										Color=16711680
+										ColorOdd=0
+										LineWidth=10
+										LineStyle=0
+										FillStyle=600
+										Visible=false
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TraceInfo0'
+							$end 'Trace'
+							$begin 'AllAttributes'
+								BackGroundColor=16777215
+								ContrastColor=16777215
+								$begin 'TitleAttr'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=168
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'TitleAttr'
+								$begin 'MajorGridAttr'
+									$begin 'Attribute'
+										Color=8421504
+										ColorOdd=65535
+										LineWidth=8
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=100
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MajorGridAttr'
+								$begin 'MinorGridAttr'
+									$begin 'Attribute'
+										Color=12632256
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=100
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'MinorGridAttr'
+							$end 'AllAttributes'
+						$end 'PlotInfo'
+					$end 'Report2D'
+					$begin 'Report2D'
+						name='XY Plot 5'
+						ReportType=1
+						DisplayType=1
+						Title=''
+						Domain=''
+						$begin 'Graph2Ds'
+							$begin 'Graph2D'
+								TraceName='Design 0:Solution 83:Pointset 6:Trace2D 2'
+								Type='Continuous'
+								Axis='Y1'
+							$end 'Graph2D'
+						$end 'Graph2Ds'
+						$begin 'PlotInfo'
+							PlotType='XYPlot'
+							Frozen=false
+							MarkDirty=false
+							Subtitle=''
+							Filename='HFSSDesign1'
+							CircuitTitle='<Design>'
+							Title='XY Plot 5'
+							DateLabel='<12 Aug 2011>'
+							TimeLabel='<07:49:41>'
+							Name='Ansoft Corporation'
+							DefaultTitle=false
+							Arrows=false
+							ZoomMode=true
+							ZoomType=1
+							$begin 'zoomrect'
+								RectLeft=0
+								RectTop=0
+								RectRight=6000
+								RectBottom=6000
+							$end 'zoomrect'
+							UserSelectedTrace=-1
+							Rho=0
+							RhoMin=0
+							MarkerType='NoMarker'
+							MarkerScale='Mag-Phase'
+							UserSelectedMarkerPoint=0
+							SymbolDisplay=false
+							SymbolInterval=15
+							$begin 'Axis'
+								$begin 'Axis0'
+									AxisType='XAxis'
+									AxisIndex=0
+									AxisScale='Linear'
+									AxisName='Freq'
+									AxisLabel='DEFAULT'
+									AxisMax=440000000
+									AxisMin=340000000
+									AxisMajorDivision=5
+									AxisMinorDivision=4
+									AxisManualRescale=true
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=3
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType='GHz'
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis0'
+								$begin 'Axis1'
+									AxisType='YAxis'
+									AxisIndex=1
+									AxisScale='Linear'
+									AxisName='dB(St(WavePort1,WavePort1)) [db] '
+									AxisLabel='DEFAULT'
+									AxisMax=5
+									AxisMin=-20
+									AxisMajorDivision=5
+									AxisMinorDivision=5
+									AxisManualRescale=true
+									AxisAutoUnits=true
+									AxisSide='Left'
+									$begin 'Units'
+										UnitFieldWidth=4
+										UnitPrecision=2
+										ScientificNotation=false
+										FullUnitType=''
+									$end 'Units'
+									$begin 'Attribute'
+										Color=0
+										ColorOdd=65535
+										LineWidth=1
+										LineStyle=0
+										FillStyle=0
+										Visible=true
+										$begin 'Font'
+											FaceName='Arial'
+											FontHeight=160
+											FontWeight=700
+											FontOrientation=0
+											FontEscapement=0
+											FontItalics=false
+											FontUnderline=false
+											FontStrikeOut=false
+										$end 'Font'
+									$end 'Attribute'
+								$end 'Axis1'
+							$end 'Axis'
+							DisplayMinorGrid=true
+							InitialGrid=1
+							DisplayGridLabel=true
+							DisplayTraceLabel=false
+							$begin 'Trace'
+								$begin 'TraceInfo0'
+									TraceType='Continuous'
+									AutoTraceTitle=''
+									UserTraceTitle=''
+									UseAutoTraceTitle=true
 									$begin 'Attribute'
 										Color=16711680
 										ColorOdd=0

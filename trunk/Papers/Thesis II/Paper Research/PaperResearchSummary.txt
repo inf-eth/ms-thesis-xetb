@@ -1,0 +1,39 @@
+1. S.Reed, L.Desclos, C.Terrt, S.Toutain, “Size reduction of a patch antenna by means of inductive loads”, Microwave and Optical Technology Letters, Wiley Periodicals, Inc. Vol 29, pp.79 – 81, 27th Feb 2001.
+
+According to this paper microstrip patch antenna can be reduced by using striplines parallel to the radiating edges.
+
+2. L.Desclos, Y.Mahe, S.Reed, G.Poilasne, S.Toutain, “Patch Antenna size reduction by combining inductive loading and short-points”, Microwave and Optical Technology Letters, Wiley Periodicals Inc, Vol.30, pp.385 – 386, 15th Aug 2001.
+
+This paper concerns the reduction of the size of a patch antenna by combining two techniques. Inserting slots as inductive loading and making some short points in the middle of a patch.
+
+3. Patch antenna with reduced size for 400MHz transmission in confined surroundings
+S Villers - Antennas and Propagation, 2006. EuCAP 2006. …, 2006 - ieeexplore.ieee.org
+
+This paper relates to the reduction of the size of a patch antenna to achieve a transmission by coupling with another antenna at a frequency close to 400 MHz (radio-control frequency), with dimensional constraints and in a closed environment. It introduces in particular the calculation results concerning the reduction of the patch antenna, as well as the experimental validation. It also shows the calculation and experimental results of transmission by coupling with the antenna of the reception system.
+
+4. ANALYSIS OF ELECTRICALLY SMALL SIZE CONICAL ANTENNAS
+Y. K. Yu and J. Li
+
+conical antenna has broadband characteristics and good radiation efficiency. The design considerations in reducing the size of top loaded conical antenna by using posts with lumped resistive loading are presented. The resulting antenna can achieve a VSWR of better than 2.0 over 100–800MHz frequency range. Results indicate that the addition of posts and lumped resistive loading has significant role in designing broadband antennas which are in small size.
+
+5. Quality Factor Q of a Miniaturized Meander Microstrip Patch Antenna
+G. A. Mavridis, D. E. Anagnostou , C. G. Christodoulou and M. T. Chryssomallis
+
+A basic rectangular microstrip patch antenna can be miniaturized by inserting a number of slits parallel to the radiating edges. A frequency reduction of up to 80% and an area reduction up to 97% can be observed, depending on the length of the slit.
+
+6. The Koch Monopole: A Small Fractal Antenna
+
+Fractal objects have some unique geometrical properties. One of them is the possibility to enclose in a finite area an
+infinitely long curve. The resulting curve is highly convoluted being nowhere differentiable. One such curve is the Koch curve. In this paper, the behavior the Koch monopole is numerically and experimentally analyzed. The results show that as the number of iterations on the small fractal Koch monopole are increased, the of the antenna approaches the fundamental limit for small antennas.
+
+7. Hilbert curve fractal antenna: A small resonant antenna for VHF/UHF applications
+K. J. Vinoy, K. A. Jose, V. K. Varadan, V. V. Varadan
+
+The usefulness of fractal Hilbert curves in antenna geometry is explored here for the first time. Apart from being simple and self-similar, these curves have the additional property of approximately filling a plane. These properties are exploited in realizing a “small” resonant antenna. This approach has resulted in an antenna size smaller than ?/10 and still resonant, with performance comparable to a dipole whose resonant length is close to ?/2. Numerical predictions of the input impedance of the antenna have been compared with experiments. The effect of additional fractal iterations on the reduction of the resonant frequency has been studied. The radiation characteristics of the antenna at the resonant frequencies provided show that this is very similar to the dipole characteristics.
+
+8. A NOVEL SMALL-SIZE SINGLE PATCH MICROSTRIP ANTENNA BASED ON KOCH AND SIERPINSKI FRACTAL-SHAPES
+Z.-W. Yu, G.-M. Wang, X.-J. Gao, and K. Lu
+
+By inserting the Sierpinski carpets into the single patch and etching the inner and outer patch edges according to Koch
+curves, the resonant frequency of the patch antenna can be lowered signi¯cantly. And the higher of the iteration order of the fractal shapes, the lower the resonant frequency becomes. In this paper, a novel small-size single patch microstrip antenna based on the proposed fractal-shapes is designed, fabricated and measured. It is experimentally
+found that the size reduction can reach 80.3%.

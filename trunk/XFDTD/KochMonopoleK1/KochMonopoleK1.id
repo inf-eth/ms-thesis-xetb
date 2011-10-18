@@ -1,0 +1,2806 @@
+Geometry file version 3.19
+
+mesh_defined
+270 174 189
+0.002 0.002 0.002
+-0.14 -0.14 -0.045
+0 0 0
+0 0 0
+0
+begin_<remesh_data> 
+0 0 0
+0 0 0
+0 0 0
+end_<remesh_data>
+begin_<materials> 
+end_<materials>
+begin_<AdaptiveGridDefinition> 
+begin_<GridDefinition> 
+TargetSizeOfGridInMeters 0.28 0.28 0.145
+GridOriginInMeters -0.14 -0.14 -0.045
+OffsetX 0
+OffsetY 0
+OffsetZ 0
+NumberOfCellsInX 270
+NumberOfCellsInY 174
+NumberOfCellsInZ 189
+BaseCellSize 0.002 0.002 0.002
+end_<GridDefinition>
+begin_<MeshTabParameters> 
+UniformPadding 20
+PaddingLowerX 20
+PaddingLowerY 20
+PaddingLowerZ 20
+PaddingUpperX 20
+PaddingUpperY 20
+PaddingUpperZ 20
+UnitIndex 3
+GridType AutoGrid
+CellSizeChangeAllowed 0
+Constraint Constraint_AutoSize
+end_<MeshTabParameters>
+begin_<XDirectedAdaptiveMeshRegions> 
+begin_<AdaptiveMeshRegion> 
+CellSize 0.0002
+ConstantRegionCellSizingType CONSTANT
+StartOfConstantRegion -0.002
+EndOfConstantRegion 0.002
+end_<AdaptiveMeshRegion>
+begin_<AdaptiveMeshRegion> 
+CellSize 0.0001
+ConstantRegionCellSizingType CONSTANT
+StartOfConstantRegion 0
+EndOfConstantRegion 0.01
+end_<AdaptiveMeshRegion>
+end_<XDirectedAdaptiveMeshRegions>
+begin_<YDirectedAdaptiveMeshRegions> 
+begin_<AdaptiveMeshRegion> 
+CellSize 0.0002
+ConstantRegionCellSizingType CONSTANT
+StartOfConstantRegion -0.002
+EndOfConstantRegion 0.002
+end_<AdaptiveMeshRegion>
+end_<YDirectedAdaptiveMeshRegions>
+begin_<ZDirectedAdaptiveMeshRegions> 
+begin_<AdaptiveMeshRegion> 
+CellSize 0.0005
+ConstantRegionCellSizingType CONSTANT
+StartOfConstantRegion -0.005
+EndOfConstantRegion 0
+end_<AdaptiveMeshRegion>
+begin_<AdaptiveMeshRegion> 
+CellSize 0.0002
+ConstantRegionCellSizingType CONSTANT
+StartOfConstantRegion 0.02
+EndOfConstantRegion 0.04
+end_<AdaptiveMeshRegion>
+end_<ZDirectedAdaptiveMeshRegions>
+end_<AdaptiveGridDefinition>
+begin_<Deltas> 
+begin_<DelX> 
+0 0.002
+54 0.00195538
+55 0.00189409
+56 0.00183279
+57 0.0017715
+58 0.00171021
+59 0.00164892
+60 0.00158763
+61 0.00152634
+62 0.00146505
+63 0.00140376
+64 0.00134247
+65 0.00128118
+66 0.00121989
+67 0.0011586
+68 0.00109731
+69 0.00103602
+70 0.00097473
+71 0.00091344
+72 0.00085215
+73 0.00079086
+74 0.000729569
+75 0.000648528
+76 0.000542646
+77 0.000436764
+78 0.000330881
+79 0.0002
+87 0.000177956
+88 0.0001
+190 0.000174624
+191 0.000235915
+192 0.000297205
+193 0.000358495
+194 0.000419786
+195 0.000481076
+196 0.000542366
+197 0.000603657
+198 0.000664947
+199 0.000726237
+200 0.000787528
+201 0.000848818
+202 0.000910108
+203 0.000971399
+204 0.00103269
+205 0.00109398
+206 0.00115527
+207 0.00121656
+208 0.00127785
+209 0.00133914
+210 0.00140043
+211 0.00146172
+212 0.00152301
+213 0.0015843
+214 0.00164559
+215 0.00170688
+216 0.00176817
+217 0.00182946
+218 0.00189075
+219 0.00195204
+220 0.002
+end_<DelX>
+begin_<DelY> 
+0 0.002
+60 0.00191912
+61 0.00181323
+62 0.00170735
+63 0.00160147
+64 0.00149559
+65 0.0013897
+66 0.00128382
+67 0.00117794
+68 0.00107206
+69 0.000966175
+70 0.000860293
+71 0.000754411
+72 0.000648528
+73 0.000542646
+74 0.000436764
+75 0.000330881
+76 0.0002
+97 0.000318384
+98 0.000424266
+99 0.000530148
+100 0.000636031
+101 0.000741913
+102 0.000847796
+103 0.000953678
+104 0.00105956
+105 0.00116544
+106 0.00127132
+107 0.00137721
+108 0.00148309
+109 0.00158897
+110 0.00169485
+111 0.00180074
+112 0.00190662
+113 0.002
+end_<DelY>
+begin_<DelZ> 
+0 0.002
+16 0.00186905
+17 0.00165476
+18 0.00144048
+19 0.00122619
+20 0.0010119
+21 0.000797619
+22 0.0005
+32 0.000630952
+33 0.000845238
+34 0.00105952
+35 0.00127381
+36 0.0014881
+37 0.00170238
+38 0.00169583
+39 0.00158333
+40 0.00147083
+41 0.00135833
+42 0.00124583
+43 0.00113333
+44 0.00102083
+45 0.000908333
+46 0.000795833
+47 0.000683333
+48 0.000570833
+49 0.000345833
+51 0.0002
+151 0.0003325
+152 0.000445
+153 0.0005575
+154 0.00067
+155 0.0007825
+156 0.000895
+157 0.0010075
+158 0.00112
+159 0.0012325
+160 0.001345
+161 0.0014575
+162 0.00157
+163 0.0016825
+164 0.001795
+165 0.0019075
+166 0.002
+end_<DelZ>
+end_<Deltas>
+begin_<geometry> All Objects
+description Group Object
+modelingunitfactor 0.001
+ConformalDielectricConductivityThreshold 1e+032
+begin_<geomgroup> All Objects
+description Group Object
+begin_<geomobject> All Objects
+description Group Object
+begin_<renderable> All Objects
+description Group Object
+begin_<selectable> All Objects
+description Group Object
+end_<selectable>
+visibility 1
+end_<renderable>
+begin_<mesh_parameters> 
+begin_<object_variable_mesh_properties> 
+begin_<single_side_lower_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_x_variable_mesh_properties>
+begin_<single_side_upper_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_x_variable_mesh_properties>
+begin_<single_side_lower_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_y_variable_mesh_properties>
+begin_<single_side_upper_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_y_variable_mesh_properties>
+begin_<single_side_lower_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_z_variable_mesh_properties>
+begin_<single_side_upper_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_z_variable_mesh_properties>
+end_<object_variable_mesh_properties>
+Automatic_Meshing
+Mesh_Cubes
+Use_Fill
+Shell_Outward_Directed_Cells
+Shell_Inward_Directed_Cells
+Meshing_Enabled
+Shell_Material 1
+Shell_Component_Type 0
+Fill_Material 1
+Fill_Component_Type 0
+CellPickingMethod Percentage 0.5
+Use_Hardware_Acceleration 0
+Logging_Options 0
+Directions_To_Use 7
+Pixel_Factor 1
+Logging_Directory C:\temp
+end_<mesh_parameters>
+unitfactor 0.001
+end_<geomobject>
+begin_<child_objects> 
+begin_<wireobject> Wire
+description Wire Object
+begin_<geomobject> Wire
+description Wire Object
+begin_<renderable> Wire
+description Wire Object
+begin_<selectable> Wire
+description Wire Object
+end_<selectable>
+visibility 1
+end_<renderable>
+begin_<mesh_parameters> 
+begin_<object_variable_mesh_properties> 
+begin_<single_side_lower_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_x_variable_mesh_properties>
+begin_<single_side_upper_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_x_variable_mesh_properties>
+begin_<single_side_lower_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_y_variable_mesh_properties>
+begin_<single_side_upper_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_y_variable_mesh_properties>
+begin_<single_side_lower_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_z_variable_mesh_properties>
+begin_<single_side_upper_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_z_variable_mesh_properties>
+end_<object_variable_mesh_properties>
+Automatic_Meshing
+Mesh_Cubes
+Use_Fill
+Is_Meshed
+Shell_Outward_Directed_Cells
+Shell_Inward_Directed_Cells
+Meshing_Enabled
+Shell_Material 1
+Shell_Component_Type 0
+Fill_Material 1
+Fill_Component_Type 0
+CellPickingMethod Percentage 0.5
+Use_Hardware_Acceleration 0
+Logging_Options 0
+Directions_To_Use 7
+Pixel_Factor 1
+Logging_Directory C:\temp
+end_<mesh_parameters>
+unitfactor 0.01
+end_<geomobject>
+point1 0 0 -0.004
+point2 0 0 0.02
+end_<wireobject>
+begin_<unionobject> 
+begin_<booleanobject> 
+begin_<acisobject_binary> 
+begin_<geomobject> Union Object
+description Boolean Object
+begin_<renderable> Union Object
+description Boolean Object
+begin_<selectable> Union Object
+description Boolean Object
+end_<selectable>
+visibility 1
+end_<renderable>
+begin_<mesh_parameters> 
+begin_<object_variable_mesh_properties> 
+begin_<single_side_lower_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_x_variable_mesh_properties>
+begin_<single_side_upper_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_x_variable_mesh_properties>
+begin_<single_side_lower_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_y_variable_mesh_properties>
+begin_<single_side_upper_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_y_variable_mesh_properties>
+begin_<single_side_lower_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_z_variable_mesh_properties>
+begin_<single_side_upper_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_z_variable_mesh_properties>
+end_<object_variable_mesh_properties>
+Automatic_Meshing
+Mesh_Cubes
+Use_Fill
+Is_Meshed
+Shell_Outward_Directed_Cells
+Shell_Inward_Directed_Cells
+Meshing_Enabled
+Shell_Material 1
+Shell_Component_Type 0
+Fill_Material 1
+Fill_Component_Type 0
+CellPickingMethod Percentage 0.5
+Use_Hardware_Acceleration 0
+Logging_Options 0
+Directions_To_Use 7
+Pixel_Factor 1
+Logging_Directory C:\temp
+end_<mesh_parameters>
+unitfactor 1
+end_<geomobject>
+ACIS BinaryFilex            XFDTD 6.3.8.41408ACIS 14.0.8 NTWed Oct 12 21:02:52 2011      ð?íµ ÷Æ°>»½×Ùß|Û=body   ÿÿÿÿÿÿÿÿÿÿÿÿ   ÿÿÿÿÿÿÿÿ
+€ffÍÿÿXÀ€ffÍÿÿXÀÀäÿÿÀ€ffÍÿÿX@€ffÍÿÿX@        string_attribname_attribgenattribÿÿÿÿÿÿÿÿ   ÿÿÿÿ                ATTRIB_XACIS_NAMEUnion Objectlump   ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ       
+€ffÍÿÿXÀ€ffÍÿÿXÀÀäÿÿÀ€ffÍÿÿX@€ffÍÿÿX@        string_attribname_attribgenattribÿÿÿÿÿÿÿÿ                      ATTRIB_XACIS_NAMEUnion Objectref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ      ÿÿÿÿshell   ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ	   ÿÿÿÿ   
+€ffÍÿÿXÀ€ffÍÿÿXÀÀäÿÿÀ€ffÍÿÿX@€ffÍÿÿX@        string_attribname_attribgenattribÿÿÿÿÿÿÿÿ
+                      ATTRIB_XACIS_NAMEUnion Objecteye_refinementÿÿÿÿÿÿÿÿgrid    tri   surf    adj   grad    	postcheck    stol      ð¿ntol      *@dsil        flatness        pixarea        hmax        gridar        mgrid   ugrid    vgrid    
+end_fieldsref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ      ÿÿÿÿface   ÿÿÿÿÿÿÿÿÿÿÿÿ         ÿÿÿÿ   
+   ÀÌÌü¿   ÀÌÌü¿      À   ÀÌÌü?   ÀÌÌü?      Àstring_attribname_attribgenattribÿÿÿÿÿÿÿÿ                      ATTRIB_XACIS_NAMEUnion Objectfmesheyeattribÿÿÿÿÿÿÿÿ   ÿÿÿÿ	   face   ÿÿÿÿÿÿÿÿÿÿÿÿ         ÿÿÿÿ   
+
+   ÀÌÌü¿   ÀÌÌü¿      À   ÀÌÌü?   ÀÌÌü?        loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ   	   
+   ÀÌÌü¿   ÀÌÌü¿      À   ÀÌÌü?   ÀÌÌü?      À    planesurfaceÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                      À                      ð?      ð?                string_attribname_attribgenattribÿÿÿÿÿÿÿÿ   
+                   ATTRIB_XACIS_NAMESubtraction Objectref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿ   	      ÿÿÿÿfmesheyeattribÿÿÿÿÿÿÿÿ   ÿÿÿÿ   face   ÿÿÿÿÿÿÿÿÿÿÿÿ         ÿÿÿÿ   
+       À       ÀÀäÿÿÀ       @       @        loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ         
+   ÀÌÌü¿   ÀÌÌü¿      À   ÀÌÌü?   ÀÌÌü?      À    conesurfaceÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                ÀäÿÿÀ                      ð?   ÀÌÌü?                      ð?              ð?   ÀÌÌü?coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ            
+   ÿÿÿÿstring_attribname_attribgenattribÿÿÿÿÿÿÿÿ                      ATTRIB_XACIS_NAMESubtraction Objectfmesheyeattribÿÿÿÿÿÿÿÿ          fmesheyeattribÿÿÿÿÿÿÿÿ!   ÿÿÿÿ   face"   ÿÿÿÿÿÿÿÿÿÿÿÿ#   $      ÿÿÿÿ%   
+       À       ÀÀäÿÿÀ       @       @ÀäÿÿÀloopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ&   '      
+       À       ÀÀäÿÿÀ       @       @ÀäÿÿÀ    conesurfaceÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                ÀäÿÿÀ                      ð?       @                      ð?              ð?       @loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ(      
+   ÀÌÌü¿   ÀÌÌü¿           ÀÌÌü?   ÀÌÌü?            coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ               ÿÿÿÿedge)   ÿÿÿÿÿÿÿÿÿÿÿÿ*   -DTû!	À*   -DTû!	@   +   unknown
+   ÀÌÌü¿   ÀÌÌü¿      À   ÀÌÌü?   ÀÌÌü?      Àref_vteyeattribÿÿÿÿÿÿÿÿ,             ÿÿÿÿref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿ         ÿÿÿÿfmesheyeattribÿÿÿÿÿÿÿÿ-         fmesheyeattribÿÿÿÿÿÿÿÿ.   ÿÿÿÿ   face/   ÿÿÿÿÿÿÿÿÿÿÿÿ0   1      ÿÿÿÿ2   
+       À       À               @       @        loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ3      
+       À       ÀÀäÿÿÀ       @       @ÀäÿÿÀ    planesurfaceÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                ÀäÿÿÀ                      ð¿      ð¿                loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ4      
+       À       À               @       @            coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ'   '   3   5   
+   ÿÿÿÿcoedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ(   (   6   7   
+   ÿÿÿÿptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ   8   ellipsecurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                      À       €       €      ð¿   ÀÌÌü?                      ð?	rgb_colorstattribÿÿÿÿÿÿÿÿ9                ð?      ð?      ð?fmesheyeattribÿÿÿÿÿÿÿÿ:   !      fmesheyeattribÿÿÿÿÿÿÿÿ;   "      fmesheyeattribÿÿÿÿÿÿÿÿ<   ÿÿÿÿ#   face=   ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ>      ÿÿÿÿ2   
+
+€ffÍÿÿXÀ€ffÍÿÿXÀ        €ffÍÿÿX@€ffÍÿÿX@        loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ?   6   #   
+   ÀÌÌü¿   ÀÌÌü¿           ÀÌÌü?   ÀÌÌü?            planesurfaceÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ        F]tÑEÇ¼                              ð?      ð?                coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ3   3   '   5   $   ÿÿÿÿcoedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ4   4   @   A   &   ÿÿÿÿedgeB   ÿÿÿÿÿÿÿÿÿÿÿÿC           C   -DTû!@3   D   unknown
+       À       ÀÀäÿÿÀ       @       @ÀäÿÿÀcoedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ6   6   (   7   1   ÿÿÿÿedgeE   ÿÿÿÿÿÿÿÿÿÿÿÿF   -DTû!	ÀF   -DTû!	@6   G   unknown
+   ÀÌÌü¿   ÀÌÌü¿           ÀÌÌü?   ÀÌÌü?        pointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ   ÀÌÌü¿  HXfÄ¯<      Àstring_attribname_attribgenattribÿÿÿÿÿÿÿÿÿÿÿÿ,                   ATTRIB_XACIS_NAMEGroundPlateref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿ-         ÿÿÿÿfmesheyeattribÿÿÿÿÿÿÿÿH   .      fmesheyeattribÿÿÿÿÿÿÿÿI   /   #   fmesheyeattribÿÿÿÿÿÿÿÿJ   ÿÿÿÿ0   loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿK   @   0   
+       À       À               @       @            loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿL   #   
+       À       À               @       @            coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ@   @   L   A   >   ÿÿÿÿedgeM   ÿÿÿÿÿÿÿÿÿÿÿÿN           N   -DTû!@@   O   unknown
+       À       À               @       @        ptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ5   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ5   P   ellipsecurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                ÀäÿÿÀ                      ð¿       @                      ð?ptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ7   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ7   Q   ellipsecurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                               €       €      ð¿           ÀÌÌü?              ð?ref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿ;         ÿÿÿÿref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿ<   #      ÿÿÿÿfmesheyeattribÿÿÿÿÿÿÿÿR   =   0   loopÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿS   0   
+€ffÍÿÿXÀ€ffÍÿÿXÀ        €ffÍÿÿX@€ffÍÿÿX@            coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿL   L   4   A   
+?   ÿÿÿÿptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿA   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿA   T   ellipsecurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ                               €       €      ð¿       @                      ð?pointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ       @        ÀäÿÿÀpointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ  HXfÄ¯¼   ÀÌÌü¿        fmesheyeattribÿÿÿÿÿÿÿÿU   J   0   coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿV   W   ÿÿÿÿX   K   ÿÿÿÿpointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ       @                ref_vteyeattribÿÿÿÿÿÿÿÿÿÿÿÿR   0      ÿÿÿÿcoedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿY   S   ÿÿÿÿZ   K   ÿÿÿÿcoedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿS   Y   ÿÿÿÿ[   K   ÿÿÿÿedge\   ÿÿÿÿÿÿÿÿÿÿÿÿ]           ^   €ffÍÿÿh@S   _   unknown
+€ffÍÿÿXÀ€ffÍÿÿXÀ        €ffÍÿÿX@€ffÍÿÿXÀ        coedgeÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿW   V   ÿÿÿÿ`   K   ÿÿÿÿedgea   ÿÿÿÿÿÿÿÿÿÿÿÿ^           b   €ffÍÿÿh@V   c   unknown
+€ffÍÿÿX@€ffÍÿÿXÀ        €ffÍÿÿX@€ffÍÿÿX@        edged   ÿÿÿÿÿÿÿÿÿÿÿÿe           ]   €ffÍÿÿh@W   f   unknown
+€ffÍÿÿXÀ€ffÍÿÿXÀ        €ffÍÿÿXÀ€ffÍÿÿX@        ptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿX   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿX   g   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿX   h   straightcurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿXÀ€ffÍÿÿXÀ              ð?                edgei   ÿÿÿÿÿÿÿÿÿÿÿÿb           e   €ffÍÿÿh@Y   j   unknown
+€ffÍÿÿXÀ€ffÍÿÿX@        €ffÍÿÿX@€ffÍÿÿX@        ptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿZ   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿZ   k   straightcurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿX@€ffÍÿÿXÀ                      ð?        ptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ[   vertexÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ`   l   straightcurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿXÀ€ffÍÿÿX@                      ð¿        pointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿXÀ€ffÍÿÿXÀ        pointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿX@€ffÍÿÿXÀ        ptlisteyeattribÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ`   straightcurveÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿX@€ffÍÿÿX@              ð¿                pointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿX@€ffÍÿÿX@        pointÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ€ffÍÿÿXÀ€ffÍÿÿX@        End-of-ACIS-data
+end_<acisobject_binary>
+end_<booleanobject>
+end_<unionobject>
+begin_<wireobject> Wire
+description Wire Object
+begin_<geomobject> Wire
+description Wire Object
+begin_<renderable> Wire
+description Wire Object
+begin_<selectable> Wire
+description Wire Object
+end_<selectable>
+visibility 1
+end_<renderable>
+begin_<mesh_parameters> 
+begin_<object_variable_mesh_properties> 
+begin_<single_side_lower_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_x_variable_mesh_properties>
+begin_<single_side_upper_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_x_variable_mesh_properties>
+begin_<single_side_lower_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_y_variable_mesh_properties>
+begin_<single_side_upper_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_y_variable_mesh_properties>
+begin_<single_side_lower_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_z_variable_mesh_properties>
+begin_<single_side_upper_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_z_variable_mesh_properties>
+end_<object_variable_mesh_properties>
+Automatic_Meshing
+Mesh_Cubes
+Use_Fill
+Is_Meshed
+Shell_Outward_Directed_Cells
+Shell_Inward_Directed_Cells
+Meshing_Enabled
+Shell_Material 1
+Shell_Component_Type 0
+Fill_Material 1
+Fill_Component_Type 0
+CellPickingMethod Percentage 0.5
+Use_Hardware_Acceleration 0
+Logging_Options 0
+Directions_To_Use 7
+Pixel_Factor 1
+Logging_Directory C:\temp
+end_<mesh_parameters>
+unitfactor 0.01
+end_<geomobject>
+point1 0 0 0.02
+point2 0.01 0 0.03
+end_<wireobject>
+begin_<wireobject> Wire
+description Wire Object
+begin_<geomobject> Wire
+description Wire Object
+begin_<renderable> Wire
+description Wire Object
+begin_<selectable> Wire
+description Wire Object
+end_<selectable>
+visibility 1
+end_<renderable>
+begin_<mesh_parameters> 
+begin_<object_variable_mesh_properties> 
+begin_<single_side_lower_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_x_variable_mesh_properties>
+begin_<single_side_upper_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_x_variable_mesh_properties>
+begin_<single_side_lower_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_y_variable_mesh_properties>
+begin_<single_side_upper_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_y_variable_mesh_properties>
+begin_<single_side_lower_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_z_variable_mesh_properties>
+begin_<single_side_upper_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_z_variable_mesh_properties>
+end_<object_variable_mesh_properties>
+Automatic_Meshing
+Mesh_Cubes
+Use_Fill
+Is_Meshed
+Shell_Outward_Directed_Cells
+Shell_Inward_Directed_Cells
+Meshing_Enabled
+Shell_Material 1
+Shell_Component_Type 0
+Fill_Material 1
+Fill_Component_Type 0
+CellPickingMethod Percentage 0.5
+Use_Hardware_Acceleration 0
+Logging_Options 0
+Directions_To_Use 7
+Pixel_Factor 1
+Logging_Directory C:\temp
+end_<mesh_parameters>
+unitfactor 0.01
+end_<geomobject>
+point1 0.01 0 0.03
+point2 0 0 0.04
+end_<wireobject>
+begin_<wireobject> Wire
+description Wire Object
+begin_<geomobject> Wire
+description Wire Object
+begin_<renderable> Wire
+description Wire Object
+begin_<selectable> Wire
+description Wire Object
+end_<selectable>
+visibility 1
+end_<renderable>
+begin_<mesh_parameters> 
+begin_<object_variable_mesh_properties> 
+begin_<single_side_lower_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_x_variable_mesh_properties>
+begin_<single_side_upper_x_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_x_variable_mesh_properties>
+begin_<single_side_lower_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_y_variable_mesh_properties>
+begin_<single_side_upper_y_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_y_variable_mesh_properties>
+begin_<single_side_lower_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower LOWER
+end_<single_side_variable_mesh_properties>
+end_<single_side_lower_z_variable_mesh_properties>
+begin_<single_side_upper_z_variable_mesh_properties> 
+begin_<single_side_variable_mesh_properties> 
+cell_size_method USE_RATIO
+target_cell_size 0.001
+cell_size_ratio 5
+cell_size_units 3
+percentage_covered 100
+upper_or_lower UPPER
+end_<single_side_variable_mesh_properties>
+end_<single_side_upper_z_variable_mesh_properties>
+end_<object_variable_mesh_properties>
+Automatic_Meshing
+Mesh_Cubes
+Use_Fill
+Is_Meshed
+Shell_Outward_Directed_Cells
+Shell_Inward_Directed_Cells
+Meshing_Enabled
+Shell_Material 1
+Shell_Component_Type 0
+Fill_Material 1
+Fill_Component_Type 0
+CellPickingMethod Percentage 0.5
+Use_Hardware_Acceleration 0
+Logging_Options 0
+Directions_To_Use 7
+Pixel_Factor 1
+Logging_Directory C:\temp
+end_<mesh_parameters>
+unitfactor 0.01
+end_<geomobject>
+point1 0 0 0.04
+point2 0 0 0.06
+end_<wireobject>
+end_<child_objects>
+end_<geomgroup>
+end_<geometry>
+Array format: endpoints
+1 0
+580 748 627
+21 21 33 250 1
+21 22 33 250 1
+21 23 33 250 1
+21 24 33 250 1
+21 25 33 250 1
+21 26 33 250 1
+21 27 33 250 1
+21 28 33 250 1
+21 29 33 250 1
+21 30 33 250 1
+21 31 33 250 1
+21 32 33 250 1
+21 33 33 250 1
+21 34 33 250 1
+21 35 33 250 1
+21 36 33 250 1
+21 37 33 250 1
+21 38 33 250 1
+21 39 33 250 1
+21 40 33 250 1
+21 41 33 250 1
+21 42 33 250 1
+21 43 33 250 1
+21 44 33 250 1
+21 45 33 250 1
+21 46 33 250 1
+21 47 33 250 1
+21 48 33 250 1
+21 49 33 250 1
+21 50 33 250 1
+21 51 33 250 1
+21 52 33 250 1
+21 53 33 250 1
+21 54 33 250 1
+21 55 33 250 1
+21 56 33 250 1
+21 57 33 250 1
+21 58 33 250 1
+21 59 33 250 1
+21 60 33 250 1
+21 61 33 250 1
+21 62 33 250 1
+21 63 33 250 1
+21 64 33 250 1
+21 65 33 250 1
+21 66 33 250 1
+21 67 33 250 1
+21 68 33 250 1
+21 69 33 250 1
+21 70 33 250 1
+21 71 33 250 1
+21 72 33 250 1
+21 73 33 250 1
+21 74 33 250 1
+21 75 33 250 1
+21 76 33 250 1
+86 77 23 96 1
+86 77 24 96 1
+86 77 25 96 1
+86 77 26 96 1
+86 77 27 96 1
+86 77 28 96 1
+86 77 29 96 1
+86 77 30 96 1
+86 77 31 96 1
+86 77 32 96 1
+21 77 33 250 1
+84 78 23 100 1
+84 78 24 100 1
+84 78 25 100 1
+84 78 26 100 1
+84 78 27 100 1
+84 78 28 100 1
+84 78 29 100 1
+84 78 30 100 1
+84 78 31 100 1
+84 78 32 100 1
+21 78 33 250 1
+83 79 23 103 1
+83 79 24 103 1
+83 79 25 103 1
+83 79 26 86 1
+95 79 26 103 1
+83 79 27 86 1
+95 79 27 103 1
+83 79 28 86 1
+95 79 28 103 1
+83 79 29 86 1
+95 79 29 103 1
+83 79 30 86 1
+95 79 30 103 1
+83 79 31 86 1
+95 79 31 103 1
+83 79 32 86 1
+95 79 32 103 1
+21 79 33 86 1
+95 79 33 250 1
+82 80 23 105 1
+82 80 24 105 1
+82 80 25 105 1
+82 80 26 84 1
+99 80 26 105 1
+82 80 27 84 1
+99 80 27 105 1
+82 80 28 84 1
+99 80 28 105 1
+82 80 29 84 1
+99 80 29 105 1
+82 80 30 84 1
+99 80 30 105 1
+82 80 31 84 1
+99 80 31 105 1
+82 80 32 84 1
+99 80 32 105 1
+21 80 33 84 1
+99 80 33 250 1
+81 81 23 106 1
+81 81 24 106 1
+81 81 25 106 1
+81 81 26 83 1
+102 81 26 106 1
+81 81 27 83 1
+102 81 27 106 1
+81 81 28 83 1
+102 81 28 106 1
+81 81 29 83 1
+102 81 29 106 1
+81 81 30 83 1
+102 81 30 106 1
+81 81 31 83 1
+102 81 31 106 1
+81 81 32 83 1
+102 81 32 106 1
+21 81 33 83 1
+102 81 33 250 1
+80 82 23 108 1
+80 82 24 108 1
+80 82 25 108 1
+80 82 26 82 1
+104 82 26 108 1
+80 82 27 82 1
+104 82 27 108 1
+80 82 28 82 1
+104 82 28 108 1
+80 82 29 82 1
+104 82 29 108 1
+80 82 30 82 1
+104 82 30 108 1
+80 82 31 82 1
+104 82 31 108 1
+80 82 32 82 1
+104 82 32 108 1
+21 82 33 82 1
+104 82 33 250 1
+80 83 23 108 1
+80 83 24 108 1
+80 83 25 108 1
+80 83 26 82 1
+105 83 26 108 1
+80 83 27 82 1
+105 83 27 108 1
+80 83 28 82 1
+105 83 28 108 1
+80 83 29 82 1
+105 83 29 108 1
+80 83 30 82 1
+105 83 30 108 1
+80 83 31 82 1
+105 83 31 108 1
+80 83 32 82 1
+105 83 32 108 1
+21 83 33 82 1
+105 83 33 250 1
+80 84 23 109 1
+80 84 24 109 1
+80 84 25 109 1
+80 84 26 81 1
+106 84 26 109 1
+80 84 27 81 1
+106 84 27 109 1
+80 84 28 81 1
+106 84 28 109 1
+80 84 29 81 1
+106 84 29 109 1
+80 84 30 81 1
+106 84 30 109 1
+80 84 31 81 1
+106 84 31 109 1
+80 84 32 81 1
+106 84 32 109 1
+21 84 33 81 1
+106 84 33 250 1
+80 85 23 109 1
+80 85 24 109 1
+80 85 25 109 1
+80 85 26 81 1
+107 85 26 109 1
+80 85 27 81 1
+107 85 27 109 1
+80 85 28 81 1
+107 85 28 109 1
+80 85 29 81 1
+107 85 29 109 1
+80 85 30 81 1
+107 85 30 109 1
+80 85 31 81 1
+107 85 31 109 1
+80 85 32 81 1
+107 85 32 109 1
+21 85 33 81 1
+107 85 33 250 1
+80 86 23 110 1
+80 86 24 110 1
+80 86 25 110 1
+80 86 26 81 1
+107 86 26 110 1
+80 86 27 81 1
+107 86 27 110 1
+80 86 28 81 1
+107 86 28 110 1
+80 86 29 81 1
+107 86 29 110 1
+80 86 30 81 1
+107 86 30 110 1
+80 86 31 81 1
+107 86 31 110 1
+80 86 32 81 1
+107 86 32 110 1
+21 86 33 81 1
+107 86 33 250 1
+80 87 23 110 1
+80 87 24 110 1
+80 87 25 110 1
+80 87 26 81 1
+108 87 26 110 1
+80 87 27 81 1
+108 87 27 110 1
+80 87 28 81 1
+108 87 28 110 1
+80 87 29 81 1
+108 87 29 110 1
+80 87 30 81 1
+108 87 30 110 1
+80 87 31 81 1
+108 87 31 110 1
+80 87 32 81 1
+108 87 32 110 1
+21 87 33 81 1
+108 87 33 250 1
+90 87 52 92 1
+92 87 53 94 1
+94 87 54 96 1
+96 87 55 98 1
+98 87 56 100 1
+100 87 57 102 1
+102 87 58 104 1
+104 87 59 106 1
+106 87 60 108 1
+108 87 61 110 1
+110 87 62 112 1
+112 87 63 114 1
+114 87 64 116 1
+116 87 65 118 1
+118 87 66 120 1
+120 87 67 122 1
+122 87 68 124 1
+124 87 69 126 1
+126 87 70 128 1
+128 87 71 130 1
+130 87 72 132 1
+132 87 73 134 1
+134 87 74 136 1
+136 87 75 138 1
+138 87 76 140 1
+140 87 77 142 1
+142 87 78 144 1
+144 87 79 146 1
+146 87 80 148 1
+148 87 81 150 1
+150 87 82 152 1
+152 87 83 154 1
+154 87 84 156 1
+156 87 85 158 1
+158 87 86 160 1
+160 87 87 162 1
+162 87 88 164 1
+164 87 89 166 1
+166 87 90 168 1
+168 87 91 170 1
+170 87 92 172 1
+172 87 93 174 1
+174 87 94 176 1
+176 87 95 178 1
+178 87 96 180 1
+180 87 97 182 1
+182 87 98 184 1
+184 87 99 186 1
+186 87 100 188 1
+188 87 101 190 1
+187 87 102 189 1
+185 87 103 187 1
+183 87 104 185 1
+181 87 105 183 1
+179 87 106 181 1
+177 87 107 179 1
+175 87 108 177 1
+173 87 109 175 1
+171 87 110 173 1
+169 87 111 171 1
+167 87 112 169 1
+165 87 113 167 1
+163 87 114 165 1
+161 87 115 163 1
+159 87 116 161 1
+157 87 117 159 1
+155 87 118 157 1
+153 87 119 155 1
+151 87 120 153 1
+149 87 121 151 1
+147 87 122 149 1
+145 87 123 147 1
+143 87 124 145 1
+141 87 125 143 1
+139 87 126 141 1
+137 87 127 139 1
+135 87 128 137 1
+133 87 129 135 1
+131 87 130 133 1
+129 87 131 131 1
+127 87 132 129 1
+125 87 133 127 1
+123 87 134 125 1
+121 87 135 123 1
+119 87 136 121 1
+117 87 137 119 1
+115 87 138 117 1
+113 87 139 115 1
+111 87 140 113 1
+109 87 141 111 1
+107 87 142 109 1
+105 87 143 107 1
+103 87 144 105 1
+101 87 145 103 1
+99 87 146 101 1
+97 87 147 99 1
+95 87 148 97 1
+93 87 149 95 1
+91 87 150 93 1
+90 87 151 91 1
+80 88 23 110 1
+80 88 24 110 1
+80 88 25 110 1
+80 88 26 81 1
+107 88 26 110 1
+80 88 27 81 1
+107 88 27 110 1
+80 88 28 81 1
+107 88 28 110 1
+80 88 29 81 1
+107 88 29 110 1
+80 88 30 81 1
+107 88 30 110 1
+80 88 31 81 1
+107 88 31 110 1
+80 88 32 81 1
+107 88 32 110 1
+21 88 33 81 1
+107 88 33 250 1
+80 89 23 109 1
+80 89 24 109 1
+80 89 25 109 1
+80 89 26 81 1
+107 89 26 109 1
+80 89 27 81 1
+107 89 27 109 1
+80 89 28 81 1
+107 89 28 109 1
+80 89 29 81 1
+107 89 29 109 1
+80 89 30 81 1
+107 89 30 109 1
+80 89 31 81 1
+107 89 31 109 1
+80 89 32 81 1
+107 89 32 109 1
+21 89 33 81 1
+107 89 33 250 1
+80 90 23 109 1
+80 90 24 109 1
+80 90 25 109 1
+80 90 26 81 1
+106 90 26 109 1
+80 90 27 81 1
+106 90 27 109 1
+80 90 28 81 1
+106 90 28 109 1
+80 90 29 81 1
+106 90 29 109 1
+80 90 30 81 1
+106 90 30 109 1
+80 90 31 81 1
+106 90 31 109 1
+80 90 32 81 1
+106 90 32 109 1
+21 90 33 81 1
+106 90 33 250 1
+80 91 23 108 1
+80 91 24 108 1
+80 91 25 108 1
+80 91 26 82 1
+105 91 26 108 1
+80 91 27 82 1
+105 91 27 108 1
+80 91 28 82 1
+105 91 28 108 1
+80 91 29 82 1
+105 91 29 108 1
+80 91 30 82 1
+105 91 30 108 1
+80 91 31 82 1
+105 91 31 108 1
+80 91 32 82 1
+105 91 32 108 1
+21 91 33 82 1
+105 91 33 250 1
+80 92 23 108 1
+80 92 24 108 1
+80 92 25 108 1
+80 92 26 82 1
+104 92 26 108 1
+80 92 27 82 1
+104 92 27 108 1
+80 92 28 82 1
+104 92 28 108 1
+80 92 29 82 1
+104 92 29 108 1
+80 92 30 82 1
+104 92 30 108 1
+80 92 31 82 1
+104 92 31 108 1
+80 92 32 82 1
+104 92 32 108 1
+21 92 33 82 1
+104 92 33 250 1
+81 93 23 106 1
+81 93 24 106 1
+81 93 25 106 1
+81 93 26 83 1
+102 93 26 106 1
+81 93 27 83 1
+102 93 27 106 1
+81 93 28 83 1
+102 93 28 106 1
+81 93 29 83 1
+102 93 29 106 1
+81 93 30 83 1
+102 93 30 106 1
+81 93 31 83 1
+102 93 31 106 1
+81 93 32 83 1
+102 93 32 106 1
+21 93 33 83 1
+102 93 33 250 1
+82 94 23 105 1
+82 94 24 105 1
+82 94 25 105 1
+82 94 26 84 1
+99 94 26 105 1
+82 94 27 84 1
+99 94 27 105 1
+82 94 28 84 1
+99 94 28 105 1
+82 94 29 84 1
+99 94 29 105 1
+82 94 30 84 1
+99 94 30 105 1
+82 94 31 84 1
+99 94 31 105 1
+82 94 32 84 1
+99 94 32 105 1
+21 94 33 84 1
+99 94 33 250 1
+83 95 23 103 1
+83 95 24 103 1
+83 95 25 103 1
+83 95 26 86 1
+95 95 26 103 1
+83 95 27 86 1
+95 95 27 103 1
+83 95 28 86 1
+95 95 28 103 1
+83 95 29 86 1
+95 95 29 103 1
+83 95 30 86 1
+95 95 30 103 1
+83 95 31 86 1
+95 95 31 103 1
+83 95 32 86 1
+95 95 32 103 1
+21 95 33 86 1
+95 95 33 250 1
+84 96 23 100 1
+84 96 24 100 1
+84 96 25 100 1
+84 96 26 100 1
+84 96 27 100 1
+84 96 28 100 1
+84 96 29 100 1
+84 96 30 100 1
+84 96 31 100 1
+84 96 32 100 1
+21 96 33 250 1
+86 97 23 96 1
+86 97 24 96 1
+86 97 25 96 1
+86 97 26 96 1
+86 97 27 96 1
+86 97 28 96 1
+86 97 29 96 1
+86 97 30 96 1
+86 97 31 96 1
+86 97 32 96 1
+21 97 33 250 1
+21 98 33 250 1
+21 99 33 250 1
+21 100 33 250 1
+21 101 33 250 1
+21 102 33 250 1
+21 103 33 250 1
+21 104 33 250 1
+21 105 33 250 1
+21 106 33 250 1
+21 107 33 250 1
+21 108 33 250 1
+21 109 33 250 1
+21 110 33 250 1
+21 111 33 250 1
+21 112 33 250 1
+21 113 33 250 1
+21 114 33 250 1
+21 115 33 250 1
+21 116 33 250 1
+21 117 33 250 1
+21 118 33 250 1
+21 119 33 250 1
+21 120 33 250 1
+21 121 33 250 1
+21 122 33 250 1
+21 123 33 250 1
+21 124 33 250 1
+21 125 33 250 1
+21 126 33 250 1
+21 127 33 250 1
+21 128 33 250 1
+21 129 33 250 1
+21 130 33 250 1
+21 131 33 250 1
+21 132 33 250 1
+21 133 33 250 1
+21 134 33 250 1
+21 135 33 250 1
+21 136 33 250 1
+21 137 33 250 1
+21 138 33 250 1
+21 139 33 250 1
+21 140 33 250 1
+21 141 33 250 1
+21 142 33 250 1
+21 143 33 250 1
+21 144 33 250 1
+21 145 33 250 1
+21 146 33 250 1
+21 147 33 250 1
+21 148 33 250 1
+21 149 33 250 1
+21 150 33 250 1
+21 151 33 250 1
+21 152 33 250 1
+21 153 33 250 1
+21 154 33 250 1
+21 21 33 154 1
+22 21 33 154 1
+23 21 33 154 1
+24 21 33 154 1
+25 21 33 154 1
+26 21 33 154 1
+27 21 33 154 1
+28 21 33 154 1
+29 21 33 154 1
+30 21 33 154 1
+31 21 33 154 1
+32 21 33 154 1
+33 21 33 154 1
+34 21 33 154 1
+35 21 33 154 1
+36 21 33 154 1
+37 21 33 154 1
+38 21 33 154 1
+39 21 33 154 1
+40 21 33 154 1
+41 21 33 154 1
+42 21 33 154 1
+43 21 33 154 1
+44 21 33 154 1
+45 21 33 154 1
+46 21 33 154 1
+47 21 33 154 1
+48 21 33 154 1
+49 21 33 154 1
+50 21 33 154 1
+51 21 33 154 1
+52 21 33 154 1
+53 21 33 154 1
+54 21 33 154 1
+55 21 33 154 1
+56 21 33 154 1
+57 21 33 154 1
+58 21 33 154 1
+59 21 33 154 1
+60 21 33 154 1
+61 21 33 154 1
+62 21 33 154 1
+63 21 33 154 1
+64 21 33 154 1
+65 21 33 154 1
+66 21 33 154 1
+67 21 33 154 1
+68 21 33 154 1
+69 21 33 154 1
+70 21 33 154 1
+71 21 33 154 1
+72 21 33 154 1
+73 21 33 154 1
+74 21 33 154 1
+75 21 33 154 1
+76 21 33 154 1
+77 21 33 154 1
+78 21 33 154 1
+79 21 33 154 1
+80 82 23 92 1
+80 82 24 92 1
+80 82 25 92 1
+80 82 26 92 1
+80 82 27 92 1
+80 82 28 92 1
+80 82 29 92 1
+80 82 30 92 1
+80 82 31 92 1
+80 82 32 92 1
+80 21 33 154 1
+81 81 23 93 1
+81 81 24 93 1
+81 81 25 93 1
+81 81 26 93 1
+81 81 27 93 1
+81 81 28 93 1
+81 81 29 93 1
+81 81 30 93 1
+81 81 31 93 1
+81 81 32 93 1
+81 21 33 154 1
+82 80 23 94 1
+82 80 24 94 1
+82 80 25 94 1
+82 80 26 83 1
+82 91 26 94 1
+82 80 27 83 1
+82 91 27 94 1
+82 80 28 83 1
+82 91 28 94 1
+82 80 29 83 1
+82 91 29 94 1
+82 80 30 83 1
+82 91 30 94 1
+82 80 31 83 1
+82 91 31 94 1
+82 80 32 83 1
+82 91 32 94 1
+82 21 33 83 1
+82 91 33 154 1
+83 79 23 95 1
+83 79 24 95 1
+83 79 25 95 1
+83 79 26 81 1
+83 93 26 95 1
+83 79 27 81 1
+83 93 27 95 1
+83 79 28 81 1
+83 93 28 95 1
+83 79 29 81 1
+83 93 29 95 1
+83 79 30 81 1
+83 93 30 95 1
+83 79 31 81 1
+83 93 31 95 1
+83 79 32 81 1
+83 93 32 95 1
+83 21 33 81 1
+83 93 33 154 1
+84 78 23 96 1
+84 78 24 96 1
+84 78 25 96 1
+84 78 26 80 1
+84 94 26 96 1
+84 78 27 80 1
+84 94 27 96 1
+84 78 28 80 1
+84 94 28 96 1
+84 78 29 80 1
+84 94 29 96 1
+84 78 30 80 1
+84 94 30 96 1
+84 78 31 80 1
+84 94 31 96 1
+84 78 32 80 1
+84 94 32 96 1
+84 21 33 80 1
+84 94 33 154 1
+85 78 23 96 1
+85 78 24 96 1
+85 78 25 96 1
+85 78 26 79 1
+85 95 26 96 1
+85 78 27 79 1
+85 95 27 96 1
+85 78 28 79 1
+85 95 28 96 1
+85 78 29 79 1
+85 95 29 96 1
+85 78 30 79 1
+85 95 30 96 1
+85 78 31 79 1
+85 95 31 96 1
+85 78 32 79 1
+85 95 32 96 1
+85 21 33 79 1
+85 95 33 154 1
+86 77 23 97 1
+86 77 24 97 1
+86 77 25 97 1
+86 77 26 79 1
+86 95 26 97 1
+86 77 27 79 1
+86 95 27 97 1
+86 77 28 79 1
+86 95 28 97 1
+86 77 29 79 1
+86 95 29 97 1
+86 77 30 79 1
+86 95 30 97 1
+86 77 31 79 1
+86 95 31 97 1
+86 77 32 79 1
+86 95 32 97 1
+86 21 33 79 1
+86 95 33 154 1
+87 77 23 97 1
+87 77 24 97 1
+87 77 25 97 1
+87 77 26 78 1
+87 96 26 97 1
+87 77 27 78 1
+87 96 27 97 1
+87 77 28 78 1
+87 96 28 97 1
+87 77 29 78 1
+87 96 29 97 1
+87 77 30 78 1
+87 96 30 97 1
+87 77 31 78 1
+87 96 31 97 1
+87 77 32 78 1
+87 96 32 97 1
+87 21 33 78 1
+87 96 33 154 1
+88 77 23 97 1
+88 77 24 97 1
+88 77 25 97 1
+88 77 26 78 1
+88 96 26 97 1
+88 77 27 78 1
+88 96 27 97 1
+88 77 28 78 1
+88 96 28 97 1
+88 77 29 78 1
+88 96 29 97 1
+88 77 30 78 1
+88 96 30 97 1
+88 77 31 78 1
+88 96 31 97 1
+88 77 32 78 1
+88 96 32 97 1
+88 21 33 78 1
+88 96 33 154 1
+89 77 23 97 1
+89 77 24 97 1
+89 77 25 97 1
+89 77 26 78 1
+89 96 26 97 1
+89 77 27 78 1
+89 96 27 97 1
+89 77 28 78 1
+89 96 28 97 1
+89 77 29 78 1
+89 96 29 97 1
+89 77 30 78 1
+89 96 30 97 1
+89 77 31 78 1
+89 96 31 97 1
+89 77 32 78 1
+89 96 32 97 1
+89 21 33 78 1
+89 96 33 154 1
+90 77 23 97 1
+90 77 24 97 1
+90 77 25 97 1
+90 77 26 78 1
+90 96 26 97 1
+90 77 27 78 1
+90 96 27 97 1
+90 77 28 78 1
+90 96 28 97 1
+90 77 29 78 1
+90 96 29 97 1
+90 77 30 78 1
+90 96 30 97 1
+90 77 31 78 1
+90 96 31 97 1
+90 77 32 78 1
+90 96 32 97 1
+90 21 33 78 1
+90 96 33 154 1
+91 77 23 97 1
+91 77 24 97 1
+91 77 25 97 1
+91 77 26 78 1
+91 96 26 97 1
+91 77 27 78 1
+91 96 27 97 1
+91 77 28 78 1
+91 96 28 97 1
+91 77 29 78 1
+91 96 29 97 1
+91 77 30 78 1
+91 96 30 97 1
+91 77 31 78 1
+91 96 31 97 1
+91 77 32 78 1
+91 96 32 97 1
+91 21 33 78 1
+91 96 33 154 1
+92 77 23 97 1
+92 77 24 97 1
+92 77 25 97 1
+92 77 26 78 1
+92 96 26 97 1
+92 77 27 78 1
+92 96 27 97 1
+92 77 28 78 1
+92 96 28 97 1
+92 77 29 78 1
+92 96 29 97 1
+92 77 30 78 1
+92 96 30 97 1
+92 77 31 78 1
+92 96 31 97 1
+92 77 32 78 1
+92 96 32 97 1
+92 21 33 78 1
+92 96 33 154 1
+93 77 23 97 1
+93 77 24 97 1
+93 77 25 97 1
+93 77 26 78 1
+93 96 26 97 1
+93 77 27 78 1
+93 96 27 97 1
+93 77 28 78 1
+93 96 28 97 1
+93 77 29 78 1
+93 96 29 97 1
+93 77 30 78 1
+93 96 30 97 1
+93 77 31 78 1
+93 96 31 97 1
+93 77 32 78 1
+93 96 32 97 1
+93 21 33 78 1
+93 96 33 154 1
+94 77 23 97 1
+94 77 24 97 1
+94 77 25 97 1
+94 77 26 78 1
+94 96 26 97 1
+94 77 27 78 1
+94 96 27 97 1
+94 77 28 78 1
+94 96 28 97 1
+94 77 29 78 1
+94 96 29 97 1
+94 77 30 78 1
+94 96 30 97 1
+94 77 31 78 1
+94 96 31 97 1
+94 77 32 78 1
+94 96 32 97 1
+94 21 33 78 1
+94 96 33 154 1
+95 77 23 97 1
+95 77 24 97 1
+95 77 25 97 1
+95 77 26 79 1
+95 95 26 97 1
+95 77 27 79 1
+95 95 27 97 1
+95 77 28 79 1
+95 95 28 97 1
+95 77 29 79 1
+95 95 29 97 1
+95 77 30 79 1
+95 95 30 97 1
+95 77 31 79 1
+95 95 31 97 1
+95 77 32 79 1
+95 95 32 97 1
+95 21 33 79 1
+95 95 33 154 1
+96 77 23 97 1
+96 77 24 97 1
+96 77 25 97 1
+96 77 26 79 1
+96 95 26 97 1
+96 77 27 79 1
+96 95 27 97 1
+96 77 28 79 1
+96 95 28 97 1
+96 77 29 79 1
+96 95 29 97 1
+96 77 30 79 1
+96 95 30 97 1
+96 77 31 79 1
+96 95 31 97 1
+96 77 32 79 1
+96 95 32 97 1
+96 21 33 79 1
+96 95 33 154 1
+97 78 23 96 1
+97 78 24 96 1
+97 78 25 96 1
+97 78 26 79 1
+97 95 26 96 1
+97 78 27 79 1
+97 95 27 96 1
+97 78 28 79 1
+97 95 28 96 1
+97 78 29 79 1
+97 95 29 96 1
+97 78 30 79 1
+97 95 30 96 1
+97 78 31 79 1
+97 95 31 96 1
+97 78 32 79 1
+97 95 32 96 1
+97 21 33 79 1
+97 95 33 154 1
+98 78 23 96 1
+98 78 24 96 1
+98 78 25 96 1
+98 78 26 79 1
+98 95 26 96 1
+98 78 27 79 1
+98 95 27 96 1
+98 78 28 79 1
+98 95 28 96 1
+98 78 29 79 1
+98 95 29 96 1
+98 78 30 79 1
+98 95 30 96 1
+98 78 31 79 1
+98 95 31 96 1
+98 78 32 79 1
+98 95 32 96 1
+98 21 33 79 1
+98 95 33 154 1
+99 78 23 96 1
+99 78 24 96 1
+99 78 25 96 1
+99 78 26 80 1
+99 94 26 96 1
+99 78 27 80 1
+99 94 27 96 1
+99 78 28 80 1
+99 94 28 96 1
+99 78 29 80 1
+99 94 29 96 1
+99 78 30 80 1
+99 94 30 96 1
+99 78 31 80 1
+99 94 31 96 1
+99 78 32 80 1
+99 94 32 96 1
+99 21 33 80 1
+99 94 33 154 1
+100 78 23 96 1
+100 78 24 96 1
+100 78 25 96 1
+100 78 26 80 1
+100 94 26 96 1
+100 78 27 80 1
+100 94 27 96 1
+100 78 28 80 1
+100 94 28 96 1
+100 78 29 80 1
+100 94 29 96 1
+100 78 30 80 1
+100 94 30 96 1
+100 78 31 80 1
+100 94 31 96 1
+100 78 32 80 1
+100 94 32 96 1
+100 21 33 80 1
+100 94 33 154 1
+101 79 23 95 1
+101 79 24 95 1
+101 79 25 95 1
+101 79 26 80 1
+101 94 26 95 1
+101 79 27 80 1
+101 94 27 95 1
+101 79 28 80 1
+101 94 28 95 1
+101 79 29 80 1
+101 94 29 95 1
+101 79 30 80 1
+101 94 30 95 1
+101 79 31 80 1
+101 94 31 95 1
+101 79 32 80 1
+101 94 32 95 1
+101 21 33 80 1
+101 94 33 154 1
+102 79 23 95 1
+102 79 24 95 1
+102 79 25 95 1
+102 79 26 81 1
+102 93 26 95 1
+102 79 27 81 1
+102 93 27 95 1
+102 79 28 81 1
+102 93 28 95 1
+102 79 29 81 1
+102 93 29 95 1
+102 79 30 81 1
+102 93 30 95 1
+102 79 31 81 1
+102 93 31 95 1
+102 79 32 81 1
+102 93 32 95 1
+102 21 33 81 1
+102 93 33 154 1
+103 79 23 95 1
+103 79 24 95 1
+103 79 25 95 1
+103 79 26 81 1
+103 93 26 95 1
+103 79 27 81 1
+103 93 27 95 1
+103 79 28 81 1
+103 93 28 95 1
+103 79 29 81 1
+103 93 29 95 1
+103 79 30 81 1
+103 93 30 95 1
+103 79 31 81 1
+103 93 31 95 1
+103 79 32 81 1
+103 93 32 95 1
+103 21 33 81 1
+103 93 33 154 1
+104 80 23 94 1
+104 80 24 94 1
+104 80 25 94 1
+104 80 26 82 1
+104 92 26 94 1
+104 80 27 82 1
+104 92 27 94 1
+104 80 28 82 1
+104 92 28 94 1
+104 80 29 82 1
+104 92 29 94 1
+104 80 30 82 1
+104 92 30 94 1
+104 80 31 82 1
+104 92 31 94 1
+104 80 32 82 1
+104 92 32 94 1
+104 21 33 82 1
+104 92 33 154 1
+105 80 23 94 1
+105 80 24 94 1
+105 80 25 94 1
+105 80 26 83 1
+105 91 26 94 1
+105 80 27 83 1
+105 91 27 94 1
+105 80 28 83 1
+105 91 28 94 1
+105 80 29 83 1
+105 91 29 94 1
+105 80 30 83 1
+105 91 30 94 1
+105 80 31 83 1
+105 91 31 94 1
+105 80 32 83 1
+105 91 32 94 1
+105 21 33 83 1
+105 91 33 154 1
+106 81 23 93 1
+106 81 24 93 1
+106 81 25 93 1
+106 81 26 84 1
+106 90 26 93 1
+106 81 27 84 1
+106 90 27 93 1
+106 81 28 84 1
+106 90 28 93 1
+106 81 29 84 1
+106 90 29 93 1
+106 81 30 84 1
+106 90 30 93 1
+106 81 31 84 1
+106 90 31 93 1
+106 81 32 84 1
+106 90 32 93 1
+106 21 33 84 1
+106 90 33 154 1
+107 82 23 92 1
+107 82 24 92 1
+107 82 25 92 1
+107 82 26 86 1
+107 88 26 92 1
+107 82 27 86 1
+107 88 27 92 1
+107 82 28 86 1
+107 88 28 92 1
+107 82 29 86 1
+107 88 29 92 1
+107 82 30 86 1
+107 88 30 92 1
+107 82 31 86 1
+107 88 31 92 1
+107 82 32 86 1
+107 88 32 92 1
+107 21 33 86 1
+107 88 33 154 1
+108 82 23 92 1
+108 82 24 92 1
+108 82 25 92 1
+108 82 26 92 1
+108 82 27 92 1
+108 82 28 92 1
+108 82 29 92 1
+108 82 30 92 1
+108 82 31 92 1
+108 82 32 92 1
+108 21 33 154 1
+109 84 23 90 1
+109 84 24 90 1
+109 84 25 90 1
+109 84 26 90 1
+109 84 27 90 1
+109 84 28 90 1
+109 84 29 90 1
+109 84 30 90 1
+109 84 31 90 1
+109 84 32 90 1
+109 21 33 154 1
+110 86 23 88 1
+110 86 24 88 1
+110 86 25 88 1
+110 86 26 88 1
+110 86 27 88 1
+110 86 28 88 1
+110 86 29 88 1
+110 86 30 88 1
+110 86 31 88 1
+110 86 32 88 1
+110 21 33 154 1
+111 21 33 154 1
+112 21 33 154 1
+113 21 33 154 1
+114 21 33 154 1
+115 21 33 154 1
+116 21 33 154 1
+117 21 33 154 1
+118 21 33 154 1
+119 21 33 154 1
+120 21 33 154 1
+121 21 33 154 1
+122 21 33 154 1
+123 21 33 154 1
+124 21 33 154 1
+125 21 33 154 1
+126 21 33 154 1
+127 21 33 154 1
+128 21 33 154 1
+129 21 33 154 1
+130 21 33 154 1
+131 21 33 154 1
+132 21 33 154 1
+133 21 33 154 1
+134 21 33 154 1
+135 21 33 154 1
+136 21 33 154 1
+137 21 33 154 1
+138 21 33 154 1
+139 21 33 154 1
+140 21 33 154 1
+141 21 33 154 1
+142 21 33 154 1
+143 21 33 154 1
+144 21 33 154 1
+145 21 33 154 1
+146 21 33 154 1
+147 21 33 154 1
+148 21 33 154 1
+149 21 33 154 1
+150 21 33 154 1
+151 21 33 154 1
+152 21 33 154 1
+153 21 33 154 1
+154 21 33 154 1
+155 21 33 154 1
+156 21 33 154 1
+157 21 33 154 1
+158 21 33 154 1
+159 21 33 154 1
+160 21 33 154 1
+161 21 33 154 1
+162 21 33 154 1
+163 21 33 154 1
+164 21 33 154 1
+165 21 33 154 1
+166 21 33 154 1
+167 21 33 154 1
+168 21 33 154 1
+169 21 33 154 1
+170 21 33 154 1
+171 21 33 154 1
+172 21 33 154 1
+173 21 33 154 1
+174 21 33 154 1
+175 21 33 154 1
+176 21 33 154 1
+177 21 33 154 1
+178 21 33 154 1
+179 21 33 154 1
+180 21 33 154 1
+181 21 33 154 1
+182 21 33 154 1
+183 21 33 154 1
+184 21 33 154 1
+185 21 33 154 1
+186 21 33 154 1
+187 21 33 154 1
+188 21 33 154 1
+189 21 33 154 1
+190 21 33 154 1
+191 21 33 154 1
+192 21 33 154 1
+193 21 33 154 1
+194 21 33 154 1
+195 21 33 154 1
+196 21 33 154 1
+197 21 33 154 1
+198 21 33 154 1
+199 21 33 154 1
+200 21 33 154 1
+201 21 33 154 1
+202 21 33 154 1
+203 21 33 154 1
+204 21 33 154 1
+205 21 33 154 1
+206 21 33 154 1
+207 21 33 154 1
+208 21 33 154 1
+209 21 33 154 1
+210 21 33 154 1
+211 21 33 154 1
+212 21 33 154 1
+213 21 33 154 1
+214 21 33 154 1
+215 21 33 154 1
+216 21 33 154 1
+217 21 33 154 1
+218 21 33 154 1
+219 21 33 154 1
+220 21 33 154 1
+221 21 33 154 1
+222 21 33 154 1
+223 21 33 154 1
+224 21 33 154 1
+225 21 33 154 1
+226 21 33 154 1
+227 21 33 154 1
+228 21 33 154 1
+229 21 33 154 1
+230 21 33 154 1
+231 21 33 154 1
+232 21 33 154 1
+233 21 33 154 1
+234 21 33 154 1
+235 21 33 154 1
+236 21 33 154 1
+237 21 33 154 1
+238 21 33 154 1
+239 21 33 154 1
+240 21 33 154 1
+241 21 33 154 1
+242 21 33 154 1
+243 21 33 154 1
+244 21 33 154 1
+245 21 33 154 1
+246 21 33 154 1
+247 21 33 154 1
+248 21 33 154 1
+249 21 33 154 1
+250 21 33 154 1
+80 82 23 33 1
+80 83 23 33 1
+80 84 23 33 1
+80 85 23 33 1
+80 86 23 33 1
+80 87 23 33 1
+80 88 23 33 1
+80 89 23 33 1
+80 90 23 33 1
+80 91 23 33 1
+80 92 23 33 1
+81 81 23 33 1
+81 82 23 33 1
+81 83 23 33 1
+81 84 23 33 1
+81 85 23 33 1
+81 86 23 33 1
+81 87 23 33 1
+81 88 23 33 1
+81 89 23 33 1
+81 90 23 33 1
+81 91 23 33 1
+81 92 23 33 1
+81 93 23 33 1
+82 80 23 33 1
+82 81 23 33 1
+82 82 23 33 1
+82 83 23 33 1
+82 84 23 25 1
+82 85 23 25 1
+82 86 23 25 1
+82 87 23 25 1
+82 88 23 25 1
+82 89 23 25 1
+82 90 23 25 1
+82 91 23 33 1
+82 92 23 33 1
+82 93 23 33 1
+82 94 23 33 1
+83 79 23 33 1
+83 80 23 33 1
+83 81 23 33 1
+83 82 23 25 1
+83 83 23 25 1
+83 84 23 25 1
+83 85 23 25 1
+83 86 23 25 1
+83 87 23 25 1
+83 88 23 25 1
+83 89 23 25 1
+83 90 23 25 1
+83 91 23 25 1
+83 92 23 25 1
+83 93 23 33 1
+83 94 23 33 1
+83 95 23 33 1
+84 78 23 33 1
+84 79 23 33 1
+84 80 23 33 1
+84 81 23 25 1
+84 82 23 25 1
+84 83 23 25 1
+84 84 23 25 1
+84 85 23 25 1
+84 86 23 25 1
+84 87 23 25 1
+84 88 23 25 1
+84 89 23 25 1
+84 90 23 25 1
+84 91 23 25 1
+84 92 23 25 1
+84 93 23 25 1
+84 94 23 33 1
+84 95 23 33 1
+84 96 23 33 1
+85 78 23 33 1
+85 79 23 33 1
+85 80 23 25 1
+85 81 23 25 1
+85 82 23 25 1
+85 83 23 25 1
+85 84 23 25 1
+85 85 23 25 1
+85 86 23 25 1
+85 87 23 25 1
+85 88 23 25 1
+85 89 23 25 1
+85 90 23 25 1
+85 91 23 25 1
+85 92 23 25 1
+85 93 23 25 1
+85 94 23 25 1
+85 95 23 33 1
+85 96 23 33 1
+86 77 23 33 1
+86 78 23 33 1
+86 79 23 33 1
+86 80 23 25 1
+86 81 23 25 1
+86 82 23 25 1
+86 83 23 25 1
+86 84 23 25 1
+86 85 23 25 1
+86 86 23 25 1
+86 87 23 25 1
+86 88 23 25 1
+86 89 23 25 1
+86 90 23 25 1
+86 91 23 25 1
+86 92 23 25 1
+86 93 23 25 1
+86 94 23 25 1
+86 95 23 33 1
+86 96 23 33 1
+86 97 23 33 1
+87 77 23 33 1
+87 78 23 33 1
+87 79 23 25 1
+87 80 23 25 1
+87 81 23 25 1
+87 82 23 25 1
+87 83 23 25 1
+87 84 23 25 1
+87 85 23 25 1
+87 86 23 25 1
+87 87 23 25 1
+87 88 23 25 1
+87 89 23 25 1
+87 90 23 25 1
+87 91 23 25 1
+87 92 23 25 1
+87 93 23 25 1
+87 94 23 25 1
+87 95 23 25 1
+87 96 23 33 1
+87 97 23 33 1
+88 77 23 33 1
+88 78 23 33 1
+88 79 23 25 1
+88 80 23 25 1
+88 81 23 25 1
+88 82 23 25 1
+88 83 23 25 1
+88 84 23 25 1
+88 85 23 25 1
+88 86 23 25 1
+88 87 23 25 1
+88 88 23 25 1
+88 89 23 25 1
+88 90 23 25 1
+88 91 23 25 1
+88 92 23 25 1
+88 93 23 25 1
+88 94 23 25 1
+88 95 23 25 1
+88 96 23 33 1
+88 97 23 33 1
+89 77 23 33 1
+89 78 23 33 1
+89 79 23 25 1
+89 80 23 25 1
+89 81 23 25 1
+89 82 23 25 1
+89 83 23 25 1
+89 84 23 25 1
+89 85 23 25 1
+89 86 23 25 1
+89 87 23 25 1
+89 88 23 25 1
+89 89 23 25 1
+89 90 23 25 1
+89 91 23 25 1
+89 92 23 25 1
+89 93 23 25 1
+89 94 23 25 1
+89 95 23 25 1
+89 96 23 33 1
+89 97 23 33 1
+90 77 23 33 1
+90 78 23 33 1
+90 79 23 25 1
+90 80 23 25 1
+90 81 23 25 1
+90 82 23 25 1
+90 83 23 25 1
+90 84 23 25 1
+90 85 23 25 1
+90 86 23 25 1
+90 87 23 52 1
+90 87 151 169 1
+90 88 23 25 1
+90 89 23 25 1
+90 90 23 25 1
+90 91 23 25 1
+90 92 23 25 1
+90 93 23 25 1
+90 94 23 25 1
+90 95 23 25 1
+90 96 23 33 1
+90 97 23 33 1
+91 77 23 33 1
+91 78 23 33 1
+91 79 23 25 1
+91 80 23 25 1
+91 81 23 25 1
+91 82 23 25 1
+91 83 23 25 1
+91 84 23 25 1
+91 85 23 25 1
+91 86 23 25 1
+91 87 23 25 1
+91 87 150 151 1
+91 88 23 25 1
+91 89 23 25 1
+91 90 23 25 1
+91 91 23 25 1
+91 92 23 25 1
+91 93 23 25 1
+91 94 23 25 1
+91 95 23 25 1
+91 96 23 33 1
+91 97 23 33 1
+92 77 23 33 1
+92 78 23 33 1
+92 79 23 25 1
+92 80 23 25 1
+92 81 23 25 1
+92 82 23 25 1
+92 83 23 25 1
+92 84 23 25 1
+92 85 23 25 1
+92 86 23 25 1
+92 87 23 25 1
+92 87 52 53 1
+92 88 23 25 1
+92 89 23 25 1
+92 90 23 25 1
+92 91 23 25 1
+92 92 23 25 1
+92 93 23 25 1
+92 94 23 25 1
+92 95 23 25 1
+92 96 23 33 1
+92 97 23 33 1
+93 77 23 33 1
+93 78 23 33 1
+93 79 23 25 1
+93 80 23 25 1
+93 81 23 25 1
+93 82 23 25 1
+93 83 23 25 1
+93 84 23 25 1
+93 85 23 25 1
+93 86 23 25 1
+93 87 23 25 1
+93 87 149 150 1
+93 88 23 25 1
+93 89 23 25 1
+93 90 23 25 1
+93 91 23 25 1
+93 92 23 25 1
+93 93 23 25 1
+93 94 23 25 1
+93 95 23 25 1
+93 96 23 33 1
+93 97 23 33 1
+94 77 23 33 1
+94 78 23 33 1
+94 79 23 25 1
+94 80 23 25 1
+94 81 23 25 1
+94 82 23 25 1
+94 83 23 25 1
+94 84 23 25 1
+94 85 23 25 1
+94 86 23 25 1
+94 87 23 25 1
+94 87 53 54 1
+94 88 23 25 1
+94 89 23 25 1
+94 90 23 25 1
+94 91 23 25 1
+94 92 23 25 1
+94 93 23 25 1
+94 94 23 25 1
+94 95 23 25 1
+94 96 23 33 1
+94 97 23 33 1
+95 77 23 33 1
+95 78 23 33 1
+95 79 23 33 1
+95 80 23 25 1
+95 81 23 25 1
+95 82 23 25 1
+95 83 23 25 1
+95 84 23 25 1
+95 85 23 25 1
+95 86 23 25 1
+95 87 23 25 1
+95 87 148 149 1
+95 88 23 25 1
+95 89 23 25 1
+95 90 23 25 1
+95 91 23 25 1
+95 92 23 25 1
+95 93 23 25 1
+95 94 23 25 1
+95 95 23 33 1
+95 96 23 33 1
+95 97 23 33 1
+96 77 23 33 1
+96 78 23 33 1
+96 79 23 33 1
+96 80 23 25 1
+96 81 23 25 1
+96 82 23 25 1
+96 83 23 25 1
+96 84 23 25 1
+96 85 23 25 1
+96 86 23 25 1
+96 87 23 25 1
+96 87 54 55 1
+96 88 23 25 1
+96 89 23 25 1
+96 90 23 25 1
+96 91 23 25 1
+96 92 23 25 1
+96 93 23 25 1
+96 94 23 25 1
+96 95 23 33 1
+96 96 23 33 1
+96 97 23 33 1
+97 78 23 33 1
+97 79 23 33 1
+97 80 23 25 1
+97 81 23 25 1
+97 82 23 25 1
+97 83 23 25 1
+97 84 23 25 1
+97 85 23 25 1
+97 86 23 25 1
+97 87 23 25 1
+97 87 147 148 1
+97 88 23 25 1
+97 89 23 25 1
+97 90 23 25 1
+97 91 23 25 1
+97 92 23 25 1
+97 93 23 25 1
+97 94 23 25 1
+97 95 23 33 1
+97 96 23 33 1
+98 78 23 33 1
+98 79 23 33 1
+98 80 23 25 1
+98 81 23 25 1
+98 82 23 25 1
+98 83 23 25 1
+98 84 23 25 1
+98 85 23 25 1
+98 86 23 25 1
+98 87 23 25 1
+98 87 55 56 1
+98 88 23 25 1
+98 89 23 25 1
+98 90 23 25 1
+98 91 23 25 1
+98 92 23 25 1
+98 93 23 25 1
+98 94 23 25 1
+98 95 23 33 1
+98 96 23 33 1
+99 78 23 33 1
+99 79 23 33 1
+99 80 23 33 1
+99 81 23 25 1
+99 82 23 25 1
+99 83 23 25 1
+99 84 23 25 1
+99 85 23 25 1
+99 86 23 25 1
+99 87 23 25 1
+99 87 146 147 1
+99 88 23 25 1
+99 89 23 25 1
+99 90 23 25 1
+99 91 23 25 1
+99 92 23 25 1
+99 93 23 25 1
+99 94 23 33 1
+99 95 23 33 1
+99 96 23 33 1
+100 78 23 33 1
+100 79 23 33 1
+100 80 23 33 1
+100 81 23 25 1
+100 82 23 25 1
+100 83 23 25 1
+100 84 23 25 1
+100 85 23 25 1
+100 86 23 25 1
+100 87 23 25 1
+100 87 56 57 1
+100 88 23 25 1
+100 89 23 25 1
+100 90 23 25 1
+100 91 23 25 1
+100 92 23 25 1
+100 93 23 25 1
+100 94 23 33 1
+100 95 23 33 1
+100 96 23 33 1
+101 79 23 33 1
+101 80 23 33 1
+101 81 23 25 1
+101 82 23 25 1
+101 83 23 25 1
+101 84 23 25 1
+101 85 23 25 1
+101 86 23 25 1
+101 87 23 25 1
+101 87 145 146 1
+101 88 23 25 1
+101 89 23 25 1
+101 90 23 25 1
+101 91 23 25 1
+101 92 23 25 1
+101 93 23 25 1
+101 94 23 33 1
+101 95 23 33 1
+102 79 23 33 1
+102 80 23 33 1
+102 81 23 33 1
+102 82 23 25 1
+102 83 23 25 1
+102 84 23 25 1
+102 85 23 25 1
+102 86 23 25 1
+102 87 23 25 1
+102 87 57 58 1
+102 88 23 25 1
+102 89 23 25 1
+102 90 23 25 1
+102 91 23 25 1
+102 92 23 25 1
+102 93 23 33 1
+102 94 23 33 1
+102 95 23 33 1
+103 79 23 33 1
+103 80 23 33 1
+103 81 23 33 1
+103 82 23 25 1
+103 83 23 25 1
+103 84 23 25 1
+103 85 23 25 1
+103 86 23 25 1
+103 87 23 25 1
+103 87 144 145 1
+103 88 23 25 1
+103 89 23 25 1
+103 90 23 25 1
+103 91 23 25 1
+103 92 23 25 1
+103 93 23 33 1
+103 94 23 33 1
+103 95 23 33 1
+104 80 23 33 1
+104 81 23 33 1
+104 82 23 33 1
+104 83 23 25 1
+104 84 23 25 1
+104 85 23 25 1
+104 86 23 25 1
+104 87 23 25 1
+104 87 58 59 1
+104 88 23 25 1
+104 89 23 25 1
+104 90 23 25 1
+104 91 23 25 1
+104 92 23 33 1
+104 93 23 33 1
+104 94 23 33 1
+105 80 23 33 1
+105 81 23 33 1
+105 82 23 33 1
+105 83 23 33 1
+105 84 23 25 1
+105 85 23 25 1
+105 86 23 25 1
+105 87 23 25 1
+105 87 143 144 1
+105 88 23 25 1
+105 89 23 25 1
+105 90 23 25 1
+105 91 23 33 1
+105 92 23 33 1
+105 93 23 33 1
+105 94 23 33 1
+106 81 23 33 1
+106 82 23 33 1
+106 83 23 33 1
+106 84 23 33 1
+106 85 23 25 1
+106 86 23 25 1
+106 87 23 25 1
+106 87 59 60 1
+106 88 23 25 1
+106 89 23 25 1
+106 90 23 33 1
+106 91 23 33 1
+106 92 23 33 1
+106 93 23 33 1
+107 82 23 33 1
+107 83 23 33 1
+107 84 23 33 1
+107 85 23 33 1
+107 86 23 33 1
+107 87 23 25 1
+107 87 142 143 1
+107 88 23 33 1
+107 89 23 33 1
+107 90 23 33 1
+107 91 23 33 1
+107 92 23 33 1
+108 82 23 33 1
+108 83 23 33 1
+108 84 23 33 1
+108 85 23 33 1
+108 86 23 33 1
+108 87 23 33 1
+108 87 60 61 1
+108 88 23 33 1
+108 89 23 33 1
+108 90 23 33 1
+108 91 23 33 1
+108 92 23 33 1
+109 84 23 33 1
+109 85 23 33 1
+109 86 23 33 1
+109 87 23 33 1
+109 87 141 142 1
+109 88 23 33 1
+109 89 23 33 1
+109 90 23 33 1
+110 86 23 33 1
+110 87 23 33 1
+110 87 61 62 1
+110 88 23 33 1
+111 87 140 141 1
+112 87 62 63 1
+113 87 139 140 1
+114 87 63 64 1
+115 87 138 139 1
+116 87 64 65 1
+117 87 137 138 1
+118 87 65 66 1
+119 87 136 137 1
+120 87 66 67 1
+121 87 135 136 1
+122 87 67 68 1
+123 87 134 135 1
+124 87 68 69 1
+125 87 133 134 1
+126 87 69 70 1
+127 87 132 133 1
+128 87 70 71 1
+129 87 131 132 1
+130 87 71 72 1
+131 87 130 131 1
+132 87 72 73 1
+133 87 129 130 1
+134 87 73 74 1
+135 87 128 129 1
+136 87 74 75 1
+137 87 127 128 1
+138 87 75 76 1
+139 87 126 127 1
+140 87 76 77 1
+141 87 125 126 1
+142 87 77 78 1
+143 87 124 125 1
+144 87 78 79 1
+145 87 123 124 1
+146 87 79 80 1
+147 87 122 123 1
+148 87 80 81 1
+149 87 121 122 1
+150 87 81 82 1
+151 87 120 121 1
+152 87 82 83 1
+153 87 119 120 1
+154 87 83 84 1
+155 87 118 119 1
+156 87 84 85 1
+157 87 117 118 1
+158 87 85 86 1
+159 87 116 117 1
+160 87 86 87 1
+161 87 115 116 1
+162 87 87 88 1
+163 87 114 115 1
+164 87 88 89 1
+165 87 113 114 1
+166 87 89 90 1
+167 87 112 113 1
+168 87 90 91 1
+169 87 111 112 1
+170 87 91 92 1
+171 87 110 111 1
+172 87 92 93 1
+173 87 109 110 1
+174 87 93 94 1
+175 87 108 109 1
+176 87 94 95 1
+177 87 107 108 1
+178 87 95 96 1
+179 87 106 107 1
+180 87 96 97 1
+181 87 105 106 1
+182 87 97 98 1
+183 87 104 105 1
+184 87 98 99 1
+185 87 103 104 1
+186 87 99 100 1
+187 87 102 103 1
+188 87 100 101 1
+189 87 101 102 1

@@ -7,6 +7,11 @@
 \usepackage{hyperref}	% Clickable links to figures, references and urls.
 \usepackage{graphicx}
 
+% Listings for wrapping code.
+\usepackage{listings}
+\lstset{breaklines=true}
+\lstset{basicstyle=\small\ttfamily}
+
 %Chapter 1 Introduction to FDTD
 %1. 1D Equations
 %2. 1D simple wave propagation
@@ -140,6 +145,7 @@ H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right]=H^{n-\frac{1}{2}}_y \left[k+\frac
 E^{n+1}_x \left[k\right]=E^{n}_x \left[k\right] + \dfrac{\Delta t}{\epsilon \Delta x} \left( H^{n+\frac{1}{2}}_y \left[k-\frac{1}{2}\right] - H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right] \right)
 \label{Ex-1D-Simple-FDTD-Driver}
 \end{equation}
+The FDTD code for this 1D simulation is given in appendix A and uses first order absorbing boundary condition (ABC).
 
 \section{Stability and Accuracy}
 

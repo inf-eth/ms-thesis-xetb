@@ -1,11 +1,14 @@
-\documentclass{report}
+\documentclass[10pt,A4paper]{report}
 \usepackage{amsmath}
+\usepackage{microtype}	% Font improvement for pdflatex.
 \usepackage{pgf}
 \usepackage{tikz}
 \usepackage{verbatim}
 \usepackage{url}
 \usepackage{hyperref}	% Clickable links to figures, references and urls.
+\usepackage{float}		% Floating figure placement.
 \usepackage{graphicx}
+\usepackage{subfigure}
 
 % Listings for wrapping code.
 \usepackage{listings}
@@ -165,9 +168,9 @@ S_c = \dfrac{c \Delta t}{\delta} \leq 1
 Here $S_c$ is known as the Courant number. It should be less than unity in order for a stable solution.
 
 \subsection{Wavelength and Cell Size}
-The size of wavelenght should be considerably greater than minimum spatial step. Normally wavelength is taken to be at least ten times the size of a single cell~\cite{Taflove2000}. It makes sense that there shouldn't be too much fluctuations between two spatial steps and wavelength should be spread over a reasonable number of cells.
+The size of wavelength should be considerably greater than minimum spatial step. Normally wavelength is taken to be at least ten times the size of a single cell~\cite{Taflove2000}. It makes sense that there shouldn't be too much fluctuations between two spatial steps and wavelength should be spread over a reasonable number of cells. Figure~\ref{Pulsewidth-comparison} shows different sizes of Gaussian pulses in a 1D simulation. Decreasing pulse width below 10 cells results in noticeable fluctuations and this can result in inaccurate results.
 
-\begin{figure}[here]
+\begin{figure}[H]
 %\centerline{\includegraphics[]{GPGPU}}
 \centering
 \begin{tikzpicture}
@@ -183,8 +186,46 @@ The size of wavelenght should be considerably greater than minimum spatial step.
 \label{Wavelength-Vs-Cell-Size}
 \end{figure}
 
-\chapter{FDTD Simulation of Metamaterials Using Dispersive Models}
-Debye, Drude and Lorentz dispersion models.
+% Reference for double figure: http://www.johndcook.com/blog/2009/01/14/how-to-display-side-by-side-figurs-in-latex/
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[Gaussian pulse of width 2]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth2.png}}\quad\subfigure[Gaussian pulse of width 4]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth4.png}}}\\
+\mbox{\subfigure[Gaussian pulse of width 8]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth8.png}}\quad\subfigure[Gaussian pulse of width 16]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth16.png}}}
+\caption{Comparison of pulse width}
+\label{Pulsewidth-comparison}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[$S_c = 1$]{\includegraphics[scale=0.4]{FigCh02_Stable1DFDTD.png}}\quad\subfigure[$S_c = 1.1$]{\includegraphics[scale=0.4]{FigCh02_Unstable1DFDTD.png}}}
+\caption{$S_c$ and stability of FDTD}
+\label{Unstable-FDTD}
+\end{figure}
+Inaccuracies may also result from inappropriate selection of spatial or time steps. Figure~\ref{Unstable-FDTD} shows that FDTD quickly becomes unstable if $S_c$ becomes greater than unity. Further to this, FDTD is inherently dispersive in nature and a pulse will spread as it travels over a period of time. While these inaccuracies cannot be completely eliminated, they can be reduced with proper selection of simulation parameters.
+
+\section{Grid Termination and Boundary Conditions}
+This section is a discussion on a number of grid termination conditions also known as boundary conditions. A graphical picture of different boundary conditions is given in figure~\ref{Boundary-Conditions}.
+\subsection{Perfect Electric Conductor (PEC)}
+Where electric field nodes are located at the outermost boundary these can be set to zero to simulate a PEC boundary. A wave incident on PEC will be completely reflected with a 180 degree phase shift.
+\subsection{Perfect Magnetic Conductor (PMC)}
+PMC is modelled by setting magnetic field nodes at edges set to zero. A PMC boundary will reflect incoming wave without any change in phase.
+\subsection{Continuous Boundary Condition (CBC)}
+In CBC incident waves will wrap around the and appear on the opposite edge. It is used to model the domain as a circular or continuous space. CBC boundary is implemented by incorporating the fields on edges in the FDTD update equations.
+\subsection{Absorbing Boundary Condition (ABC)}
+An ABC will completely absorb incident fields without any reflection. This is useful for antenna radiation and scattering problems. There are a number of techniques for modelling ABCs, most popular being perfectly matched layer or PML.
+
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Reflection from PMC]{\includegraphics[scale=0.2]{FigCh02_PMC_Reflected.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Reflection from PEC]{\includegraphics[scale=0.2]{FigCh02_PEC_Reflected.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Continuous boundary (CBC)]{\includegraphics[scale=0.2]{FigCh02_CBC.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Absorbing boundary (ABC)]{\includegraphics[scale=0.2]{FigCh02_ABC.png}}}
+\caption{Boundary Conditions: Incident wave is moving towards right.}
+\label{Boundary-Conditions}
+\end{figure}
+
+\chapter{FDTD Implementation of Metamaterials Using Dispersive Models}
+\section{Limitations of Standard FDTD Algorithm}
 
 \section{Using the Drude Dispersive Model}
 Using Drude model values of plasma frequencies for regions corresponding to given values of $\epsilon$ and $\mu$ are specified. The FDTD methods requires some modification~\cite{Radial-Zhao}.

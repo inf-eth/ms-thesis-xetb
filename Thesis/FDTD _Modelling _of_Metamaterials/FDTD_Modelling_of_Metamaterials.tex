@@ -37,6 +37,8 @@
 
 \begin{document}
 
+\pagenumbering{roman}
+
 % Title Page.
 \input{FDTD_Title}
 
@@ -50,11 +52,14 @@ Attique Dawood\\[0.2in]
 \include{FDTD_Certification}
 
 \tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Page}\par}	% Ref: http://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/
 \listoffigures
 
 \begin{abstract}
 The Finite Difference Time-Domain method is a differential numerical technique for solving electromagnetic wave scattering problems. In order to model metamaterials with negative refractive index the standard algorithm is modified as implementation of the Drude dispersion model. Suitable values of plasma frequency ($\omega_p$) are chosen to model the metamaterial cloaking structure following the treatment of~\cite{Radial-Zhao}. The lossless case of electromagnetic cloak is implemented using a graphics processing unit (GPU). Simulation performance on Matlab, C++ and GPU is analysed.
 \end{abstract}
+
+\pagenumbering{arabic}
 
 \chapter{Introduction}
 \section{Metamaterials}
@@ -209,8 +214,8 @@ This section is a discussion on a number of grid termination conditions also kno
 Where electric field nodes are located at the outermost boundary these can be set to zero to simulate a PEC boundary. A wave incident on PEC will be completely reflected with a 180 degree phase shift.
 \subsection{Perfect Magnetic Conductor (PMC)}
 PMC is modelled by setting magnetic field nodes at edges set to zero. A PMC boundary will reflect incoming wave without any change in phase.
-\subsection{Continuous Boundary Condition (CBC)}
-In CBC incident waves will wrap around the and appear on the opposite edge. It is used to model the domain as a circular or continuous space. CBC boundary is implemented by incorporating the fields on edges in the FDTD update equations.
+\subsection{Periodic Boundary Condition (PBC)}
+In PBC incident waves will wrap around the and appear on the opposite edge. It is used to model the domain as a circular or continuous space. PBC boundary is implemented by incorporating the fields on edges in the FDTD update equations.
 \subsection{Absorbing Boundary Condition (ABC)}
 An ABC will completely absorb incident fields without any reflection. This is useful for antenna radiation and scattering problems. There are a number of techniques for modelling ABCs, most popular being perfectly matched layer or PML.
 
@@ -218,13 +223,14 @@ An ABC will completely absorb incident fields without any reflection. This is us
 \centering
 \mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Reflection from PMC]{\includegraphics[scale=0.2]{FigCh02_PMC_Reflected.png}}}
 \mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Reflection from PEC]{\includegraphics[scale=0.2]{FigCh02_PEC_Reflected.png}}}
-\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Continuous boundary (CBC)]{\includegraphics[scale=0.2]{FigCh02_CBC.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Periodic boundary (PBC)]{\includegraphics[scale=0.2]{FigCh02_PBC.png}}}
 \mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Absorbing boundary (ABC)]{\includegraphics[scale=0.2]{FigCh02_ABC.png}}}
 \caption{Boundary Conditions: Incident wave is moving towards right.}
 \label{Boundary-Conditions}
 \end{figure}
 
 \chapter{FDTD Implementation of Metamaterials Using Dispersive Models}
+
 \section{Limitations of Standard FDTD Algorithm}
 
 \section{Using the Drude Dispersive Model}

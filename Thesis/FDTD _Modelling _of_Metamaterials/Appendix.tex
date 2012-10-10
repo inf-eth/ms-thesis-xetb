@@ -47,7 +47,7 @@ end
 
 \end{lstlisting}
 
-\chapter{1D FDTD Demonstrating CBC}
+\chapter{1D FDTD Demonstrating PBC}
 \begin{lstlisting}
 % Simulation parameters.
 SIZE = 1024; % No. of spatial steps
@@ -74,12 +74,12 @@ tic
 for q = 2:MaxTime
     % Calculation of Hy using update difference equation for Hy. This is time step q.
     Hy(1:SIZE-1,q) = Hy(1:SIZE-1,q-1) + ( ( Ez(2:SIZE,q-1) - Ez(1:SIZE-1,q-1) ) * dt/(u0*dx) );
-    % CBC for H at SIZE.
+    % PBC for H at SIZE.
     Hy(SIZE,q) = Hy(SIZE,q-1) + ( ( Ez(1,q-1) - Ez(SIZE,q-1) ) * dt/(u0*dx) );
     
     % Calculation of Ez using updated difference equation for Ez. This is time step q+1/2.
     Ez(2:SIZE,q) = Ez(2:SIZE, q-1) + ( dt/(e0*dx)*(Hy(2:SIZE, q) - Hy(1:SIZE-1, q)) );
-    % CBC for E at 1.
+    % PBC for E at 1.
     Ez(1,q) = Ez(1,q-1) + ( dt/(e0*dx)*(Hy(1, q) - Hy(SIZE, q)) );
     
     % Activating a plane-wave source.

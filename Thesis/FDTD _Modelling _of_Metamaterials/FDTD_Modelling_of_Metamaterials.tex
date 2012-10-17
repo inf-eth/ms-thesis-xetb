@@ -232,8 +232,9 @@ An ABC will completely absorb incident fields without any reflection. This is us
 \chapter{FDTD Implementation of Metamaterials Using Dispersive Models}
 
 \section{Limitations of Standard FDTD Algorithm}
+Standard FDTD algorithm cannot cater for negative values of permittivity or permeability. This is because of the Courant stability criterion. As soon as the permeability or permittivity becomes less than unity the algorithm will not remain stable. A metamaterial object can be modelled as a dispersive substance using either the Lorentz or Drude dispersive models. These models can yield negative values of permittivity for certain frequency ranges.~\cite{NumericalFDTD-Sibel}. Using these dispersive models, FDTD update equations are modified and permittivity and permeabilities are replaced with terms dependent on plasma ($\omega_p$) and collision ($\gamma$) frequencies.
 
-\section{Using the Drude Dispersive Model}
+\section{Drude Dispersive Model}
 Using Drude model values of plasma frequencies for regions corresponding to given values of $\epsilon$ and $\mu$ are specified. The FDTD methods requires some modification~\cite{Radial-Zhao}.
 
 \chapter{FDTD Modelling of Lossless Cylindrical Cloak}

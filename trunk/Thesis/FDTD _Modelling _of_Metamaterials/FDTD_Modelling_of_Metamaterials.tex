@@ -232,10 +232,38 @@ An ABC will completely absorb incident fields without any reflection. This is us
 \chapter{FDTD Implementation of Metamaterials Using Dispersive Models}
 
 \section{Limitations of Standard FDTD Algorithm}
-Standard FDTD algorithm cannot cater for negative values of permittivity or permeability. This is because of the Courant stability criterion. As soon as the permeability or permittivity becomes less than unity the algorithm will not remain stable. A metamaterial object can be modelled as a dispersive substance using either the Lorentz or Drude dispersive models. These models can yield negative values of permittivity for certain frequency ranges.~\cite{NumericalFDTD-Sibel}. Using these dispersive models, FDTD update equations are modified and permittivity and permeabilities are replaced with terms dependent on plasma ($\omega_p$) and collision ($\gamma$) frequencies.
+Standard FDTD algorithm cannot cater for negative values of permittivity or permeability. This is because of the Courant stability criterion. As soon as the permeability or permittivity becomes less than unity the algorithm will not remain stable. A metamaterial object can be modelled as a dispersive substance using either the Lorentz or Drude dispersive models. These models can yield negative values of permittivity (or permeability) for certain frequency ranges~\cite{NumericalFDTD-Sibel}. Using these dispersive models, FDTD update equations are modified and permittivity and permeabilities are replaced with terms dependent on frequency of operation ($\omega$).
 
 \section{Drude Dispersive Model}
-Using Drude model values of plasma frequencies for regions corresponding to given values of $\epsilon$ and $\mu$ are specified. The FDTD methods requires some modification~\cite{Radial-Zhao}.
+In ideal conditions the permittivity (and permeability) of a material remain constant for any frequency and throughout the structure of that material. Speed of electromagnetic waves in such a medium remain constant if frequency changes. Additionally, there is no loss in energy as the waves pass through the medium. 
+
+In reality, such a material does not exist. Speed of EM waves varies with frequency of operation. Also, there is a loss associated with the material. A material is dispersive if its permittivity or permeability is dependent on frequency~\cite[Ch. 10]{JBSchneiderUFDTD}.
+
+This section follows the treatment of~\cite[Ch. 10, 289--290]{JBSchneiderUFDTD} for deriving permittivity relationship given by Drude model. The Drude model is described by the following second order differential equation that relates the net force on charges moving under the influence of an electric field and facing an impeding force due to collisions with material.
+\begin{equation}
+\centering
+M\dfrac{d^2 \textbf{x}}{dt^2} = Q \textbf{E}(t) - Mg\dfrac{d \textbf{x}}{dt}
+\label{Drude-Model-Second-Order-DE}
+\end{equation}
+The left side of this equation gives mass times acceleration or the net force on charge. Here $M$ is the mass of charge, $Q$ the amount of charge, $\textbf{E}(t)$ is electric field that may vary with time and $g$ is the damping coefficient. Equation~\ref{Drude-Model-Second-Order-DE} can be converted to frequency domain using the relationships, $\frac{\partial ^2}{\partial t^2} \rightarrow (j\omega)^2$ and $\frac{\partial}{\partial t} \rightarrow j\omega$ obtaining,
+\begin{equation}
+\centering
+M(j\omega)^2\hat{\textbf{x}}(\omega)+Mg(j\omega)\hat{\textbf{x}}(\omega)=Q\hat{\textbf{E}}(\omega)
+\label{Drude-Model-Second-Order-DE-Frequency-Domain}
+\end{equation}
+The polarization vector $\textbf{P}$ is given by,
+\begin{equation}
+\centering
+\hat{\textbf{P}}=NQ\hat{\textbf{x}}
+\label{Polarization}
+\end{equation}
+Where, $N$ is the number of dipoles per unit volume. By eliminating $\hat{\textbf{x}}$ from equations~\ref{Drude-Model-Second-Order-DE-Frequency-Domain} and~\ref{Polarization} and rearranging terms we can express polarization as,
+\begin{equation}
+\centering
+\hat{\textbf{P}}(\omega)=-\epsilon_0\dfrac{\frac{NQ^2}{M\epsilon_0}}{\omega^2-jg\omega}\hat{\textbf{E}}(\omega)
+\label{Polarization-Frequency-Domain}
+\end{equation}
+%Using Drude model values of plasma frequencies for regions corresponding to given values of $\epsilon$ and $\mu$ are specified. The FDTD methods requires some modification~\cite{Radial-Zhao}.
 
 \chapter{FDTD Modelling of Lossless Cylindrical Cloak}
 \section{Problem Specification}

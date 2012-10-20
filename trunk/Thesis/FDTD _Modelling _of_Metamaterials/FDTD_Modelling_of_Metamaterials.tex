@@ -245,7 +245,7 @@ This section follows the treatment of~\cite[Ch. 10, 289--290]{JBSchneiderUFDTD} 
 M\dfrac{d^2 \textbf{x}}{dt^2} = Q \textbf{E}(t) - Mg\dfrac{d \textbf{x}}{dt}
 \label{Drude-Model-Second-Order-DE}
 \end{equation}
-The left side of this equation gives mass times acceleration or the net force on charge. Here $M$ is the mass of charge, $Q$ the amount of charge, $\textbf{E}(t)$ is electric field that may vary with time and $g$ is the damping coefficient. Equation~\ref{Drude-Model-Second-Order-DE} can be converted to frequency domain using the relationships, $\frac{\partial ^2}{\partial t^2} \rightarrow (j\omega)^2$ and $\frac{\partial}{\partial t} \rightarrow j\omega$ obtaining,
+The left side of this equation gives mass times acceleration or the net force on charge. Here $M$ is the mass of charge, $Q$ the amount of charge, $\textbf{E}(t)$ is electric field that may vary with time and $g$ is the damping coefficient. Equation~\ref{Drude-Model-Second-Order-DE} can be converted to frequency domain using the relationships $\frac{\partial ^2}{\partial t^2} \rightarrow (j\omega)^2$ and $\frac{\partial}{\partial t} \rightarrow j\omega$, obtaining,
 \begin{equation}
 \centering
 M(j\omega)^2\hat{\textbf{x}}(\omega)+Mg(j\omega)\hat{\textbf{x}}(\omega)=Q\hat{\textbf{E}}(\omega)
@@ -257,12 +257,31 @@ The polarization vector $\textbf{P}$ is given by,
 \hat{\textbf{P}}=NQ\hat{\textbf{x}}
 \label{Polarization}
 \end{equation}
-Where, $N$ is the number of dipoles per unit volume. By eliminating $\hat{\textbf{x}}$ from equations~\ref{Drude-Model-Second-Order-DE-Frequency-Domain} and~\ref{Polarization} and rearranging terms we can express polarization as,
+Where, $N$ is the number of dipoles per unit volume. By eliminating $\hat{\textbf{x}}$ from equations~\ref{Drude-Model-Second-Order-DE-Frequency-Domain} and~\ref{Polarization} and rearranging terms polarization can be expressed as,
 \begin{equation}
 \centering
 \hat{\textbf{P}}(\omega)=-\epsilon_0\dfrac{\frac{NQ^2}{M\epsilon_0}}{\omega^2-jg\omega}\hat{\textbf{E}}(\omega)
 \label{Polarization-Frequency-Domain}
 \end{equation}
+By letting $\omega^2_p=\frac{NQ^2}{M\epsilon_0}$, the electric susceptibility is obtained for Drude model as,
+\begin{equation}
+\centering
+\hat{\chi_e}(\omega)=-\dfrac{\omega^2_p}{\omega^2-jg\omega}
+\label{Electric-Susceptibility-Drude}
+\end{equation}
+The relative permittivity in Drude model is expressed as,
+\begin{equation}
+\centering
+\hat{\epsilon_r}(\omega)=\epsilon_\infty-\dfrac{\omega^2_p}{\omega^2-jg\omega}
+\label{er-Drude}
+\end{equation}
+Setting $g=0$ and $\epsilon_\infty=1$, relative permittivity comes out to be negative for $\omega/\omega_p > 1$ (figure~\ref{DrudeModel_er}). Thus, Drude model can be effectively used to model metamaterials with permittivity or permeability less than one by incorporating it into FDTD update equations.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{FigCh03_DrudeModel_er.png}
+\caption{$\epsilon_r$ plotted against $\omega/\omega_p$ for $\epsilon_\infty=1$ and $g=0$}
+\label{DrudeModel_er}
+\end{figure}
 %Using Drude model values of plasma frequencies for regions corresponding to given values of $\epsilon$ and $\mu$ are specified. The FDTD methods requires some modification~\cite{Radial-Zhao}.
 
 \chapter{FDTD Modelling of Lossless Cylindrical Cloak}

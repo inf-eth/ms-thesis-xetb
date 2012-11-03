@@ -1,0 +1,12 @@
+% Introductory chapter.
+\chapter{Introduction}
+\section{Metamaterials}
+The concept of metamaterials was originally put forward by a Russian physicist Victor Veselago in the late 60's~\cite{Newelectronics-Metamaterial}. Metametrials are essentially substances with negative values of permeability and permittivity. These are artificially manufactured with certain structural geometry. Electromagnetic waves passing through these metamaterials will act differently compared to naturally occurring materials. The behaviour of these metamaterials can change with frequency of incident EM wave and may exhibit negative values of permittivity and permeability under certain conditions. Some applications of metamaterials are perfect lens, invisibility cloak and novel antenna designs.
+\section{Modelling Techniques}
+Metamaterials can be modelled using analytical or numerical techniques. For problems with simple geometry and symmetry analytical methods give exact solution. For complex structures and irregular geometries, numerical techniques can be applied. Numerical techniques in electromagnetics are generally classified as either differential or integral. Examples of integral techniques are method of moment (MoM) and finite element method (FEM), whereas, finite difference time-domain (FDTD) is a differential technique.
+\section{FDTD Modelling}
+Integral techniques usually involve solving for unknowns in the problem domain. The number of unknowns determine the computational time required. On the other hand, FDTD is a brute force method that requires the whole problem domain to be discretised and stored in computer memory. Thus, the amount of computer memory is a constraint in the case of FDTD. Conceptually, FDTD is easier compared to integral methods.
+\section{FDTD on Modern Hardware}
+In recent times computer memory has become extremely cheap and a large number of complex problems can be readily and easily modelled using FDTD. Moreover, the recent advent of multi-core CPUs (central processing unit) favour methods and algorithms that can take advantage of parallel processing. Since, FDTD is a data parallel algorithm it is ideal in such a scenario.
+
+In more recent times, GPUs (graphics processing units) with general purpose computing capabilities have arrived on the scene. These GPGPUs are in the order of 5--20 times faster than contemporary CPUs and are heavily multi-threaded. The goal of this thesis is to implement the classical cylindrical cloak on GPU using the FDTD method proposed in~\cite{Radial-Zhao}.

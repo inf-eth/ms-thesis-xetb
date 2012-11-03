@@ -1,0 +1,146 @@
+%\chapter{FDTD Modelling of Metamaterials}
+\chapter{Introduction to Finite Difference Time-Domain Technique}
+\section{The Yee Algorithm}
+The original algorithm was proposed by K. S. Yee in 1966~\cite{Yee1966}. The derivatives in Faraday's Law and Ampere's Law are replaced with difference equations. The whole problem space is discretised and divided into cells such that electric and magnetic fields are staggered at half spatial steps in unit cell. By advancing the simulation in time, future values of electric and magnetic field components are computed using past values. This chapter gives provides a brief treatment of FDTD in 1D and 2D. Wave propagation in free space and with a homogeneous scatterer are discussed using conventional and dispersive FDTD methods.
+\section{FDTD Update Equations in One Dimension (1D)}
+Faraday's Law and Ampere's Law in differential form are given by:
+\begin{equation}
+\centering
+\nabla \times \textbf{E} = - \dfrac{\partial \textbf{B}}{\partial t}
+\label{Faraday's Law}
+\end{equation}
+\begin{equation}
+\centering
+\nabla \times \textbf{H} = \dfrac{\partial \textbf{D}}{\partial t}
+\label{Ampere's Law}
+\end{equation}
+Assume electric field only has $x$-component, that is $E_x$, and magnetic field only has $y$-component $H_y$. The curl of electric field can be expanded as:
+\begin{equation}
+\centering
+\nabla \times \textbf{E} = - \mu \dfrac{\partial H_y}{\partial t} \hat{y} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ E_x & 0 & 0 \end{array} \right| = \dfrac{\partial E_x}{\partial z} \hat{y}
+\label{Faraday's Law-Curl-Expansion}
+\end{equation}
+Similarly, the curl of magnetic field can be written as:
+\begin{equation}
+\centering
+\nabla \times \textbf{H} = \epsilon \dfrac{\partial E_x}{\partial t} \hat{x} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 0 & H_y & 0 \end{array} \right| = - \dfrac{\partial H_y}{\partial z} \hat{x}
+\label{Ampere's Law-Curl-Expansion}
+\end{equation}
+Rearranging terms,
+\begin{equation}
+\centering
+\dfrac{\partial H_y}{\partial t} = - \dfrac{1}{\mu} \dfrac{\partial E_x}{\partial z}
+\label{Faraday's Law-Curl-Expansion-1D}
+\end{equation}
+\begin{equation}
+\centering
+\dfrac{\partial E_x}{\partial t} = - \dfrac{1}{\epsilon} \dfrac{\partial H_y}{\partial z}
+\label{Ampere's Law-Curl-Expansion-1D}
+\end{equation}
+These two scalar equations drive the FDTD algorithm. First, magnetic field is calculated using equation~\ref{Faraday's Law-Curl-Expansion-1D} and then electric field (equation~\ref{Ampere's Law-Curl-Expansion-1D}) is calculated from the magnetic field obtained in~\ref{Faraday's Law-Curl-Expansion-1D}. Electric and magnetic fields are staggered at half time steps. Similarly, magnetic and electric fields in space are also spaced at half spatial steps. The algorithm is normally referred to as a leap--frog scheme.
+\begin{figure}[here]
+\centering
+%\includegraphics[width=\textwidth]{Algorithm.png}
+\caption{The Yee algorithm. Figure taken from~\cite{JBSchneiderUFDTD}}
+\label{Algorithm}
+\end{figure}
+By examining equations~\ref{Faraday's Law-Curl-Expansion-1D} and \ref{Ampere's Law-Curl-Expansion-1D} it can be intuitively observed that a wave with $E_x$ and $H_y$ components will propagate in $\hat{z}$ direction and space derivatives with respect to $z$ indicate variation of electric and magnetic fields in space along $z$-axis.
+
+These equations need to be discretised before they can be implemented as a computer simulation. Both the time and space derivatives are discretised to obtain difference equations. The difference equations for space and time derivatives use central difference scheme and expressed as,
+\begin{equation}
+\centering
+\dfrac{\partial F^n(x)}{\partial t} \equiv \dfrac{F^{n+\frac{1}{2}}(x)-F^{n-\frac{1}{2}}(x)}{\Delta t}
+\label{central-difference-time}
+\end{equation}
+\begin{equation}
+\centering
+\dfrac{\partial F^n(x)}{\partial x} \equiv \dfrac{F^n(x+\frac{1}{2})-F^n(x-\frac{1}{2})}{\Delta x}
+\label{central-difference-space}
+\end{equation}
+Following the treatment in chapter 3 of~\cite{JBSchneiderUFDTD}, electric and magnetic fields as functions of time and space can be written as,
+\begin{equation}
+\centering
+H_y (z,t)=H_y (k\Delta _z,n\Delta _t)=H^n_y[k]
+\label{Hy-of-z_and_t}
+\end{equation}
+\begin{equation}
+\centering
+E_x (z,t)=E_x (k\Delta _z,n\Delta _t)=E^n_x[k]
+\label{Ex-of-z_and_t}
+\end{equation}
+The final equations for electric and magnetic fields driving the FDTD algorithm are,
+\begin{equation}
+\centering
+H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right]=H^{n-\frac{1}{2}}_y \left[k+\frac{1}{2}\right] + \dfrac{\Delta t}{\mu \Delta x} \left( E^{n}_x \left[k\right] - E^{n}_x \left[k+1\right] \right)
+\label{Hy-1D-Simple-FDTD-Driver}
+\end{equation}
+\begin{equation}
+\centering
+E^{n+1}_x \left[k\right]=E^{n}_x \left[k\right] + \dfrac{\Delta t}{\epsilon \Delta x} \left( H^{n+\frac{1}{2}}_y \left[k-\frac{1}{2}\right] - H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right] \right)
+\label{Ex-1D-Simple-FDTD-Driver}
+\end{equation}
+The FDTD code for this 1D simulation is given in appendix A and uses first order absorbing boundary condition (ABC).
+\section{Stability and Accuracy}
+\subsection{Courant Stability Criterion}
+Stability of the FDTD method is governed by the temporal time step $\Delta t$. If it is too large then the simulation would become unstable. In FDTD the fields exist at discrete locations. In one iteration or temporal step, energy should not propagate any further than the neighbouring field or node. This is known as the Courant Stability Criterion and is expressed as,
+\begin{equation}
+\centering
+c \Delta t \leq \left[ \dfrac{1}{\Delta x^2} + \dfrac{1}{\Delta y^2} + \dfrac{1}{\Delta z^2} \right]^{-\frac{1}{2}}
+\label{Courant-Stability-Criterion}
+\end{equation}
+For the case where spatial differentials are equal (denoted by $\delta$), this reduces to,
+\begin{equation}
+\centering
+S_c = \dfrac{c \Delta t}{\delta} \leq 1
+\label{Courant-Stability-Criterion-Equal-Differentials}
+\end{equation}
+Here $S_c$ is known as the Courant number. It should be less than unity in order for a stable solution.
+\subsection{Wavelength and Cell Size}
+The size of wavelength should be considerably greater than minimum spatial step. Normally wavelength is taken to be at least ten times the size of a single cell~\cite{Taflove2000}. It makes sense that there shouldn't be too much fluctuations between two spatial steps and wavelength should be spread over a reasonable number of cells. Figure~\ref{Pulsewidth-comparison} shows different sizes of Gaussian pulses in a 1D simulation. Decreasing pulse width below 10 cells results in noticeable fluctuations and this can result in inaccurate results.
+\begin{figure}[H]
+%\centerline{\includegraphics[]{GPGPU}}
+\centering
+\begin{tikzpicture}
+	\draw[thick] (0cm, 0cm) rectangle (4cm, 4cm);
+	\foreach \x in {5cm, 6cm, 7cm, 8cm}
+		\draw[thick] (\x, 0cm) rectangle (\x + 1 cm, 4cm);
+	\draw (0,3.5) cos (4,0.5);
+	\draw (5,3.5) cos (9,0.5);
+\end{tikzpicture}
+\caption{Wavelength and cell size}
+\label{Wavelength-Vs-Cell-Size}
+\end{figure}
+% Reference for double figure: http://www.johndcook.com/blog/2009/01/14/how-to-display-side-by-side-figurs-in-latex/
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[Gaussian pulse of width 2]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth2.png}}\quad\subfigure[Gaussian pulse of width 4]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth4.png}}}\\
+\mbox{\subfigure[Gaussian pulse of width 8]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth8.png}}\quad\subfigure[Gaussian pulse of width 16]{\includegraphics[scale=0.4]{FigCh02_Pulsewidth16.png}}}
+\caption{Comparison of pulse width}
+\label{Pulsewidth-comparison}
+\end{figure}
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[$S_c = 1$]{\includegraphics[scale=0.4]{FigCh02_Stable1DFDTD.png}}\quad\subfigure[$S_c = 1.1$]{\includegraphics[scale=0.4]{FigCh02_Unstable1DFDTD.png}}}
+\caption{$S_c$ and stability of FDTD}
+\label{Unstable-FDTD}
+\end{figure}
+Inaccuracies may also result from inappropriate selection of spatial or time steps. Figure~\ref{Unstable-FDTD} shows that FDTD quickly becomes unstable if $S_c$ becomes greater than unity. Further to this, FDTD is inherently dispersive in nature and a pulse will spread as it travels over a period of time. While these inaccuracies cannot be completely eliminated, they can be reduced with proper selection of simulation parameters.
+\section{Grid Termination and Boundary Conditions}
+This section is a discussion on a number of grid termination conditions also known as boundary conditions. A graphical picture of different boundary conditions is given in figure~\ref{Boundary-Conditions}.
+\subsection{Perfect Electric Conductor (PEC)}
+Where electric field nodes are located at the outermost boundary these can be set to zero to simulate a PEC boundary. A wave incident on PEC will be completely reflected with a 180 degree phase shift.
+\subsection{Perfect Magnetic Conductor (PMC)}
+PMC is modelled by setting magnetic field nodes at edges set to zero. A PMC boundary will reflect incoming wave without any change in phase.
+\subsection{Periodic Boundary Condition (PBC)}
+In PBC incident waves will wrap around the and appear on the opposite edge. It is used to model the domain as a circular or continuous space. PBC boundary is implemented by incorporating the fields on edges in the FDTD update equations.
+\subsection{Absorbing Boundary Condition (ABC)}
+An ABC will completely absorb incident fields without any reflection. This is useful for antenna radiation and scattering problems. There are a number of techniques for modelling ABCs, most popular being perfectly matched layer or PML.
+\begin{figure}[H]
+\centering
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Reflection from PMC]{\includegraphics[scale=0.2]{FigCh02_PMC_Reflected.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Reflection from PEC]{\includegraphics[scale=0.2]{FigCh02_PEC_Reflected.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Periodic boundary (PBC)]{\includegraphics[scale=0.2]{FigCh02_PBC.png}}}
+\mbox{\subfigure[Incident wave]{\includegraphics[scale=0.2]{FigCh02_Incident_Wave.png}}\quad\subfigure[Absorbing boundary (ABC)]{\includegraphics[scale=0.2]{FigCh02_ABC.png}}}
+\caption{Boundary Conditions: Incident wave is moving towards right.}
+\label{Boundary-Conditions}
+\end{figure}

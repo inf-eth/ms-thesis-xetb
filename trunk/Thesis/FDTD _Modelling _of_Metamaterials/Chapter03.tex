@@ -123,16 +123,17 @@ D^{n+1}_x=D^n_x+\dfrac{\Delta t}{\Delta z}\left(H^{n+1}_{y-1}-H^{n+1}_y\right)
 \label{1D-D-Update-Equation}
 \end{equation}
 Equations \ref{1D-B-Update-Equation} and \ref{1D-D-Update-Equation} drive the FDTD algorithm which give future values of $By$ and $Dx$ from past fields. Equations \ref{2nd-order-B-H-final-form} and \ref{2nd-order-D-E-final-form} are auxiliary equations which give future fields $H_y$ and $E_x$ at $n+1$.
-\section{Implementation of 1D DNG Slab}
+\section{Simulation of 1D DNG Slab}
 \subsection{Problem Specification}
 An electromagnetic wave travelling in $z$ direction is incident on a slab with negative values of permittivity and permeability (DNG) at the frequency of operation \cite{DNG-Ehud-Ziol}. Sinusoidal wave, Gaussian pulse and Ricker wavelet are used as sources. Transmission and reflection coefficients are calculated at the air-slab interface. Refractive index of slab for a range of frequencies is also computed. By varying parameters, the simulation can be scaled to any desired frequency or wavelength.
-
+\subsection{Implementation Details}
 There are three main phases in the implementation:
 \begin{enumerate}
 \item Initialisation
 \item Simulation
 \item Post-processing
 \end{enumerate}
+Figure \ref{1D-DNG-Algorithm} depicts the flow of program.
 \subsection{Initialisation}
 In this phase, simulation parameters are specified. Simulation parameters are total number of spatial steps, time steps, wavelength and frequency of operation etc. Field arrays are then allocated and initialised. Any additional fields that are required for post-processing are also initialised. Arrays containing $g_m$, $g_e$, $\omega^2_{pm}$ and $\omega^2_{pe}$ must be initialised with values specified for each location in the domain.
 \subsection{Simulation}
@@ -146,4 +147,71 @@ A dry run must carried out without any obstacle if reflection coefficient is to 
 \end{enumerate}
 Electric field snapshots are saved at specified intervals during simulation and played-back as a movie after simulation ends. 
 \subsection{Post-processing}
-After the simulation ends, reflection and transmission coefficients are calculated at the air-slab interface. Refractive index is calculated in the slab. A time-domain movie of the simulation is played that shows incident field passing through the slab and undergoing dispersion.
+After the simulation ends, reflection and transmission coefficients are calculated at the air-slab interface. Refractive index is calculated in the slab. A time-domain movie of the simulation is played that shows incident wave passing through the slab and undergoing dispersion.
+\section{Simulation Results}
+
+\begin{figure}[htb]
+\centering
+\begin{tikzpicture}
+	% Initialisation.
+	\draw (5cm,0.1cm) node {\textsf{Initialisation}};
+	% Large dashed rectangle.
+	\draw[line width=1.2pt, rounded corners, dashed] (0cm,-0.2cm) rectangle (10cm,-3.4cm);
+	% Simulation parameters.
+	\draw[line width=1pt, rounded corners] (0.5cm,-0.4cm) rectangle (9.5cm,-1.2cm);
+	\draw (5cm,-0.8cm) node {\textsf{Initialise Simulation Parameters}};
+	% Allocate data arrays.
+	\draw[line width=1pt, rounded corners] (0.5cm,-1.4cm) rectangle (9.5cm,-2.2cm);
+	\draw (5cm,-1.8cm) node {\textsf{Allocate Data Arrays}};
+	% Initialise slab parameter arrays.
+	\draw[line width=1pt, rounded corners] (0.5cm,-2.4cm) rectangle (9.5cm,-3.2cm);
+	\draw (5cm,-2.8cm) node {\textsf{Initialise Slab Parameter Arrays}};
+	\draw[line width=1pt, ->, >=stealth] (5cm,-3.6cm) -- (5cm,-4.5cm);
+
+	% Simulation.
+	\draw (5cm,-4.9cm) node {\textsf{Simulation}};
+	% Large dashed rectangle.
+	\draw[line width=1.2pt, rounded corners, dashed] (0cm,-5.2cm) rectangle (10cm,-12.5cm);
+	% Dry run without obstacle.
+	\draw[line width=1pt, rounded corners] (0.5cm,-5.4cm) rectangle (9.5cm,-6.2cm);
+	\draw (5cm,-5.8cm) node {\textsf{Dry Run Without Obstacle}};
+	% Actual Simulation.
+	\draw[line width=1pt, rounded corners, dashed] (0.5cm,-6.7cm) rectangle (9.5cm,-12.3cm);
+	\draw (5cm,-6.5cm) node {\textsf{Actual Simulation}};
+	% Compute H fields.
+	\draw[line width=1pt, rounded corners] (1.0cm,-6.9cm) rectangle (8.0cm,-7.7cm);
+	\draw (4.5cm,-7.3cm) node {\textsf{Compute $B_y$ and $H_y$}};
+	% Compute E fields.
+	\draw[line width=1pt, rounded corners] (1.0cm,-7.9cm) rectangle (8.0cm,-8.7cm);
+	\draw (4.5cm,-8.3cm) node {\textsf{Compute $D_x$ and $E_x$}};
+	% Apply source.
+	\draw[line width=1pt, rounded corners] (1.0cm,-8.9cm) rectangle (8.0cm,-9.7cm);
+	\draw (4.5cm,-9.3cm) node {\textsf{Update Source}};
+	\draw[line width=1pt, ->, >=stealth] (4.5cm,-9.7cm) -- (4.5cm,-10.2cm);
+	% Diamond.
+	\draw[line width=1pt] (4.5cm,-10.2cm) -- (2.5cm,-11cm) -- (4.5cm,-11.8cm) -- (6.5cm,-10.9cm) -- cycle;
+	\draw (4.5cm,-11cm) node {\textsf{q = MaxTime?}};
+	% No?
+	\draw[line width=1pt, ->, >=stealth] (6.5cm,-10.9cm) -- (8.8cm,-10.9cm) -- (8.8cm,-7.2cm) -- (8.0cm,-7.2cm);
+	\draw (6.8cm,-10.7cm) node {\textsf{No}};
+	% Yes?
+	\draw[line width=1pt, ->, >=stealth] (4.5cm,-11.8cm) -- (4.5cm,-12.7cm) -- (5cm,-12.7cm) -- (5cm,-13.5cm);
+	\draw (4.8cm,-12.0cm) node {\textsf{Yes}};
+
+	% Post-processing.
+	\draw (5cm,-13.9cm) node {\textsf{Post-Processing}};
+	% Large dashed rectangle.
+	\draw[line width=1.2pt, rounded corners, dashed] (0cm,-14.2cm) rectangle (10cm,-17.4cm);
+	% Transmission/Reflection coefficient calculations.
+	\draw[line width=1pt, rounded corners] (0.5cm,-14.4cm) rectangle (9.5cm,-15.2cm);
+	\draw (5cm,-14.8cm) node {\textsf{Compute Transmission and Reflection Coefficients}};
+	% Refractive index calculations.
+	\draw[line width=1pt, rounded corners] (0.5cm,-15.4cm) rectangle (9.5cm,-16.2cm);
+	\draw (5cm,-15.8cm) node {\textsf{Compute Refractive Index of Slab}};
+	% Simulation movie.
+	\draw[line width=1pt, rounded corners] (0.5cm,-16.4cm) rectangle (9.5cm,-17.2cm);
+	\draw (5cm,-16.8cm) node {\textsf{Play Time-Domain Simulation Movie}};
+\end{tikzpicture}
+\caption{Simulation algorithm}
+\label{1D-DNG-Algorithm}
+\end{figure}

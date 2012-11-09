@@ -46,7 +46,7 @@ The relative permittivity in Drude model is expressed as,
 Setting $g=0$ and $\epsilon_\infty=1$, relative permittivity comes out to be negative for $\omega/\omega_p > 1$ (figure~\ref{DrudeModel_er}). Thus, Drude model can be effectively used to model metamaterials with permittivity or permeability less than one by incorporating it into FDTD update equations.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{FigCh03_DrudeModel_er.png}
+\includegraphics[scale=0.8, trim=4cm 8.5cm 4cm 8.5cm, clip]{FigCh03_DrudeModel_er.pdf}
 \caption{$\epsilon_r$ plotted against $\omega/\omega_p$ for $\epsilon_\infty=1$ and $g=0$}
 \label{DrudeModel_er}
 \end{figure}
@@ -115,17 +115,17 @@ Where,
 \end{eqnarray}
 For a wave propagating in $z$ direction, FDTD update equations are,
 \begin{equation}
-B^{n+1}_y=B^n_y+\dfrac{\Delta t}{\Delta z}\left(E^n_x-E^n_{x+1}\right)
+B^{n+1}_y(k)=B^n_y(k)+\dfrac{\Delta t}{\Delta z}\left(E^n_x(k)-E^n_x(k+1)\right)
 \label{1D-B-Update-Equation}
 \end{equation}
 \begin{equation}
-D^{n+1}_x=D^n_x+\dfrac{\Delta t}{\Delta z}\left(H^{n+1}_{y-1}-H^{n+1}_y\right)
+D^{n+1}_x(k)=D^n_x(k)+\dfrac{\Delta t}{\Delta z}\left(H^{n+1}_y(k-1)-H^{n+1}_y(k)\right)
 \label{1D-D-Update-Equation}
 \end{equation}
 Equations \ref{1D-B-Update-Equation} and \ref{1D-D-Update-Equation} drive the FDTD algorithm which give future values of $By$ and $Dx$ from past fields. Equations \ref{2nd-order-B-H-final-form} and \ref{2nd-order-D-E-final-form} are auxiliary equations which give future fields $H_y$ and $E_x$ at $n+1$.
 \section{Simulation of 1D DNG Slab}
 \subsection{Problem Specification}
-An electromagnetic wave travelling in $z$ direction is incident on a slab with negative values of permittivity and permeability (DNG) at the frequency of operation \cite{DNG-Ehud-Ziol}. Sinusoidal wave, Gaussian pulse and Ricker wavelet are used as sources. Transmission and reflection coefficients are calculated at the air-slab interface. Refractive index of slab for a range of frequencies is also computed. By varying parameters, the simulation can be scaled to any desired frequency or wavelength.
+An electromagnetic wave travelling in $z$ direction is incident on a slab with negative values of permittivity and permeability (DNG) at the frequency of operation \cite{DNG-Ehud-Ziol}. Sinusoidal wave, Gaussian pulse and Ricker wavelet are used as sources. Transmission and reflection coefficients are calculated at the air-slab interface. Refractive index of slab for a range of frequencies is also computed. By varying parameters, the simulation can be scaled to any desired frequency or wavelength. Matlab code of this simulation is given in appendix C.
 \subsection{Implementation Details}
 There are three main phases in the implementation:
 \begin{enumerate}
@@ -148,9 +148,7 @@ A dry run must carried out without any obstacle if reflection coefficient is to 
 Electric field snapshots are saved at specified intervals during simulation and played-back as a movie after simulation ends. 
 \subsection{Post-processing}
 After the simulation ends, reflection and transmission coefficients are calculated at the air-slab interface. Refractive index is calculated in the slab. A time-domain movie of the simulation is played that shows incident wave passing through the slab and undergoing dispersion.
-\section{Simulation Results}
-
-\begin{figure}[htb]
+\begin{figure}[htbp]
 \centering
 \begin{tikzpicture}
 	% Initialisation.
@@ -214,4 +212,66 @@ After the simulation ends, reflection and transmission coefficients are calculat
 \end{tikzpicture}
 \caption{Simulation algorithm}
 \label{1D-DNG-Algorithm}
+\end{figure}
+\section{Simulation Results}
+The simulation was run for both lossless and lossy cases with sinusoidal, Gaussian and Ricker wavelet sources. The slab parameters was set such that at frequency of operation, $f_0$, the permittivity and permeability of slab are both negative and resulted in a refractive index $n=-1$.
+\subsection{Simulation Parameters}
+The number of spatial steps was set as $4096$ and simulation was run for $4096$ time steps. The slab was located between steps $1365$ and $2731$. $\Delta z$ or spatial step was set as $3$ mm and time step, $\Delta t$, was set as $50$ ps. Frequency of operation was $f_0=0.1953125$ GHz and Courant number for this configuration was $S_c=0.5$. In order to obtain relative permittivity and permeability of $-1$ at required $f_0$, plasma frequencies were set as $\omega^2_{pm}=\omega^2_{pe}=2\times(2\pi f_0)^2$ with $\epsilon_\infty=\mu_\infty=1$.
+\subsection{Incident and Transmitted Fields}
+Simulation with Gaussian pulse revealed that low frequency components were reflected at the interface which was confirmed from the transmission and reflection coefficients obtained for the air-slab interface. At $f_0$, the transmission coefficient was $1$ and there were no reflections when a sinusoidal source with $f_0$ was incident on the slab. Under steady-state conditions, transmitted wave inside the slab had negative phase velocity while energy was propagating in $+\hat{z}$ direction as expected.
+\subsection{Refractive Index}
+Following \cite{DNG-Ehud-Ziol}, the refractive index was calculated from,
+\begin{equation}
+n_{FDTD} = \dfrac{1}{jk_0(z_1-z_2)}log\left|\dfrac{E_x(\omega,z_2)}{E_x(\omega,z_1)}\right|
+\label{Refractive-Index-FDTD}
+\end{equation}
+Where, $k_0$ was the wave number set as $\omega_0/c$ and the fields were recorded at locations $z_1=1415\Delta z$ and $z_2=1424\Delta z$. For both, Gaussian pulse and Ricker wavelet, $Re(n)$ was $-1$ at $f_0$ while $Im(n)$ was sufficiently close to $0$.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_IncidentFieldGaussian.pdf}
+\caption{Gaussian pulse}
+\label{1DDNG-IncidentField-Gaussian}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_IncidentFieldRicker.pdf}
+\caption{Ricker wavelet}
+\label{1DDNG-IncidentField-Ricker}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_IncidentFieldSinusoidal.pdf}
+\caption{Sinusoidal wave}
+\label{1DDNG-IncidentField-Sinusoidal}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_TransmissionReflectionCoefficient.pdf}
+\caption{Transmission and reflection coefficients}
+\label{1DDNG-Transmission-Reflection-Coefficient}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_TransmittedField.pdf}
+\caption{Transmitted Gaussian pulse}
+\label{1DDNG-Transmitted-Gaussian-Pulse}
+\end{figure}
+\begin{figure}[H]
+\centering
+\subfigure{\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_RefractiveIndex.pdf}}
+\subfigure{\includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{FigCh03_RefractiveIndexZoomed.pdf}}
+\caption{Refractive index}
+\label{1DDNG-Refractive-Index}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.78, trim=3.5cm 8.7cm 4.5cm 8.75cm, clip]{FigCh03_1DDNGSteadyStateLossless.pdf}
+\caption{Steady-state under lossless conditions}
+\label{1DDNG-SteadyState-Lossless}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.78, trim=3.5cm 8.7cm 4.5cm 8.75cm, clip]{FigCh03_1DDNGSteadyStateLossy.pdf}
+\caption{Steady-state under lossy conditions}
+\label{1DDNG-SteadyState-Lossy}
 \end{figure}

@@ -15,6 +15,9 @@
 \lstset{breaklines=true}
 \lstset{basicstyle=\small\ttfamily}
 
+% Figures folder.
+\graphicspath{{Figures/}}
+
 %Chapter 1 Introduction to FDTD
 %1. 1D Equations
 %2. 1D simple wave propagation
@@ -40,7 +43,7 @@
 \pagenumbering{roman}
 
 % Title Page.
-\input{FDTD_Title}
+\input{FDTDTitle}
 
 \begin{center}
 \copyright Copyright\\[0.2in]
@@ -49,7 +52,7 @@ Attique Dawood\\[0.2in]
 2012
 \end{center}
 
-\include{FDTD_Certification}
+\include{FDTDCertification}
 
 \tableofcontents
 \addtocontents{toc}{~\hfill\textbf{Page}\par}	% Ref: http://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/
@@ -71,7 +74,7 @@ The Finite Difference Time-Domain method is a differential numerical technique f
 % Bibliography
 \nocite{*}
 \bibliographystyle{ieeetr} %plain, ieeetr
-\bibliography{FDTD_Ref}
+\bibliography{FDTDRef}
 
 \appendix
 \include{Appendix}

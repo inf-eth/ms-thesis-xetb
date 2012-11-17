@@ -79,7 +79,7 @@ H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right]=H^{n-\frac{1}{2}}_y \left[k+\frac
 E^{n+1}_x \left[k\right]=E^{n}_x \left[k\right] + \dfrac{\Delta t}{\epsilon \Delta x} \left( H^{n+\frac{1}{2}}_y \left[k-\frac{1}{2}\right] - H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right] \right)
 \label{Ex-1D-Simple-FDTD-Driver}
 \end{equation}
-The FDTD code for this 1D simulation is given in appendix A and uses first order absorbing boundary condition (ABC).
+The FDTD code for this 1D simulation is given in appendix \ref{App:1DFDTDFreeSpaceMatlab} and uses first order absorbing boundary condition (ABC).
 \section{Stability and Accuracy}
 \subsection{Courant Stability Criterion}
 Stability of the FDTD method is governed by the temporal time step $\Delta t$. If it is too large then the simulation would become unstable. In FDTD the fields exist at discrete locations. In one iteration or temporal step, energy should not propagate any further than the neighbouring field or node. This is known as the Courant Stability Criterion and is expressed as,

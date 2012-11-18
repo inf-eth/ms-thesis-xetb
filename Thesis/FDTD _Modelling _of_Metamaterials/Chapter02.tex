@@ -1,5 +1,5 @@
 %\chapter{FDTD Modelling of Metamaterials}
-\chapter{Introduction to Finite Difference Time-Domain Technique}
+\chapter{Introduction to Finite Difference Time--Domain Technique}
 \section{The Yee Algorithm}
 The original algorithm was proposed by K. S. Yee in 1966~\cite{Yee1966}. The derivatives in Faraday's Law and Ampere's Law are replaced with difference equations. The whole problem space is discretised and divided into cells such that electric and magnetic fields are staggered at half spatial steps in unit cell. By advancing the simulation in time, future values of electric and magnetic field components are computed using past values. This chapter gives provides a brief treatment of FDTD in 1D and 2D. Wave propagation in free space and with a homogeneous scatterer are discussed using conventional and dispersive FDTD methods.
 \section{FDTD Update Equations in One Dimension (1D)}
@@ -14,7 +14,7 @@ Faraday's Law and Ampere's Law in differential form are given by:
 \nabla \times \textbf{H} = \dfrac{\partial \textbf{D}}{\partial t}
 \label{Ampere's Law}
 \end{equation}
-Assume electric field only has $x$-component, that is $E_x$, and magnetic field only has $y$-component $H_y$. The curl of electric field can be expanded as:
+Assume electric field only has $x$--component, that is $E_x$, and magnetic field only has $y$--component $H_y$. The curl of electric field can be expanded as:
 \begin{equation}
 \centering
 \nabla \times \textbf{E} = - \mu \dfrac{\partial H_y}{\partial t} \hat{y} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ E_x & 0 & 0 \end{array} \right| = \dfrac{\partial E_x}{\partial z} \hat{y}
@@ -44,7 +44,7 @@ These two scalar equations drive the FDTD algorithm. First, magnetic field is ca
 \caption{The Yee algorithm. Figure taken from~\cite{JBSchneiderUFDTD}}
 \label{Algorithm}
 \end{figure}
-By examining equations~\ref{Faraday's Law-Curl-Expansion-1D} and \ref{Ampere's Law-Curl-Expansion-1D} it can be intuitively observed that a wave with $E_x$ and $H_y$ components will propagate in $\hat{z}$ direction and space derivatives with respect to $z$ indicate variation of electric and magnetic fields in space along $z$-axis.
+By examining equations~\ref{Faraday's Law-Curl-Expansion-1D} and \ref{Ampere's Law-Curl-Expansion-1D} it can be intuitively observed that a wave with $E_x$ and $H_y$ components will propagate in $\hat{z}$ direction and space derivatives with respect to $z$ indicate variation of electric and magnetic fields in space along $z$--axis.
 
 These equations need to be discretised before they can be implemented as a computer simulation. Both the time and space derivatives are discretised to obtain difference equations. The difference equations for space and time derivatives use central difference scheme and expressed as,
 \begin{equation}

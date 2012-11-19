@@ -1,8 +1,8 @@
 % 1D and 2D DNG on C++ and GPU
 \chapter{GPU Implementation of 1D and 2D DNG Slab}
-\section{GPU Programming Model}
-\subsection{Evolution of GPUs}
-The graphics processing unit or GPU was originally meant to act as a separate processor to handle graphics computations. With the evolution of 3D graphics arose a need for faster computing means to handle real--time graphics processing. The process of transforming a 3D scenario to a 2D image that can be displayed on a computer screen is known as \emph{rendering}. Rendering involves determining the exact colour or shade of each pixel and geometry calculations. In the earliest GPUs these were referred to as pixel and vertex shading. The GPUs had discrete processing units known as pixel and vertex shaders that performed these calculations. As an example, the nVidia's GeForce 6200 GPU had four pixel shaders and three vertex shaders \cite{Ref:Geforce6-wiki}. Table \ref{Tab:Eary-GPU-Comparison} provides a comparison of some typical GPUs. The number of pixel shaders are significantly greater than vertex shaders due to unequal workload.
+\section{GPU Programming Model\index{GPU!programming model}}
+\subsection{Evolution of GPUs\index{GPU!evolution}}
+With the evolution of 3D graphics arose a need for faster computing means to handle real--time graphics processing. The graphics processing unit or GPU\index{GPU} was originally meant to act as a separate processor to handle graphics computations. The process of transforming a 3D scenario to a 2D image that can be displayed on a computer screen is known as \emph{rendering}\index{render}. Rendering involves determining the exact colour or shade of each pixel and geometry calculations. In the earliest GPUs these were referred to as pixel\index{shader!pixel} and vertex\index{shader!vertex} shading. The GPUs had discrete processing units known as pixel and vertex shaders that performed these calculations. As an example, the nVidia's\index{nVidia} GeForce 6200 GPU had four pixel shaders and three vertex shaders \cite{Ref:Geforce6-wiki}. Table \ref{Tab:Eary-GPU-Comparison} provides a comparison of some typical GPUs. The number of pixel shaders are significantly greater than vertex shaders due to unequal workload.
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
@@ -20,22 +20,22 @@ The graphics processing unit or GPU was originally meant to act as a separate pr
 \label{Tab:Eary-GPU-Comparison}
 \caption{Comparison of some early GPUs}
 \end{table}
-\subsection{Unified Shader Architecture}
-GPUs were already far ahead of contemporary CPUs in terms of computation power when the first line of these new GPUs based on unified shader model arrived in 2005 \cite{Ref:Unified-Shader-Architecture-devmaster.net}. In the unified shader model shading units are not confined to just pixel or vertex calculations. They can operate on any \emph{shader instruction} \cite{Ref:Unified-Shader-Model-wiki}. Each shader is capable of doing same set of defined arithmetic calculations. It was possible to use GPU as a general-purpose computing device.
+\subsection{Unified Shader Architecture\index{unified shader!architecture}}
+GPUs\index{GPU} were already far ahead of contemporary CPUs\index{CPU} in terms of computation power when the first line of these new GPUs based on unified shader model\index{unified shader!architecture} arrived in 2005 \cite{Ref:Unified-Shader-Architecture-devmaster.net}. In the unified shader model\index{unified shader!model} shading units are not confined to just pixel or vertex calculations. They can operate on any \emph{shader instruction}\index{shader!instruction} \cite{Ref:Unified-Shader-Model-wiki}. Each shader is capable of doing same set of defined arithmetic calculations. It was possible to use GPU as a general-purpose computing device\index{GPU!general purpose (GPGPU)}.
 
-Major GPU manufacturers, nVidia and AMD/ATi provide application programming interface (API) and software development kits (SDKs) to program their GPUs. CUDA or compute unified device architecture is the API provided by nVidia to program their GPUs. Additionally, an open standard OpenCL has evolved for GPU computing that has been adopted by both nVidia and AMD/ATi. AMD/ATi API is based on OpenCL standard.
+Major GPU manufacturers, nVidia\index{nVidia} and AMD/ATi\index{AMD/ATi} provide application programming interface (API)\index{API} and software development kits (SDKs)\index{SDK} to program their GPUs. CUDA\index{CUDA} or compute unified device architecture is the API provided by nVidia to program their GPUs. Additionally, an open standard OpenCL\index{OpenCL} has evolved for GPU computing that has been adopted by both nVidia and AMD/ATi. AMD/ATi API is based on OpenCL standard.
 
 To take advantage of GPU acceleration a problem must have either task--parallel or data--parallel nature.
-\subsection{Task--Parallelism}
+\subsection{Task--Parallelism\index{parallelism!task}}
 In task--parallelism computation consist of several independent tasks that run concurrently. These tasks may be completely unrelated but the end result is dependent on their outputs. Consider summation of a series, where we want to compute the value of $e^x$ from Taylor series. The mathematical expression is given by
 \begin{equation}
 e^x = 1+\dfrac{x^1}{1!}+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\dfrac{x^4}{4!}+\dfrac{x^5}{5!}+\dfrac{x^6}{6!}+...+\dfrac{x^n}{n!}
 \label{eq:ex-Taylor-Series}
 \end{equation}
 
-A single--threaded conventional implementation would have to calculate all the terms one--by--one and then sum up the result in the end. However, in a multi--threaded implementation, each thread would calculate only one term. All the treads will perform their computation in parallel and the end result is then summed up. The computation--intensive task of calculating factorials and higher powers of $x$ is parallelised and results in significant reduction of computation time.
-\subsection{Data--Parallelism}
-In data--parallelism same operation is performed on individual elements of data. A simple example is that of scalar matrix multiplication. Consider an array of size $n$ being multiplied with a scalar constant $c$. The result of each multiplication can be calculated independently by assigning a separate thread for the task. This is illustrated in figure where input array is \texttt{A} and resultant array is \texttt{B}. Data--parallelism applies to any scenario where values in resultant data array only depends on values from input array. FDTD is a good example of data--parallelism and a GPU implementation can take advantage of accelerated computing.
+A single--threaded\index{threading!single} conventional implementation would have to calculate all the terms one--by--one and then sum up the result in the end. However, in a multi--threaded\index{threading!multi} implementation, each thread would calculate only one term. All the treads will perform their computation in parallel and the end result is then summed up. The computation--intensive task of calculating factorials and higher powers of $x$ is parallelised and results in significant reduction of computation time.
+\subsection{Data--Parallelism\index{parallelism!data}}
+In data--parallelism same operation is performed on individual elements of data. A simple example is that of scalar matrix multiplication. Consider an array of size $n$ being multiplied with a scalar constant $c$. The result of each multiplication can be calculated independently by assigning a separate thread for the task. This is illustrated in figure \ref{fig:Data-Parallelism} where input array is \texttt{A[]} and resultant array is \texttt{B[]}. Data--parallelism applies to any scenario where values in resultant data array only depends on values from input array. FDTD\index{FDTD!data--parallelism} is a good example of data--parallelism and a GPU implementation can take advantage of accelerated computing.
 \begin{figure}[H]
 \centering
 \subfigure[Single--threaded implementation]{
@@ -173,6 +173,19 @@ In data--parallelism same operation is performed on individual elements of data.
 \caption{Data--parallelism}
 \label{fig:Data-Parallelism}
 \end{figure}
-\section{Problem Specification}
-\section{Matlab Implementation}
-\section{C++ Implementation}
+\subsection{GPU Programming\index{GPU!programming}}
+The GPU\index{GPU!memory} has its own memory separate from that of CPU's and can only work on data stored in its own memory. Any data that is to be operated on must first be copied from CPU memory into GPU memory. A special function called \emph{kernel}\index{kernel} is invoked from CPU that is run on GPU and performs its calculations. Afterwards any required result or data is copied back to CPU memory for analysis. The whole process can be summarised as:
+\begin{enumerate}
+	\item Allocate space for input data in CPU memory.
+	\item Initialise input data.
+	\item Allocate space for input data in GPU memory.
+	\item Copy input data to GPU memory.
+	\item Invoke kernel that runs on GPU and performs computations on input data.
+	\item Copy output data back from GPU to CPU memory.
+	\item Post--processing\index{post--processing} and analysis of output data on CPU.
+\end{enumerate}
+\section{CPU/C++ Implementation}
+\section{GPU/C++ Implementation}
+\section{Results}
+\section{Performance Analysis}
+

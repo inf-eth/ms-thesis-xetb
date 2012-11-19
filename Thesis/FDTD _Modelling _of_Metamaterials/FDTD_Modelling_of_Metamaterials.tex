@@ -10,6 +10,7 @@
 \usepackage{float}		% Floating figure placement.
 \usepackage{graphicx}
 \usepackage{subfigure}
+\usepackage{makeidx}
 
 % Listings for wrapping code.
 \usepackage{listings}
@@ -18,6 +19,9 @@
 
 % Figures folder.
 \graphicspath{{Figures/}}
+
+% Index directive.
+\makeindex
 
 %Chapter 1 Introduction to FDTD
 %1. 1D Equations
@@ -60,7 +64,9 @@ Attique Dawood\\[0.2in]
 \listoffigures
 
 \begin{abstract}
-The Finite Difference Time--Domain method is a differential numerical technique for solving electromagnetic wave scattering problems. In order to model metamaterials with negative refractive index the standard algorithm is modified as implementation of the Drude dispersion model. Suitable values of plasma frequency ($\omega_p$) are chosen to model the metamaterial cloaking structure following the treatment of~\cite{Radial-Zhao}. The lossless case of electromagnetic cloak is implemented using a graphics processing unit (GPU). Simulation performance on Matlab, C++ and GPU is analysed.
+\setcounter{page}{6}
+\thispagestyle{plain}
+The Finite Difference Time--Domain\index{FDTD} method is a differential numerical technique for solving electromagnetic wave scattering problems. In order to model metamaterials\index{metamaterial} with negative refractive index the standard algorithm is modified as implementation of the Drude\index{dispersive model!Drude} dispersion model. Suitable values of plasma frequency ($\omega_p$) are chosen to model the metamaterial cloaking\index{cloak} structure following the treatment of~\cite{Radial-Zhao}. The lossless case of electromagnetic cloak is implemented using a graphics processing unit\index{GPU} (GPU). Simulation performance on Matlab\index{Matlab}, C++\index{C++} and GPU\index{GPU} is analysed.
 \end{abstract}
 
 \pagenumbering{arabic}
@@ -79,6 +85,7 @@ The Finite Difference Time--Domain method is a differential numerical technique 
 
 \appendix
 \include{Appendix}
+\printindex
 
 \end{document}
 

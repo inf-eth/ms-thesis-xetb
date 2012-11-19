@@ -1,13 +1,13 @@
 % Drude model implementation of 1D and 2D DNG.
 \chapter{FDTD Implementation of Metamaterials}
 \section{Limitations of Standard FDTD Algorithm}
-Standard FDTD algorithm cannot cater for negative values of permittivity or permeability. This is because of the Courant stability criterion. As soon as the permeability or permittivity becomes less than unity the algorithm will not remain stable. A metamaterial object can be modelled as a dispersive substance using either the Lorentz or Drude dispersive models. These models can yield negative values of permittivity (or permeability) for certain frequency ranges~\cite{NumericalFDTD-Sibel}. Using these dispersive models, FDTD update equations are modified and permittivity and permeabilities are replaced with terms dependent on frequency of operation ($\omega$).
+Standard FDTD\index{FDTD} algorithm cannot cater for negative values of permittivity or permeability. This is because of the Courant stability criterion\index{Courant stability criterion}. As soon as the permeability or permittivity becomes less than unity the algorithm will not remain stable. A metamaterial\index{metamaterial} object can be modelled as a dispersive substance using either the Lorentz\index{dispersive model!Lorentz} or Drude dispersive models\index{dispersive model!Drude}. These models can yield negative values of permittivity (or permeability) for certain frequency ranges~\cite{NumericalFDTD-Sibel}. Using these dispersive models, FDTD update equations\index{FDTD!update equations} are modified and permittivity and permeabilities are replaced with terms dependent on frequency of operation ($\omega$).
 \section{Drude Dispersive Model}
-In ideal conditions the permittivity (and permeability) of a material remain constant for any frequency and throughout the structure of that material. Speed of electromagnetic waves in such a medium remain constant if frequency changes. Additionally, there is no loss in energy as the waves pass through the medium. 
+In ideal conditions the permittivity (and permeability) of a material remain constant for any frequency and throughout the structure of that material. Speed of electromagnetic waves in such a medium remain constant if frequency changes. Additionally, there is no loss in energy as the waves pass through the medium.
 
-In reality, such a material does not exist. Speed of EM waves varies with frequency of operation. Also, there is a loss associated with the material. A material is dispersive if its permittivity or permeability is dependent on frequency~\cite[Ch. 10]{JBSchneiderUFDTD}.
+In reality, such a material does not exist. Speed of EM waves varies with frequency of operation. Also, there is a loss associated with the material. A material is dispersive\index{dispersive material} if its permittivity or permeability is dependent on frequency~\cite[Ch. 10]{JBSchneiderUFDTD}.
 
-This section follows the treatment of~\cite[Ch. 10, 289--290]{JBSchneiderUFDTD} for deriving permittivity relationship given by Drude model. The Drude model is described by the following second order differential equation that relates the net force on charges moving under the influence of an electric field and facing an impeding force due to collisions with material.
+This section follows the treatment of~\cite[Ch. 10, 289--290]{JBSchneiderUFDTD} for deriving permittivity relationship given by Drude model\index{dispersive model!Drude}. The Drude model is described by the following second order differential equation that relates the net force on charges moving under the influence of an electric field and facing an impeding force due to collisions\index{collision} with material.
 \begin{equation}
 \centering
 M\dfrac{d^2 \textbf{x}}{dt^2} = Q \textbf{E}(t) - Mg\dfrac{d \textbf{x}}{dt}
@@ -37,13 +37,13 @@ By letting $\omega^2_p=NQ^2/M\epsilon_0$, the electric susceptibility is obtaine
 \hat{\chi_e}(\omega)=-\dfrac{\omega^2_p}{\omega^2-jg\omega}.
 \label{Electric-Susceptibility-Drude}
 \end{equation}
-The relative permittivity in Drude model is then
+The relative permittivity in Drude model\index{Drude model $\epsilon_r(\omega)$} is then
 \begin{equation}
 \centering
 \hat{\epsilon_r}(\omega)=\epsilon_\infty-\dfrac{\omega^2_p}{\omega^2-jg\omega}.
 \label{er-Drude}
 \end{equation}
-Setting $g=0$ and $\epsilon_\infty=1$, relative permittivity comes out to be negative for $\omega/\omega_p > 1$ (figure~\ref{DrudeModel_er}). Thus, Drude model can be effectively used to model metamaterials with permittivity or permeability less than one by incorporating it into FDTD update equations.
+Setting $g=0$ and $\epsilon_\infty=1$, relative permittivity comes out to be negative for $\omega/\omega_p > 1$ (figure~\ref{DrudeModel_er}). Thus, Drude model can be effectively used to model metamaterials\index{metamaterial} with permittivity or permeability less than one by incorporating it into FDTD update equations.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8, trim=4cm 8.5cm 4cm 8.5cm, clip]{Figures/FigCh03_DrudeModel_er.pdf}
@@ -57,7 +57,7 @@ Here, the approach outlined in~\cite{Radial-Zhao} for derivation of FDTD auxilia
 \textbf{B} = \mu \textbf{H}.
 \label{B-mu-H}
 \end{equation}
-Where, $\mu = \mu_0 \mu_r$. For a lossless, homogeneous, anisotropic and dispersion--less material, relative permeability or $\mu_r$ is a scalar constant. For dispersive material $\mu_r$ is a function of frequency. Similar to equation~\ref{er-Drude}, relative permeability for Drude model is given by
+Where, $\mu = \mu_0 \mu_r$. For a lossless, homogeneous, anisotropic and dispersion--less material, relative permeability or $\mu_r$ is a scalar constant. For dispersive material $\mu_r$ is a function of frequency. Similar to equation~\ref{er-Drude}, relative permeability for Drude model\index{Drude model $\mu_r(\omega)$} is given by
 \begin{eqnarray}
 %\centering
 \nonumber \hat{\mu_r}(\omega)&=&\mu_\infty-\dfrac{\omega^2_p}{\omega^2-jg\omega}\\
@@ -76,7 +76,7 @@ and
 \omega^2\textbf{B}-g(j\omega)\textbf{B} = \mu_\infty\omega^2\textbf{H}-\omega^2_p\textbf{H}-\mu_\infty g(j\omega)\textbf{H}.
 \label{B-muomega-H-frequency-domain}
 \end{equation}
-Frequency domain quantities can be converted to time--domain using the relationships $j\omega \rightarrow \partial/\partial t$ and $\omega^2 \rightarrow - \partial^2/\partial t^2$. Moreover, fields multiplying with $\omega^2_p$ are averaged in time. Second--order difference scheme is used, both for single and double derivatives to keep all the terms in accordance with the second--order nature of whole expression. That would result in easier implementation. Assuming anisotropic nature of material, only $H_y$ and $B_y$ can be considered. Also, $\omega_{pm}$ and $\omega_{pe}$ are used for magnetic and electric field expressions instead of $\omega_p$, whereas, $g_m$ and $g_e$ are used for magnetic and electric collision frequencies, respectively.
+Frequency domain quantities can be converted to time--domain using the relationships $j\omega \rightarrow \partial/\partial t$ and $\omega^2 \rightarrow - \partial^2/\partial t^2$. Moreover, fields multiplying with $\omega^2_p$ are averaged in time. Second--order difference scheme is used, both for single and double derivatives to keep all the terms in accordance with the second--order nature of whole expression. That would result in easier implementation. Assuming anisotropic nature of material, only $H_y$ and $B_y$ can be considered. Also, $\omega_{pm}$ and $\omega_{pe}$ are used for magnetic and electric field expressions instead of $\omega_p$, whereas, $g_m$ and $g_e$ are used for magnetic and electric collision frequencies\index{collision!frequency ($\gamma$)}, respectively.
 \begin{eqnarray}
 \nonumber \left(\dfrac{B^{n+1}_y-2B^n_y+B^{n-1}_y}{(\Delta t)^2}\right) &+& g_m\left(\dfrac{B^{n+1}_y-B^{n-1}_y}{2\Delta t}\right) =\\
 \nonumber &&\mu_0\mu_\infty\left(\dfrac{H^{n+1}_y-2H^n_y+H^{n-1}_y}{(\Delta t)^2}\right)\\
@@ -99,7 +99,7 @@ Where,
 \nonumber & e_m=\dfrac{\mu_0\mu_\infty g_m\left(2\Delta t\right)}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty g_m \left(2\Delta t\right)}.
 \label{1D-Drude-H-scalars}
 \end{eqnarray}
-A similar derivation can be carried out to obtain the auxiliary update equation for electric field given by
+A similar derivation can be carried out to obtain the auxiliary update equation\index{FDTD!auxiliary update equation} for electric field given by
 \begin{eqnarray}
 \nonumber E^{n+1}_x &=& a_e\left(D^{n+1}_x-2D^n_x+D^{n-1}_x\right)+b_e\left(D^{n+1}_x-D^{n-1}_x\right)\\
 &&+c_e\left(2E^n_x-E^{n-1}_x\right)+d_e\left(2E^n_x+E^{n-1}_x\right)+e_e E^{n-1}_x.
@@ -114,7 +114,7 @@ Where
 \nonumber & e_e=\dfrac{\epsilon_0\epsilon_\infty g_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty g_e \left(2\Delta t\right)}.
 \label{1D-Drude-E-scalars}
 \end{eqnarray}
-For a wave propagating in $z$ direction, FDTD update equations are
+For a wave propagating in $z$ direction, FDTD update equations\index{FDTD!update equations} are
 \begin{equation}
 B^{n+1}_y(k)=B^n_y(k)+\dfrac{\Delta t}{\Delta z}\left(E^n_x(k)-E^n_x(k+1)\right)
 \label{1D-B-Update-Equation}
@@ -127,7 +127,7 @@ D^{n+1}_x(k)=D^n_x(k)+\dfrac{\Delta t}{\Delta z}\left(H^{n+1}_y(k-1)-H^{n+1}_y(k
 Equations \ref{1D-B-Update-Equation} and \ref{1D-D-Update-Equation} drive the FDTD algorithm which give future values of $By$ and $Dx$ from past fields. Equations \ref{2nd-order-B-H-final-form} and \ref{2nd-order-D-E-final-form} are auxiliary equations which give future fields $H_y$ and $E_x$ at $n+1$.
 \section{Simulation of 1D DNG Slab}
 \subsection{Problem Specification}
-An electromagnetic wave travelling in $z$ direction is incident on a slab with negative values of permittivity and permeability (DNG) at the frequency of operation \cite{DNG-Ehud-Ziol}. Sinusoidal wave, Gaussian pulse and Ricker wavelet are used as sources. Transmission and reflection coefficients are calculated at the air--slab interface. Refractive index of slab for a range of frequencies is also computed. By varying parameters, the simulation can be scaled to any desired frequency or wavelength. Matlab code of this simulation is given in appendix \ref{App:1DFDTDDNGMatlab}.
+An electromagnetic wave travelling in $z$ direction is incident on a slab with negative values of permittivity and permeability (DNG)\index{DNG} at the frequency of operation \cite{DNG-Ehud-Ziol}. Sinusoidal wave\index{source!sinusoidal}, Gaussian pulse\index{source!Gaussian pulse} and Ricker wavelet\index{source!Ricker wavelet} are used as sources. Transmission\index{coefficient!transmission ($\tau$)} and reflection\index{coefficient!reflection ($\Gamma$)} coefficients are calculated at the air--slab interface. Refractive index of slab\index{refractive index ($n$)} for a range of frequencies is also computed. By varying parameters, the simulation can be scaled to any desired frequency or wavelength. Matlab\index{Matlab} code of this simulation is given in appendix \ref{App:1DFDTDDNGMatlab}.
 \subsection{Implementation Details}
 There are three main phases in the implementation:
 \begin{enumerate}
@@ -137,9 +137,9 @@ There are three main phases in the implementation:
 \end{enumerate}
 Figure \ref{1D-DNG-Algorithm} depicts the flow of program.
 \subsection{Initialisation}
-In this phase, simulation parameters are specified. Simulation parameters are total number of spatial steps, time steps, wavelength and frequency of operation etc. Field arrays are then allocated and initialised. Any additional fields that are required for post--processing are also initialised. Arrays containing $g_m$, $g_e$, $\omega^2_{pm}$ and $\omega^2_{pe}$ must be initialised with values specified for each location in the domain.
+In this phase, simulation parameters are specified. Simulation parameters are total number of spatial steps, time steps, wavelength and frequency of operation etc. Field arrays are then allocated and initialised. Any additional fields that are required for post--processing\index{post--processing} are also initialised. Arrays containing $g_m$, $g_e$, $\omega^2_{pm}$ and $\omega^2_{pe}$ must be initialised with values specified for each location in the domain.
 \subsection{Simulation}
-A dry run must carried out without any obstacle if reflection coefficient is to be calculated in order to record the incident field where obstacle is to be placed. The actual simulation consists of five steps:
+A dry run\index{dry run} must be carried out without any obstacle if reflection coefficient is to be calculated in order to record the incident field where obstacle is to be placed. The actual simulation consists of five steps:
 \begin{enumerate}
 \item Compute future value of $B_y$ from past values of $B_y$ and $E_x$ (equation \ref{1D-B-Update-Equation}).
 \item Compute future value of $H_y$ from $B_y$ calculated in step 1 (equation \ref{2nd-order-B-H-final-form}).
@@ -216,18 +216,18 @@ After the simulation ends, reflection and transmission coefficients are calculat
 \label{1D-DNG-Algorithm}
 \end{figure}
 \section{Simulation Results}
-The simulation was run for both lossless and lossy cases with sinusoidal, Gaussian and Ricker wavelet sources. The slab parameters was set such that at frequency of operation, $f_0$, the permittivity and permeability of slab are both negative and resulted in a refractive index $n=-1$.
+The simulation is run for both lossless and lossy cases with sinusoidal\index{source!sinusoidal}, Gaussian\index{source!Gaussian pulse} and Ricker\index{source!Ricker wavelet} wavelet sources. The slab parameters are set such that at frequency of operation, $f_0$, the permittivity and permeability of slab are both negative and result in a refractive index $n=-1$.
 \subsection{Simulation Parameters}
-The number of spatial steps was set as $4096$ and simulation was run for $4096$ time steps. The slab was located between steps $1365$ and $2731$. $\Delta z$ or spatial step was set as $3$ mm and time step, $\Delta t$, was set as $50$ ps. Frequency of operation was $f_0=0.1953125$ GHz and Courant number for this configuration was $S_c=0.5$. In order to obtain relative permittivity and permeability of $-1$ at required $f_0$, plasma frequencies were set as $\omega^2_{pm}=\omega^2_{pe}=2\times(2\pi f_0)^2$ with $\epsilon_\infty=\mu_\infty=1$. First order absorbing boundary condition (ABC) was applied on fields at end points.
+The number of spatial steps is set as $4096$ and simulation is run for $4\times 4096$ time steps. The slab is located between steps $1365$ and $2731$. $\Delta z$ or spatial step is set as $3$ mm and time step, $\Delta t$, is set as $50$ ps. Frequency of operation is $f_0=0.1953125$ GHz and Courant number\index{Courant number ($S_c$)} for this configuration comes out to be $S_c=0.5$. In order to obtain relative permittivity and permeability of $-1$ at required $f_0$, plasma frequencies are set as $\omega^2_{pm}=\omega^2_{pe}=2\times(2\pi f_0)^2$ with $\epsilon_\infty=\mu_\infty=1$. First order absorbing boundary condition (ABC) are applied on fields at end points.
 \subsection{Incident and Transmitted Fields}
-Simulation with Gaussian pulse revealed that low frequency components were reflected at the interface which was confirmed from the transmission and reflection coefficients obtained for the air--slab interface. At $f_0$, the transmission coefficient was $1$ and there were no reflections when a sinusoidal source with $f_0$ was incident on the slab. Under steady--state conditions, transmitted wave inside the slab had negative phase velocity while energy was propagating in $+\hat{z}$ direction as expected.
+Simulation with Gaussian pulse\index{source!Gaussian pulse} reveals that low frequency components are reflected at the interface which is confirmed from the transmission and reflection coefficients obtained for the air--slab interface. At $f_0$, the transmission coefficient is $1$ and there are no reflections when a sinusoidal source\index{source!sinusoidal} with $f_0$ is incident on the slab. Under steady--state conditions, transmitted wave inside the slab has negative phase velocity while energy is propagating in $+\hat{z}$ direction as expected.
 \subsection{Refractive Index}
-Following \cite{DNG-Ehud-Ziol}, the refractive index was calculated from
+Following \cite{DNG-Ehud-Ziol}, the refractive index\index{refractive index ($n$)} was calculated from
 \begin{equation}
 n_{FDTD} = \dfrac{1}{jk_0(z_1-z_2)}log\left|\dfrac{E_x(\omega,z_2)}{E_x(\omega,z_1)}\right|.
 \label{Refractive-Index-FDTD}
 \end{equation}
-Where, $k_0$ was the wave number set as $\omega_0/c$ and the fields were recorded at locations $z_1=1415\Delta z$ and $z_2=1424\Delta z$. For both, Gaussian pulse and Ricker wavelet, $Re(n)$ was $-1$ at $f_0$ while $Im(n)$ was sufficiently close to $0$.
+Where, $k_0$ was the wave number\index{wave number ($k_0$)} set as $\omega_0/c$ and the fields were recorded at locations $z_1=1415\Delta z$ and $z_2=1424\Delta z$. For both, Gaussian\index{source!Gaussian pulse} pulse and Ricker\index{source!Ricker wavelet} wavelet, $Re(n)$ was $-1$ at $f_0$ while $Im(n)$ was sufficiently close to $0$.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.8, trim=3.5cm 8.7cm 4.5cm 8.85cm, clip]{Figures/FigCh03_IncidentFieldGaussian.pdf}
@@ -285,7 +285,7 @@ Where, $k_0$ was the wave number set as $\omega_0/c$ and the fields were recorde
 \end{figure}
 \section{Simulation of 2D DNG Slab}
 \subsection{Update Equations}
-The most common 2D configurations are $TE^z$ or $TM^z$ polarization where the problem space is confined to $xy$--plane. In $TE^z$, electric field components are transverse to $z$--axis and vice versa. For 2D simulation of DNG slab, $TM^z$ polarization is assumed. The field components of interest would be $E_z$, $H_x$ and $H_y$. From equations \ref{Faraday's Law} and \ref{Ampere's Law},
+The most common 2D configurations are $TE^z$\index{polarisation!$TE^z$} or $TM^z$\index{polarisation!$TM^z$} polarisation where the problem space is confined to $xy$--plane. In $TE^z$, electric field components are transverse to $z$--axis and vice versa. For 2D simulation of DNG slab, $TM^z$ polarisation is assumed. The field components of interest would be $E_z$, $H_x$ and $H_y$. From equations \ref{Faraday's Law} and \ref{Ampere's Law},
 \begin{equation}
 \nabla \times \textbf{E} = -\dfrac{\partial \textbf{B}}{\partial t} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 0 & 0 & E_z \end{array} \right| = \dfrac{\partial E_z}{\partial y} \hat{x} - \dfrac{\partial E_z}{\partial x} \hat{y}
 \label{eq:Faraday'sLawExpansionTMz}
@@ -309,7 +309,7 @@ and
 \dfrac{\partial B_y}{\partial t} = \dfrac{\partial E_z}{\partial x}.
 \label{eq:partialofBybyt}
 \end{equation}
-FDTD update equations are obtained by discretising equations \ref{eq:partialofDzbyt}, \ref{eq:partialofBxbyt} and \ref{eq:partialofBybyt}, given by
+FDTD update equations are obtained by discretising equations\index{FDTD!update equations} \ref{eq:partialofDzbyt}, \ref{eq:partialofBxbyt} and \ref{eq:partialofBybyt}, given by
 \begin{equation}
 \begin{split}
 D^{n+1}_z \left[i,j\right]=D^{n}_z \left[i,j\right]+\dfrac{\Delta t}{\Delta}&\left(H^{n+\frac{1}{2}}_y\left[i+\frac{1}{2},j\right]-H^{n+\frac{1}{2}}_y \left[i-\frac{1}{2},j\right]\right.\\
@@ -326,9 +326,9 @@ and
 B^{n+\frac{1}{2}}_y \left[i+\frac{1}{2},j\right]=B^{n-\frac{1}{2}}_y \left[i+\frac{1}{2},j\right] + \dfrac{\Delta t}{\Delta} \left( E^{n}_z \left[i+1,j\right] - E^{n}_z \left[i,j\right] \right).
 \label{eq:By-2D-FDTD-TMz}
 \end{equation}
-It is important to note here that DNG slab medium is assumed anisotropic. The auxiliary update equations (\ref{2nd-order-B-H-final-form} and \ref{2nd-order-D-E-final-form}) to obtain electric and magnetic fields, $E_v$ and $H_v$ ($v\in x,y,z$), from corresponding flux densities, $D_v$ and $B_v$, remain unchanged.
+It is important to note here that DNG slab medium is assumed anisotropic. The auxiliary update equations\index{FDTD!auxiliary update equation} (\ref{2nd-order-B-H-final-form} and \ref{2nd-order-D-E-final-form}) to obtain electric and magnetic fields, $E_v$ and $H_v$ ($v\in x,y,z$), from corresponding flux densities, $D_v$ and $B_v$, remain unchanged.
 \subsection{Simulation Geometry}
-The DNG slab interface is perpendicular to incident plane wave propagating in $+y$ direction. Periodic boundary conditions (PBC) are applied at $x=0$ and $x=x_{max}$. In $y$ direction the grid is terminated at both ends by perfectly matched layer (PML) to absorb any incoming waves. The solution geometry is depicted in figure \ref{fig:2D-DNG-Geometry}. The arrangement of field nodes is shown in figure \ref{fig:2D-DNG-Field-Nodes}.  Magnetic field components are updated first and then used to update electric field.
+The DNG slab interface is perpendicular to incident plane wave\index{plane wave} propagating in $+y$ direction. Periodic boundary conditions (PBC)\index{boundary condition!periodic (PBC)} are applied at $x=0$ and $x=x_{max}$. In $y$ direction the grid is terminated at both ends by perfectly matched layer (PML)\index{boundary condition!PML} to absorb any incoming waves. The solution geometry is depicted in figure \ref{fig:2D-DNG-Geometry}. The arrangement of field nodes is shown in figure \ref{fig:2D-DNG-Field-Nodes}.  Magnetic field components are updated first and then used to update electric field.
 
 The solution space is bounded in $y$ direction at both ends by $H_x$ which acts as the boundary for PML. $H_x$ at these end points is set to 0 so that any out--going fields are reflected back into PML. Essentially, the $j$ size of $H_x$ arrays is one greater than $H_y$ and $E_z$ arrays. This arrangement results in following update equations that can be directly programmed, taking into account discrete indices for field storage.
 \begin{equation}
@@ -347,9 +347,9 @@ B^{n+1}_y \left[i,j\right]=B^n_y \left[i,j\right] + \dfrac{\Delta t}{\Delta} \le
 \label{eq:By-2D-FDTD-TMz-Corrected}
 \end{equation}
 \subsection{Simulation Parameters and Results}
-The solution space is 512 cells in both $x$ and $y$ directions without taking into account the width of PML, which is 50 cells wide. The plane wave source is located 10 cells from the lower PML layer. The spatial and temporal steps are set as $\Delta x=\Delta y=\Delta=3$ mm and $\Delta t=50$ ps, respectively; with a Courant number of 0.5. Frequency of operation is $f_0=1.5625$ GHz. The DNG slab parameters are same as in the case of 1D DNG simulation.
+The solution space is 512 cells in both $x$ and $y$ directions without taking into account the width of PML, which is 50 cells wide. The plane wave source is located 10 cells from the lower PML layer. The spatial and temporal steps are set as $\Delta x=\Delta y=\Delta=3$ mm and $\Delta t=50$ ps, respectively; with a Courant number of 0.5\index{Courant number ($S_c$)}. Frequency of operation is $f_0=1.5625$ GHz. The DNG slab parameters are same as in the case of 1D DNG simulation.
 
-Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index obtained for a range of frequencies with a Gaussian pulse excitation. Again, real part of refractive index at $f_0$ is close to -1, whereas, imaginary part is close to 0. Figure \ref{fig:2DDNG-SteadyState-Lossy} shows sinusoidal steady--state under lossy conditions where the source is located towards left and incident plane wave is moving rightwards. Under lossless conditions the slab can act as a perfect lens (figure \ref{fig:2DDNG-Slab-lens}).
+Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index\index{refractive index ($n$)} obtained for a range of frequencies with a Gaussian pulse excitation. Again, real part of refractive index at $f_0$ is close to -1, whereas, imaginary part is close to 0. Figure \ref{fig:2DDNG-SteadyState-Lossy} shows sinusoidal steady--state\index{steady--state} under lossy conditions where the source is located towards left and incident plane wave is moving rightwards. Under lossless conditions the slab can act as a perfect lens\index{perfect lens} (figure \ref{fig:2DDNG-Slab-lens}).
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}

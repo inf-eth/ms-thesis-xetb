@@ -394,7 +394,7 @@ Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index\index{refract
 \centering
 \begin{tikzpicture}
 	\newcommand{\LeftX}{0cm}
-	\newcommand{\RightX}{6cm}
+	\newcommand{\RightX}{5cm}
 	\newcommand{\LowY}{0cm}
 	\newcommand{\HighY}{5.5cm}
 	% x-axis.
@@ -404,9 +404,9 @@ Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index\index{refract
 	\draw[->, >=stealth] (\LeftX,\LowY) -- (\LeftX,\HighY);
 	\coordinate [label=above:$y$] (y-axis) at (\LeftX,\HighY+0.1cm);
 	% Drawing vertical grid lines.
-	\foreach \x in {1cm,2cm,3cm,4cm,5cm}
+	\foreach \x in {1cm,2cm,3cm,4cm}
 		\draw (\x,\LowY-0.1cm) -- (\x,\HighY-0.25cm); % Solid lines at +1 intervals.
-	\foreach \x in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm,5.5cm}
+	\foreach \x in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm}
 		\draw[dashed] (\x,\LowY) -- (\x,\HighY-0.25cm); % Dashed lines at 1/2 intervals.
 	% Drawing horizontal grid lines.
 	\foreach \y in {1cm,2cm,3cm,4cm,5cm}
@@ -414,20 +414,20 @@ Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index\index{refract
 	\foreach \y in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm}
 		\draw[dashed] (\LeftX,\y) -- (\RightX-0.25cm,\y); % Dashed lines at 1/2 intervals.
 	% Drawing nodes.
-	\foreach \x in {0cm,1cm,2cm,3cm,4cm,5cm}
+	\foreach \x in {0cm,1cm,2cm,3cm,4cm}
 		\foreach \y in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm}
 			\filldraw (\x,\y) circle (0.08cm); % Ez nodes.
-	\foreach \x in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm,5.5cm}
+	\foreach \x in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm}
 		\foreach \y in {0.5cm,1.5cm,2.5cm,3.5cm,4.5cm}
 			\node[fill=black,regular polygon, regular polygon sides=4,inner sep=0.05cm] at (\x,\y) {}; % Hy nodes.
-	\foreach \x in {0cm,1cm,2cm,3cm,4cm,5cm}
+	\foreach \x in {0cm,1cm,2cm,3cm,4cm}
 		\foreach \y in {0cm,1cm,2cm,3cm,4cm,5cm}
 			\node[fill=black,regular polygon, regular polygon sides=3,inner sep=0.04cm] at (\x,\y) {}; % Hx nodes.
 	% +1 Text for x-axis.
-	\foreach \x/\t in {0cm/0,1cm/1,2cm/2,3cm/3,4cm/4,5cm/5}
+	\foreach \x/\t in {0cm/0,1cm/1,2cm/2,3cm/3,4cm/4}
 		\coordinate [label=below:$\t$] (\t) at (\x,\LowY-0.2cm);
 	% 1/2 Text for x-axis.
-	\foreach \x/\t in {0.5cm/ ,1.5cm/1,2.5cm/2,3.5cm/3,4.5cm/4,5.5cm/5}
+	\foreach \x/\t in {0.5cm/ ,1.5cm/1,2.5cm/2,3.5cm/3,4.5cm/4}
 		\coordinate [label=below:{\tiny $\t\frac{1}{2}$}] (\t) at (\x,\LowY-0.2cm);
 	% +1 Text for y-axis.
 	\foreach \y/\t in {0cm/0,1cm/1,2cm/2,3cm/3,4cm/4,5cm/5}

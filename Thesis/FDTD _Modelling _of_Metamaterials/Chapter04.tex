@@ -17,8 +17,8 @@ With the evolution of 3D graphics arose a need for faster computing means to han
 	\hline \hline
 	\end{tabular}
 \end{center}
-\label{Tab:Eary-GPU-Comparison}
 \caption{Comparison of some early GPUs}
+\label{Tab:Eary-GPU-Comparison}
 \end{table}
 \subsection{Unified Shader Architecture\index{unified shader!architecture}}
 GPUs\index{GPU} were already far ahead of contemporary CPUs\index{CPU} in terms of computation power when the first line of these new GPUs based on unified shader model\index{unified shader!architecture} arrived in 2005 \cite{Ref:Unified-Shader-Architecture-devmaster.net}. In the unified shader model\index{unified shader!model} shading units are not confined to just pixel or vertex calculations. They can operate on any \emph{shader instruction}\index{shader!instruction} \cite{Ref:Unified-Shader-Model-wiki}. Each shader is capable of doing same set of defined arithmetic calculations. It was possible to use GPU as a general-purpose computing device\index{GPU!general purpose (GPGPU)}.
@@ -191,21 +191,22 @@ Code meant to run on CPU and GPU are compiled by different compilers; a C++ comp
 nVidia's CUDA compiler is capable of handling most C++ directives including classes and templates and can act as a standalone compiler when writing GPU applications. In case of OpenCL, any C++ compiler can be used where the GPU compiler is called from within as an OpenCL function call.
 \subsection{Object--Oriented Design and Class Methods}
 An object--oriented approach\index{object--oriented} requires dividing the problem into modules and sub--tasks that can be implemented as methods. Class definitions of 1D DNG implementation in CUDA and 2D DNG in OpenCL are given in appendix \ref{App:1D-DNG-Class-Definition-CUDA} and \ref{App:2D-DNG-Class-Definition-OpenCL}, respectively. The different class methods are explained in this sections.
-\subsubsection{Macros for Easy Array Access\index{macro}}
-Space for 2D or 3D array can be allocated as a 1D array where amount of space allocated is equal to product of dimensions of array. Position of an element in 1D array is a function of dimensions and indices. For example, space for a 3D array with dimensions \texttt{I}, \texttt{J} and \texttt{K} can be allocated as,
-\lstset{language=[ISO]C++, commentstyle=\color{green!50!black}, keywordstyle=\color{blue}}
+\subsubsection{Array Allocation and Indexing}
+Space for 2D or 3D array can be allocated as a 1D array where amount of space allocated is equal to product of dimensions of array. Position of an element in 1D array is a function of dimensions and indices. For example, space for a 3D array with dimensions \texttt{I}, \texttt{J} and \texttt{K} can be allocated as
+\lstset{language=[ISO]C++, commentstyle=\color{green!50!black}, keywordstyle=\color{blue}, stringstyle=\color{red!60!black}}
 \label{lst:3D-Array-Allocation}\index{array!allocation}
 \begin{lstlisting}[caption={3D array allocation}]
 int *Array3D;
 Array3D = new int[I*J*K];
 \end{lstlisting}
-Index \texttt{(i,j,k)} can accessed as,
+Index \texttt{(i,j,k)} can be accessed as
 \label{lst:3D-Array-Access}\index{array!access}
 \begin{lstlisting}[caption={Accessing elements of 3D array}]
 int Value = Array3D[i+(j*I)+(k*I*J)];
 \end{lstlisting}
-It is convenient to use macros for array access,
-\label{lst:Array=Access-Macro}
+\subsubsection{Using Macros for Array Indexing\index{macro}}
+Macros make it easier to write equations and also increases readability of code.
+\label{lst:Array-Access-Macro}
 \begin{lstlisting}[caption={Macro to access array elements}]
 #define Hy(i,j,n) Hy_[(i)+IHy*(j)+IHy*JHy*(n)]
 #define am0(i,j) am0_[(i)+IHx*(j)]
@@ -295,5 +296,87 @@ status = clEnqueueNDRangeKernel(
 					&events[0]);
 \end{lstlisting}
 \section{Results}
+
 \section{Performance Analysis}
+\subsection{Hardware and Software Set--up}
+Matlab, C++, CUDA and OpenCL implementations are tested with respect to space, time and space--time. Operating system, platform/configuration and compiler/toolchain for these implementations are listed in table \ref{Tab:OS-Platform/Configuration-Compiler/Toolchain-for-Testing}. Simulations use \verb|double| data type for arrays on 64 bit optimised platform. The CPU is an Intel Core 2 Duo E8400 @3.00 GHz with 4 GB RAM. For CUDA simulations, GPU is GTX 500 Ti with 192 shaders and 1 GB of memory. Visual C++ 2010 Express is the IDE used on 64 bit Windows 7. The flavour of linux is Fedora 14 64 bit. Hardware and software configuration is listed in table \ref{Tab:Hardware-Software-Configuration-for-Testing}.
+\begin{table}[H]
+\begin{center}
+\vspace{0.3cm}
+	\begin{tabular}{cccc}
+	\hline \hline
+		\rule{0pt}{2.6ex} \multirow{2}{*}{\textbf{API}} & \multirow{2}{*}{\textbf{OS}} & \textbf{Platform/} & \textbf{Compiler/}\\
+		& & \textbf{Configuration} & \textbf{Toolchain}\\
+		\hline
+		Matlab \rule{0pt}{2.6ex} & win, linux & x64 & NA\\
+		C++ & win, cygwin, linux & x64/O3 & VC++, gcc/g++\\
+		OpenCL & win, linux & x64/O3 & VC++, gcc/g++\\
+		CUDA & win, linux & x64/O3 & nvcc for win/linux\\
+	\hline \hline
+	\end{tabular}
+\end{center}
+\caption{Operating system, platform/configuration and compiler/toolchain used for performance testing}
+\label{Tab:OS-Platform/Configuration-Compiler/Toolchain-for-Testing}
+\end{table}
+\begin{table}[H]
+\begin{center}
+\vspace{0.3cm}
+	\begin{tabular}{ll}
+	\hline \hline
+		\textbf{CPU} \rule{0pt}{2.6ex}& Intel Core 2 Duo E8400 @3.00 GHz\\
+		\textbf{RAM} & 4.00 GB DDR2\\
+		\textbf{GPU} & nVidia Geforce GTX 550 Ti 1 GB\\
+		\textbf{Matlab} & 2010a 64 bit\\
+		\textbf{Linux} & Fedora 14 64 bit\\
+		\textbf{Windows} & Win7 64 bit\\
+		\textbf{Cygwin} & 64 bit on Win7\\
+	\hline \hline
+	\end{tabular}
+\end{center}
+\caption{Hardware and software used for performance testing}
+\label{Tab:Hardware-Software-Configuration-for-Testing}
+\end{table}
+\subsection{Spatial Performance Analysis}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+	\DrawAxes{array~size}{time~(sec)}
+	\GridOn
+	\TicksOn
+	\XAxisTextEven{}{2^2}{4}{6}{8}{10}
+	\YAxisTextEven{}{2}{4}{6}{8}{10}
+	\draw[red] (0cm,0cm) -- (1cm,0.5cm) -- (2cm,1.1cm) -- (3cm,1.4cm) -- (4cm,1.7cm) -- (5cm,2.6cm) -- (6cm,3.3cm) -- (7cm,5.5cm) -- (8cm,4cm) -- (9cm,4.8cm);
+	\DrawLegend
+\end{tikzpicture}
+\caption{Performance of 1D simulations with respect to space}
+\label{fig:Performance-1D-space}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\vspace{0.3cm}
+	\begin{tabular}{ccccc}
+	\hline \hline
+		\rule{0pt}{2.6ex} \multirow{2}{*}{\textbf{API}} & \multirow{2}{*}{\textbf{OS}} & \multirow{2}{*}{\textbf{CPU/GPU}} & \multirow{2}{*}{\textbf{Size}} & \textbf{Time}\\
+		& &  & & \textbf{taken (s)}\\
+		\hline
+		Matlab \rule{0pt}{2.6ex} & win & CPU & &\\
+		\hline
+		\multirow{2}{*}{gcc/g++} \rule{0pt}{2.6ex} & cygwin & CPU & &\\
+		& linux & CPU & &\\
+		\hline
+		\multirow{4}{*}{OpenCL} \rule{0pt}{2.6ex} & linux & CPU (emu) & &\\
+		& win & CPU (emu) & &\\
+		& linux & GPU & &\\
+		& win & GPU & &\\
+		\hline
+		\multirow{2}{*}{CUDA} \rule{0pt}{2.6ex} & linux & GPU & &\\
+		& win & GPU & &\\
+	\hline \hline
+	\end{tabular}
+\end{center}
+\caption{Spatial performance of 1D simulations for 1024 time steps}
+\label{Tab:Performance-1D-space}
+\end{table}
 

@@ -18,19 +18,19 @@
 {
 	% Drawing vertical grid lines.
 	\foreach \x in {1cm,2cm,3cm,4cm,5cm,6cm,7cm,8cm,9cm,10cm}
-		\draw[dashed] (\x,\LowLimitY-0.1cm) -- (\x,\HighLimitY-0.25cm); % Solid lines at +1 intervals.
+		\draw[dashed] (\x,\LowLimitY) -- (\x,\HighLimitY-0.25cm); % Solid lines at +1 intervals.
 	% Drawing horizontal grid lines.
 	\foreach \y in {1cm,2cm,3cm,4cm,5cm,6cm,7cm,8cm,9cm,10cm}
-		\draw[dashed] (\LeftLimitX-0.1cm,\y) -- (\RightLimitX-0.25cm,\y); % Solid lines at +1 intervals.
+		\draw[dashed] (\LeftLimitX,\y) -- (\RightLimitX-0.25cm,\y); % Solid lines at +1 intervals.
 }
 \newcommand{\TicksOn}
 {
 	% Drawing vertical ticks.
 	\foreach \x in {1cm,2cm,3cm,4cm,5cm,6cm,7cm,8cm,9cm,10cm}
-		\draw[line width=1.2pt] (\x,\LowLimitY-0.2cm) -- (\x,\LowLimitY+0.2cm); % Solid lines at +1 intervals.
+		\draw[line width=1.1pt] (\x,\LowLimitY-0.2cm) -- (\x,\LowLimitY+0.2cm); % Solid lines at +1 intervals.
 	% Drawing horizontal ticks.
 	\foreach \y in {1cm,2cm,3cm,4cm,5cm,6cm,7cm,8cm,9cm,10cm}
-		\draw[line width=1.2pt] (\LeftLimitX-0.2cm,\y) -- (\LeftLimitX+0.2cm,\y); % Solid lines at +1 intervals.
+		\draw[line width=1.1pt] (\LeftLimitX-0.2cm,\y) -- (\LeftLimitX+0.2cm,\y); % Solid lines at +1 intervals.
 }
 
 % Text placement is on even ticks. Seventh argument places text on middle tick.
@@ -57,6 +57,20 @@
 	% +1 Text for y-axis.
 	\foreach \y/\t in {1cm/#1,3cm/#2,5cm/#3,7cm/#4,9cm/#5}
 		\coordinate [label=left:$\t$] (\t) at (\LeftLimitX-0.2cm,\y);
+}
+\newcommand{\XAxisText}[9]
+{
+	\foreach \x/\t in {#1,#2,#3,#4,#5,#6,#7,#8,#9}
+			\coordinate [label=below:$\t$] (\t) at (\x,\LowLimitY-0.2cm);
+	\foreach \x/\t in {#1,#2,#3,#4,#5,#6,#7,#8,#9}
+			\draw[dashed] (\x,\LowLimitY-0.1cm) -- (\x,\LowLimitY); % Ticks
+}
+\newcommand{\YAxisText}[9]
+{
+	\foreach \y/\t in {#1,#2,#3,#4,#5,#6,#7,#8,#9}
+		\coordinate [label=left:$\t$] (\t) at (\LeftLimitX-0.2cm,\y);
+	\foreach \y/\t in {#1,#2,#3,#4,#5,#6,#7,#8,#9}
+		\draw[dashed] (\LeftLimitX-0.1cm,\y) -- (\LeftLimitX,\y); % Ticks
 }
 \newcommand{\DrawLegend}
 {

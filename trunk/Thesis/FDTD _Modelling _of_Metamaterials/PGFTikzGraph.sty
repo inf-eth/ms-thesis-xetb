@@ -151,3 +151,27 @@
 	\node[fill=green,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX+5cm,\LowLimitY-\YDisp) {};
 	\coordinate [label=right:CUDA (windows)] (CUDAwin) at (\LeftLimitX+5.2cm,\LowLimitY-\YDisp);
 }
+\newcommand{\DrawLegendNoMatlabandVCGCC}
+{
+	\def\YDisp{1.5cm}
+	% OpenCL emulated (linux) 
+	\node[fill=gray!70!white,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX,\LowLimitY-\YDisp) {};
+	\coordinate [label=right:OpenCL emulated (linux)] (OCLnixemu) at (\LeftLimitX+0.2cm,\LowLimitY-\YDisp);
+	% OpenCL emulated (windows)
+	\node[fill=pink,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX+5cm,\LowLimitY-\YDisp) {};
+	\coordinate [label=right:OpenCL emulated (windows)] (OCLwinemu) at (\LeftLimitX+5.2cm,\LowLimitY-\YDisp);
+	\def\YDisp{2cm}
+	% OpenCL (linux) 
+	\node[fill=red!70!black,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX,\LowLimitY-\YDisp) {};
+	\coordinate [label=right:OpenCL (linux)] (OCLnix) at (\LeftLimitX+0.2cm,\LowLimitY-\YDisp);
+	% OpenCL (windows)
+	\node[fill=red,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX+5cm,\LowLimitY-\YDisp) {};
+	\coordinate [label=right:OpenCL (windows)] (OCLwin) at (\LeftLimitX+5.2cm,\LowLimitY-\YDisp);
+	\def\YDisp{2.5cm}
+	% CUDA (linux) 
+	\node[fill=green!50!black,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX,\LowLimitY-\YDisp) {};
+	\coordinate [label=right:CUDA (linux)] (CUDAnix) at (\LeftLimitX+0.2cm,\LowLimitY-\YDisp);
+	% CUDA (windows)
+	\node[fill=green,regular polygon, regular polygon sides=4,inner sep=0.06cm] at (\LeftLimitX+5cm,\LowLimitY-\YDisp) {};
+	\coordinate [label=right:CUDA (windows)] (CUDAwin) at (\LeftLimitX+5.2cm,\LowLimitY-\YDisp);
+}

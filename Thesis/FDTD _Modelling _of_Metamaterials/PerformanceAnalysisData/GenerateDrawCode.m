@@ -112,7 +112,7 @@ fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAwinTime,XMax,YMax,XScale,YSca
 
 % ------------------------- 2D spatial all plot ------------------------
 XMax = 1024;
-YMax = 586.346;
+YMax = 600;
 XScale = 10;
 YScale = 10;
 
@@ -129,7 +129,7 @@ OCLwinTime    = [0.4 0.4 0.47 0.7 1.182 1.8 2.57 3.45 4.5 5.83];
 CUDAnixTime   = [0.071 0.081 0.128 0.41 0.8 1.41 2.12 3.04 4.1 5.33];
 CUDAwinTime   = [0.3 0.3 0.4 0.66 1.16 1.8 2.6 3.6 4.84 6.1];
 
-fprintf (FID, '%% 2D spatial with 256 time steps\n');
+fprintf (FID, '%% 2D spatial all plots with 256 time steps\n');
 fprintf (FID, '%s\n', GenerateDrawCommand(size,MatlabTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!40!yellow'));
 fprintf (FID, '%s\n', GenerateDrawCommand(size,CygwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!10!yellow'));
 fprintf (FID, '%s\n', GenerateDrawCommand(size,gccnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue'));
@@ -140,4 +140,78 @@ fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLnixTime,XMax,YMax,XScale,YScal
 fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
 fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
 fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+
+% ----------------------- 2D spatial Small Sizes ------------------------
+XMax = 384;
+YMax = 36;
+XScale = 10;
+YScale = 10;
+
+size          = [32 64 128 256 384]; % Size of one side.
+Memory        = [0.33 1.27 5.04 20.06 45.08 80.1 125.1 180.16 245.18 320.2]; % MB
+MatlabTime    = [1.168 1.51 2.88 11.76 35.63 72.3 127.75 199.84 261.35 361.58];
+CygwinTime    = [0.049 0.23 1.194 17.934 24.356 148.5 149.274 312.6 355.498 586.346];
+gccnixTime    = [0.052 0.195 1.03 18.95 30.29 126.5 159.2 264.6 333.7 508.8];
+VCTime        = [0.19 0.37 1.31 7.66 22.144 138.994 140.574 287.102 324.406 550.06];
+OCLnixemuTime = [0.56 0.68 1 2.92 5.47 10.49 14.28 21.83 29.96 39.59];
+OCLwinemuTime = [0.75 0.76 1.03 2.77 5.672 10.5163 14.7 21.74 27.22 39.33];
+OCLnixTime    = [0.13 0.16 0.21 0.47 0.83 1.4 2.07 2.92 3.94 5.07];
+OCLwinTime    = [0.4 0.4 0.47 0.7 1.182 1.8 2.57 3.45 4.5 5.83];
+CUDAnixTime   = [0.071 0.081 0.128 0.41 0.8 1.41 2.12 3.04 4.1 5.33];
+CUDAwinTime   = [0.3 0.3 0.4 0.66 1.16 1.8 2.6 3.6 4.84 6.1];
+
+fprintf (FID, '%% 2D spatial small sizes with 256 time steps\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(size,MatlabTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!40!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CygwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!10!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,gccnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,VCTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue!30!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLnixemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=gray!70!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLwinemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=pink'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+
+% ----------------------- 2D spatial Extended ------------------------
+XMax = 1664;
+YMax = 100;
+XScale = 10;
+YScale = 10;
+
+size          = [32 64 128 256 384 512 640 768 896 1024 1152 1280 1408 1536 1664]; % Size of one side.
+Memory        = [0.33 1.27 5.04 20.06 45.08 80.1 125.1 180.16 245.18 320.2 405.23 500.26 605.28 720.304 845.33]; % MB
+OCLnixemuTime = [0.56 0.68 1 2.92 5.47 10.49 14.28 21.83 29.96 39.59 47.23 59.1 71.55 91.77 99.09];
+OCLwinemuTime = [0.75 0.76 1.03 2.77 5.672 10.5163 14.7 21.74 27.22 39.33 46.17 57.66 66.47 88 93.7];
+OCLnixTime    = [0.13 0.16 0.21 0.47 0.83 1.4 2.07 2.92 3.94 5.07 6.42 7.89 9.6 11.76 13.75];
+OCLwinTime    = [0.4 0.4 0.47 0.7 1.182 1.8 2.57 3.45 4.5 5.83 7.32 9.3 11 13.1 0];
+CUDAnixTime   = [0.071 0.081 0.128 0.41 0.8 1.41 2.12 3.04 4.1 5.33 6.8 8.32 10.11 12.16 14.5];
+CUDAwinTime   = [0.3 0.3 0.4 0.66 1.16 1.8 2.6 3.6 4.84 6.1 7.6 9.4 11.517 13.7 0];
+
+fprintf (FID, '%% 2D spatial extended plots with 256 time steps\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLnixemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=gray!70!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLwinemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=pink'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+
+% ----------------------- 2D spatial GPU ------------------------
+XMax = 1664;
+YMax = 15;
+XScale = 10;
+YScale = 10;
+
+size          = [32 64 128 256 384 512 640 768 896 1024 1152 1280 1408 1536 1664]; % Size of one side.
+Memory        = [0.33 1.27 5.04 20.06 45.08 80.1 125.1 180.16 245.18 320.2 405.23 500.26 605.28 720.304 845.33]; % MB
+OCLnixTime    = [0.13 0.16 0.21 0.47 0.83 1.4 2.07 2.92 3.94 5.07 6.42 7.89 9.6 11.76 13.75];
+OCLwinTime    = [0.4 0.4 0.47 0.7 1.182 1.8 2.57 3.45 4.5 5.83 7.32 9.3 11 13.1 0];
+CUDAnixTime   = [0.071 0.081 0.128 0.41 0.8 1.41 2.12 3.04 4.1 5.33 6.8 8.32 10.11 12.16 14.5];
+CUDAwinTime   = [0.3 0.3 0.4 0.66 1.16 1.8 2.6 3.6 4.84 6.1 7.6 9.4 11.517 13.7 0];
+
+fprintf (FID, '%% 2D spatial GPU comparison with 256 time steps\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(size,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+
 fclose(FID);

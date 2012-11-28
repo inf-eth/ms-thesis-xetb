@@ -7,8 +7,8 @@ function DrawCommand = GenerateDrawCommand(XData, YData, XMax, YMax, XScale, YSc
     DrawCommand = '\draw[';
     % Adding draw options.
     DrawCommand = sprintf('%s%s] ', DrawCommand, DrawOptions);
-    for i=1:length(YData)
-        if i == length(YData)
+    for i=1:length(XData)
+        if i == length(XData)
             DrawCommand = sprintf('%s(%2.2gcm,%2.2gcm);', DrawCommand, XScale*XData(i)/XMax, YScale*YData(i)/YMax);
         else
             DrawCommand = sprintf('%s(%2.2gcm,%2.2gcm) -- ', DrawCommand, XScale*XData(i)/XMax, YScale*YData(i)/YMax);

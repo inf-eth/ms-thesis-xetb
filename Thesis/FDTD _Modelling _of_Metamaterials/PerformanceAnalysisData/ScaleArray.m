@@ -6,6 +6,6 @@
 function Args = ScaleArray(Data, Max, Scale, Text)
     Args = '';
     for i=1:length(Data)
-        Args = sprintf('%s{%2.3gcm/%s}', Args, Scale*Data(i)/Max, int2str(Text(i)));
+        Args = sprintf('%s{%2.3gcm/%s}', Args, Scale*Data(i)/Max, num2str(Text(i),'%2.1f'));
     end
 end

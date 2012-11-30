@@ -323,4 +323,102 @@ fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAnixTime,XMax,YMax,XScale,YSca
 fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
 fprintf (FID, '%% ---------------------------------------------------------\n');
 
+% ----------------------- 2D temporal all plots ------------------------
+XMax = 5000;
+YMax = 2800;
+XScale = 10;
+YScale = 10;
+
+time          = [25 50 100 200 300 400 500 750 1000 1500 2000 2500 3000 3500 4000 4500 5000];
+MatlabTime    = [7.518 13.241 26.223 52.183 78.205 105.323 134.853 201.680 271.782 406.033 542.405 653.762 787.913 905.810 1021.210 1146.127 1270.880];
+CygwinTime    = [14.5728 29.7637 58.0056 112.596 169.24 224.665 280.57 420.531 560.5460 841.116 1121.32 1402.43 1683 1960.81 2241.38 2519.43 2800];
+gccnixTime    = [12.7505 21.2023 41.9428 82.3225 124.299 166.697 204.629 302.846 401.892 600.953 784.445 941.445 1120.95 1290.18 1489.56 1661.71 1764.86];
+VCTime        = [13.315 26.21 51.5301 102.245 152.945 203.87 254.631 381.671 522.343 806.594 1057.5 1290.42 1606.25 1836.26 2100.93 2350.01 2594.14];
+OCLnixemuTime = [3.97454 2.85277 4.54581 7.27172 10.5096 14.7983 16.6125 24.1789 31.7437 46.569 61.2625 76.5522 89.5715 129.055 137.055 137.161 148.771];
+OCLwinemuTime = [2.78 3.08 4.64501 7.87001 11.105 14.345 17.59 25.67 33.78 50.0201 66.0601 82.3401 98.8801 114.76 132.455 146.035 162.89];
+OCLnixTime    = [0.850754 0.713101 0.802226 1.03087 1.26408 1.49614 1.72886 2.30122 2.87533 4.08314 5.17947 6.30462 7.45084 8.59283 9.73483 10.8811 12.028];
+OCLwinTime    = [1.89211 1.15807 1.24807 1.52509 1.7721 2.02812 2.33113 2.94217 3.57821 4.89328 6.22336 7.42342 8.7285 10.0186 11.2926 12.5917 13.9098];
+CUDAnixTime   = [0.808131 0.730291 0.855609 1.10228 1.35301 1.60106 1.8518 2.47366 3.09642 4.34366 5.58775 6.83165 8.07952 9.32397 10.5689 11.814 13.0602];
+CUDAwinTime   = [1.26707 1.01106 1.14407 1.41908 1.6781 2.01811 2.21213 2.86916 3.5352 4.96428 6.19135 7.59043 8.90551 10.1786 11.5117 12.8387 14.2458];
+% ---------------------------------------------------------------
+
+fprintf (FID, '%% ------- 2D temporal with 512^2 size -------\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(time,MatlabTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!40!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CygwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!10!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,gccnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,VCTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue!30!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=gray!70!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=pink'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+fprintf (FID, '%% ---------------------------------------------------------\n');
+
+% ----------------------- 2D temporal for shorter simulations ------------------------
+XMax = 500;
+YMax = 125;
+XScale = 10;
+YScale = 10;
+
+time          = [25 50 100 200 300 400 500];
+% ---------------------------------------------------------------
+
+fprintf (FID, '%% ------- 2D temporal shorter simulations -------\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(time,MatlabTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!40!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CygwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!10!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,gccnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,VCTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue!30!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=gray!70!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=pink'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+fprintf (FID, '%% ---------------------------------------------------------\n');
+
+% ----------------------- 2D temporal wrt OpenCL emulated ------------------------
+XMax = 5000;
+YMax = 165;
+XScale = 10;
+YScale = 10;
+
+time          = [25 50 100 200 300 400 500 750 1000 1500 2000 2500 3000 3500 4000 4500 5000];
+% ---------------------------------------------------------------
+
+fprintf (FID, '%% ------- 2D temporal comparison wrt OpenCL emulated -------\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(time,MatlabTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!40!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CygwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!10!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,gccnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,VCTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue!30!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=gray!70!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=pink'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+fprintf (FID, '%% ---------------------------------------------------------\n');
+
+% ----------------------- 2D temporal GPU comparison ------------------------
+XMax = 5000;
+YMax = 15;
+XScale = 10;
+YScale = 10;
+
+time          = [25 50 100 200 300 400 500 750 1000 1500 2000 2500 3000 3500 4000 4500 5000];
+% ---------------------------------------------------------------
+
+fprintf (FID, '%% ------- 2D temporal GPU comparison -------\n');
+fprintf (FID, '%s\n', GenerateDrawCommand(time,MatlabTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!40!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CygwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!10!yellow'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,gccnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,VCTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=blue!30!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=gray!70!white'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinemuTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=pink'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red!70!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,OCLwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=red'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAnixTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green!50!black'));
+fprintf (FID, '%s\n', GenerateDrawCommand(time,CUDAwinTime,XMax,YMax,XScale,YScale,'line width=1.2pt,color=green'));
+fprintf (FID, '%% ---------------------------------------------------------\n');
+
 fclose(FID);

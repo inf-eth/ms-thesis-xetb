@@ -1,2 +1,7 @@
 % Conclusion
 \chapter{Conclusion}
+The goal of this thesis was accelerated GPU implementation of lossless cylindrical cloak. It was shown that materials with negative permeability and permittivity can be effectively modelled using Drude dispersive model. The numerical results showed good agreement with theoretical values in the case of DNG slab problem. The lossy results showed an interesting prospect that DNG medium might act as an absorbing layer similar to PML due to its complete absorption of higher frequency waves.
+
+The 1D and 2D cases of slab problem was then implemented using C++ and GPU. A comprehensive performance analysis showed that GPU was able to perform much better both, as the problem domain and maximum time stepping are increased. For smaller problems, however, it is better to use Matlab or C++ due to data copying overhead associated with GPU implementation.
+
+The lossless case of cylindrical cloak, as presented by Zhao et. al. in \cite{Radial-Zhao}, was implemented using Matlab, C++ and finally on GPU with minor modifications. The simulations showed adequate similarity to accepted results.

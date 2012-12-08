@@ -40,9 +40,50 @@ Rearranging terms,
 These two scalar equations drive the FDTD\index{FDTD} algorithm. First, magnetic field is calculated using equation~\ref{Faraday's Law-Curl-Expansion-1D} and then electric field (equation~\ref{Ampere's Law-Curl-Expansion-1D}) is calculated from the magnetic field obtained in~\ref{Faraday's Law-Curl-Expansion-1D}. Electric and magnetic fields are staggered at half time steps. Similarly, magnetic and electric fields in space are also spaced at half spatial steps. The algorithm is normally referred to as a leap--frog scheme\index{leap--frog}.
 \begin{figure}[here]
 \centering
-%\includegraphics[width=\textwidth]{Algorithm.png}
-\caption{The Yee algorithm. Figure taken from~\cite{JBSchneiderUFDTD}}
-\label{Algorithm}
+\begin{tikzpicture}
+	\def\XD{0cm}
+	\def\YD{0cm}
+	\coordinate[label=left:$E^{n=0}$] (E0) at (\XD,\YD+0.3cm);
+	\foreach \x in {0.0cm, 1.0cm, 2.0cm, 3.0cm, 4.0cm, 5.0cm, 6.0cm, 7.0cm}
+		\draw[thick] (\XD+\x, \YD+0cm) rectangle (\XD+\x+1.0cm, \YD+0.6cm);
+	\foreach \x/\y in {0.0cm/0, 1.0cm/1, 2.0cm/2, 3.0cm/3, 4.0cm/4, 5.0cm/5, 6.0cm/6, 7.0cm/7}
+		\draw (\XD+\x+0.5cm,\YD+0.3cm) node {$E[\y]$};
+	
+	\def\XD{0.5cm}
+	\def\YD{1.5cm}
+	\coordinate[label=left:$H^{n=\frac{1}{2}}$] (H1/2) at (\XD,\YD+0.3cm);
+	\foreach \x in {0.0cm, 1.0cm, 2.0cm, 3.0cm, 4.0cm, 5.0cm, 6.0cm, 7.0cm}
+		\draw[thick] (\XD+\x, \YD+0cm) rectangle (\XD+\x+1.0cm, \YD+0.6cm);
+	\foreach \x/\y in {0.0cm/\frac{1}{2}, 1.0cm/1\frac{1}{2}, 2.0cm/2\frac{1}{2}, 3.0cm/3\frac{1}{2}, 4.0cm/4\frac{1}{2}, 5.0cm/5\frac{1}{2}, 6.0cm/6\frac{1}{2}, 7.0cm/7\frac{1}{2}}
+		\draw (\XD+\x+0.5cm,\YD+0.3cm) node {$H[\y]$};
+
+	\draw[dashed] (-2.5cm,2.5cm) -- (9.0cm,2.5cm);
+
+	\def\XD{0cm}
+	\def\YD{3cm}
+	\coordinate[label=left:$E^{n=1}$] (E1) at (\XD,\YD+0.3cm);
+	\foreach \x in {0.0cm, 1.0cm, 2.0cm, 3.0cm, 4.0cm, 5.0cm, 6.0cm, 7.0cm}
+		\draw[thick] (\XD+\x, \YD+0cm) rectangle (\XD+\x+1.0cm, \YD+0.6cm);
+	\foreach \x/\y in {0.0cm/0, 1.0cm/1, 2.0cm/2, 3.0cm/3, 4.0cm/4, 5.0cm/5, 6.0cm/6, 7.0cm/7}
+		\draw (\XD+\x+0.5cm,\YD+0.3cm) node {$E[\y]$};
+
+	\def\XD{0.5cm}
+	\def\YD{4.5cm}
+	\coordinate[label=left:$H^{n=1\frac{1}{2}}$] (H11/2) at (\XD,\YD+0.3cm);
+	\foreach \x in {0.0cm, 1.0cm, 2.0cm, 3.0cm, 4.0cm, 5.0cm, 6.0cm, 7.0cm}
+		\draw[thick] (\XD+\x, \YD+0cm) rectangle (\XD+\x+1.0cm, \YD+0.6cm);
+	\foreach \x/\y in {0.0cm/\frac{1}{2}, 1.0cm/1\frac{1}{2}, 2.0cm/2\frac{1}{2}, 3.0cm/3\frac{1}{2}, 4.0cm/4\frac{1}{2}, 5.0cm/5\frac{1}{2}, 6.0cm/6\frac{1}{2}, 7.0cm/7\frac{1}{2}}
+		\draw (\XD+\x+0.5cm,\YD+0.3cm) node {$H[\y]$};
+
+
+	\draw[thick, ->, >=stealth] (-1.5cm, -0.5cm) -- (-1.5cm, 5.5cm);
+	\coordinate[label=above:$time$] (time) at (-1.5cm,5.5cm);
+	\coordinate[label=left:\textbf{Past}] (Past) at (-1.5cm,2.2cm);
+	\coordinate[label=left:\textbf{Future}] (Future) at (-1.5cm,2.8cm);
+
+\end{tikzpicture}
+\caption{FDTD leap--frog\index{leap--frog} scheme to update future fields from past fields}
+\label{FDTD-LeapFrog}
 \end{figure}
 By examining equations~\ref{Faraday's Law-Curl-Expansion-1D} and \ref{Ampere's Law-Curl-Expansion-1D} it can be intuitively observed that a wave with $E_x$ and $H_y$ components will propagate in $\hat{z}$ direction and space derivatives with respect to $z$ indicate variation of electric and magnetic fields in space along $z$--axis.
 
@@ -95,9 +136,17 @@ S_c = \dfrac{c \Delta t}{\delta} \leq 1
 \label{Courant-Stability-Criterion-Equal-Differentials}
 \end{equation}
 Here $S_c$ is known as the Courant number\index{Courant number ($S_c$)}. It should be less than unity in order for a stable solution.
+\begin{figure}[htb]
+\centering
+\mbox{\subfigure[$S_c = 1$]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Stable1DFDTD.pdf}}\quad\subfigure[$S_c = 1.1$]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Unstable1DFDTD.pdf}}}
+\caption{$S_c$ and stability of FDTD}
+\label{Unstable-FDTD}
+\end{figure}
+\subsection{Courant Number as Scaling Factor}
+In one time step ($\Delta t$) the amount of distance travelled by an electromagnetic wave (in cells) is equal to Courant number. Since $S_c$ cannot be greater than unity, an EM wave can only travel one cell or $\Delta$ during one time stepping of algorithm. Simulations with values of $S_c$ close to unity can rapidly become unstable in the presence of an obstacle or scatterer. Smaller values of $S_c$ will result in better stability but the trade--off is an increase in simulation time.
 \subsection{Wavelength and Cell Size}
 The size of wavelength should be considerably greater than minimum spatial step. Normally wavelength is taken to be at least ten times the size of a single cell~\cite{Taflove2000}. It makes sense that there shouldn't be too much fluctuations between two spatial steps and wavelength should be spread over a reasonable number of cells. Figure~\ref{Pulsewidth-comparison} shows different sizes of Gaussian pulses\index{source!Gaussian pulse} in a 1D simulation. Decreasing pulse width below 10 cells results in noticeable fluctuations and this can result in inaccurate results.
-\begin{figure}[H]
+\begin{figure}[htb]
 %\centerline{\includegraphics[]{GPGPU}}
 \centering
 \begin{tikzpicture}
@@ -111,18 +160,12 @@ The size of wavelength should be considerably greater than minimum spatial step.
 \label{Wavelength-Vs-Cell-Size}
 \end{figure}
 % Reference for double figure: http://www.johndcook.com/blog/2009/01/14/how-to-display-side-by-side-figurs-in-latex/
-\begin{figure}[H]
+\begin{figure}[htb]
 \centering
 \mbox{\subfigure[Gaussian pulse of width 2]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Pulsewidth2.pdf}}\quad\subfigure[Gaussian pulse of width 4]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Pulsewidth4.pdf}}}\\
 \mbox{\subfigure[Gaussian pulse of width 8]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Pulsewidth8.pdf}}\quad\subfigure[Gaussian pulse of width 16]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Pulsewidth16.pdf}}}
 \caption{Comparison of pulse width}
 \label{Pulsewidth-comparison}
-\end{figure}
-\begin{figure}[H]
-\centering
-\mbox{\subfigure[$S_c = 1$]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Stable1DFDTD.pdf}}\quad\subfigure[$S_c = 1.1$]{\includegraphics[scale=0.375, trim=3.75cm 8.75cm 4.5cm 9.25cm, clip]{Figures/FigCh02_Unstable1DFDTD.pdf}}}
-\caption{$S_c$ and stability of FDTD}
-\label{Unstable-FDTD}
 \end{figure}
 Inaccuracies may also result from inappropriate selection of spatial or time steps. Figure~\ref{Unstable-FDTD} shows that FDTD\index{FDTD} quickly becomes unstable if $S_c$ becomes greater than unity. Further to this, FDTD\index{FDTD} is inherently dispersive\index{FDTD!dispersion} in nature and a pulse will spread as it travels over a period of time. While these inaccuracies cannot be completely eliminated, they can be reduced with proper selection of simulation parameters.
 \section{Grid Termination and Boundary Conditions}

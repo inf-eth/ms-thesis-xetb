@@ -1,12 +1,198 @@
 % Lossless Cylindrical Cloak
 \chapter{FDTD Modelling of Lossless Cylindrical Cloak}
+\section{The Electromagnetic Invisibility Cloak\index{cloak}}
+It is well known that we can only see things when light bounces off them and reaches our eyes. This is the reason why transparent objects can sometimes be difficult to spot, like window panes. If we can somehow make light bend around the corners of an object so that it continues on its trajectory then that object will appear invisible. Invisibility has, for ages, remained confined to only fiction books but in modern day world of optical transformations and artificially engineered materials, this no longer is a mystery.
+
+An electromagnetic cloak at microwave frequencies was proposed and tested for the first time by Pendry et. al. \cite{PendryShurig-MicrowaveCloak}. The cloak is cylindrical in shape meant to hide a circular object. This is probably the simplest implementation sufficient for proof of concept. To bend light around the circular object the cloaking material must exhibit negative values of permittivity and permeability. The cloaking medium itself is anisotropic. The first attempt at modelling this electromagnetic cloak using the FDTD algorithm was by Zhao et. al. \cite{Radial-Zhao}. Their FDTD implementation was tested using simulation software Comsol\index{Comsol}.
 \section{Problem Specification}
-\section{Matlab Implementation}
+The implementation in \cite{Radial-Zhao} is for $TE^z$ while in this thesis $TM^z$ approach is followed as in the case of DNG slab problems. The cloaking parameters are same and given by
+\begin{equation}
+\mu_r(r)=\dfrac{r-r_a}{r},
+\label{mu-r}
+\end{equation}
+\begin{equation}
+\mu_{\phi}(r)=\dfrac{r}{r-r_a},
+\label{mu-phi}
+\end{equation}
+\begin{equation}
+\epsilon_z(r)=\left(\dfrac{r_b}{r_b-r_a}\right)^2\dfrac{r-r_a}{r}.
+\label{epsilon-z}
+\end{equation}
+Here, $r_a$ and $r_b$ are the inner and outer radii of cloaking shell. $r_a$ and $r_b$ are chosen as 0.1 m and 0.2 m respectively. The FDTD implementation is first tested on Matlab, then implemented using C++\index{C++} and finally on GPU. The problem geometry is depicted in figure \ref{fig:2D-Cloak-Geometry}.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+	\newcommand{\LeftX}{0cm}
+	\newcommand{\MidX}{4cm}
+	\newcommand{\RightX}{8cm}
+	\newcommand{\PMLw}{0.8cm}
+	\newcommand{\DomainY}{6.0cm}
+	\newcommand{\SlabStartY}{2.0cm+\PMLw}
+	\newcommand{\SlabEndY}{4.0cm+\PMLw}
+	% x-axis.
+	\draw[->, >=stealth] (\LeftX,0cm) -- (\RightX+0.5cm,0cm);
+	\coordinate [label=right:$x$] (x-axis) at (\RightX+0.6cm,0cm);
+	% y-axis.
+	\draw[->, >=stealth] (\LeftX,0cm) -- (\LeftX,2*\PMLw+\DomainY+0.5cm);
+	\coordinate [label=above:$y$] (y-axis) at (\LeftX,2*\PMLw+\DomainY+0.6cm);
+	% PBCs.
+	\coordinate [label=right:PBC] (PBCright) at (\RightX,\PMLw+3.0cm);
+	\coordinate [label=left:PBC] (PBCleft) at (\LeftX,\PMLw+3.0cm);
+	% Lower PML Region.
+	\draw[fill=gray!40!white] (\LeftX,0cm) rectangle (\RightX,\PMLw);
+	\coordinate [label=center:\textsf{Lower PML Region}] (LowerPML) at (\MidX,0.4cm);
+	% Solution Region.
+	\draw (\LeftX,\PMLw) rectangle (\RightX,\PMLw+\DomainY);
+	% Upper PML Region.
+	\draw[fill=gray!40!white] (\LeftX,\PMLw+\DomainY) rectangle (\RightX,2*\PMLw+\DomainY);
+	\coordinate [label=center:\textsf{Upper PML Region}] (UpperPML) at (\MidX,\PMLw+\DomainY+0.4cm);
+	% Cloaking shell.
+	\draw[fill=gray!20!white] (4cm,4cm) circle (1.5cm);
+	\draw[fill=white] (4cm,4cm) circle (0.75cm);
+	\coordinate [label=center:\textsf{Cloak}] (Cloak) at (\MidX,3cm);
+	\draw[->, >=stealth] (\MidX,4cm) -- (\MidX+0.75cm,4cm);
+	\draw[->, >=stealth] (\MidX,4cm) -- (\MidX+1.3005cm,4.75cm);
+	\coordinate [label=below:$r_a$] (ra) at (\MidX+0.325cm,4cm);
+	\coordinate [label=above:$r_b$] (rb) at (\MidX+0.325cm,4.15cm);
+	% Plane wave.
+	\draw (\LeftX+2.0cm,\PMLw+0.2cm) -- (\RightX-2.0cm, \PMLw+0.2cm);
+	\draw (\LeftX+2.0cm,\PMLw+0.3cm) -- (\RightX-2.0cm, \PMLw+0.3cm);
+	\draw (\LeftX+2.0cm,\PMLw+0.4cm) -- (\RightX-2.0cm, \PMLw+0.4cm);
+	\draw[line width=1.1pt, ->, >=stealth] (\MidX,\PMLw+0.6cm) -- (\MidX,\PMLw+1.6cm);
+	\coordinate [label=right:\textsf{Plane Wave}] (PlaneWave) at (\MidX+0.5cm,\PMLw+0.8cm);
+\end{tikzpicture}
+\caption{Simulation geometry}
+\label{fig:2D-Cloak-Geometry}
+\end{figure}
 % GPU Implementation
-\section{C++ Implementation}
-\section{GPU implementation}
-\section{GPU Specifications}
-\section{API Selection}
-\section{Simulation Parameters}
-\section{Memory Considerations}
-\section{Thread Management}
+\section{FDTD Update Equations\index{FDTD!update equations!cloak}}
+The FDTD update equations for $TM^z$ are completely analogous to those for $TE^z$ presented in \cite{Radial-Zhao}. These are reproduced here for the lossless $TM^z$ case with appropriate changes. The update equations for $D_z$, $H_x$ and $H_y$ remain the same as in the case of 2D DNG problem.
+\begin{equation}
+\begin{split}
+D^{n+1}_z \left[i,j\right]=D^{n}_z \left[i,j\right]+\dfrac{\Delta t}{\Delta}&\left(H^{n+\frac{1}{2}}_y\left[i+\frac{1}{2},j\right]-H^{n+\frac{1}{2}}_y \left[i-\frac{1}{2},j\right]\right.\\
+&\left.-H^{n+\frac{1}{2}}_x \left[i,j+\frac{1}{2}\right]+H^{n+\frac{1}{2}}_x \left[i,j-\frac{1}{2}\right]\right),
+\end{split}
+\label{eq:Dz-2D-FDTD-TMz-Cloak}
+\end{equation}
+\begin{equation}
+B^{n+\frac{1}{2}}_x \left[i,j+\frac{1}{2}\right]=B^{n-\frac{1}{2}}_x \left[i,j+\frac{1}{2}\right] + \dfrac{\Delta t}{\Delta} \left(-E^{n}_z \left[i,j+1\right] + E^{n}_z \left[i,j\right] \right),
+\label{eq:Bx-2D-FDTD-TMz-Cloak}
+\end{equation}
+\begin{equation}
+B^{n+\frac{1}{2}}_y \left[i+\frac{1}{2},j\right]=B^{n-\frac{1}{2}}_y \left[i+\frac{1}{2},j\right] + \dfrac{\Delta t}{\Delta} \left( E^{n}_z \left[i+1,j\right] - E^{n}_z \left[i,j\right] \right).
+\label{eq:By-2D-FDTD-TMz-Cloak}
+\end{equation}
+The auxiliary update equation for $E_z$ is also similar to that derived for DNG slab problems with the exception of scaling factor, $A=r_b/(r_b-r_a)$, as in \cite{Radial-Zhao}. The Drude model in this case is
+\begin{equation}
+\epsilon_z(\omega)=A\left(\epsilon_\infty-\dfrac{\omega_{pe}^2}{\omega^2-j\omega\gamma_e}\right).
+\label{eq:Drude-Model-Cloak-Ez}
+\end{equation}
+The update equation for $E_z$ is then given by
+\begin{equation}
+\begin{split}
+E^{n+1}_z=&a_{z_1}\left(D^{n+1}_z-2D^n_z+D^{n-1}_z\right)/A+a_{z_2}\left(D^{n+1}_z-D^{n-1}_z\right)/A\\
+&+a_{z_3}\left(2E^n_z-E^{n-1}_z\right)+a_{z_4}\left(2E^n_z+E^{n-1}_z\right)+a_{z_5}E^{n-1}_z.
+\end{split}
+\label{eq:Ez-Cloak}
+\end{equation}
+\begin{equation*}
+a_{z_1}=\dfrac{4}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},
+\end{equation*}
+\begin{equation*}
+a_{z_2}=\dfrac{\gamma_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},
+\end{equation*}
+\begin{equation*}
+a_{z_3}=\dfrac{4\epsilon_0\epsilon_\infty}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},
+\end{equation*}
+\begin{equation*}
+a_{z_4}=\dfrac{-\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},
+\end{equation*}
+\begin{equation*}
+a_{z_5}=\dfrac{\epsilon_0\epsilon_\infty \gamma_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)}.
+\end{equation*}
+The auxiliary update equations for magnetic fields are
+\begin{equation}
+\begin{split}
+H_x^{n+1}=\left[a_{x_1}B_x^{n+1}+a_{x_2}B_x^{n}+a_{x_3}B_x^{n-1}\right.&\left.+a_{x_4}\overline{B_y}^{n+1}+a_{x_5}\overline{B_y}^{n}+a_{x_6}\overline{B_y}^{n-1}\right.\\
+&\left.-a_{x_7}H_x^{n}-a_{x_8}H_x^{n-1}\right]/a_{x_9}.
+\end{split}
+\label{eq:Hx-Cloak}
+\end{equation}
+\begin{equation*}
+a_{x_1}=sin^2\phi\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right]+\mu_{\phi} cos^2\phi\dfrac{1}{(\Delta t)^2},
+\end{equation*}
+\begin{equation*}
+a_{x_2}=sin^2\phi\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right]-\mu_{\phi} cos^2\phi\dfrac{2}{(\Delta t)^2},
+\end{equation*}
+\begin{equation*}
+a_{x_3}=sin^2\phi\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right]-\mu_{\phi} cos^2\phi\dfrac{2}{(\Delta t)^2},
+\end{equation*}
+\begin{equation*}
+a_{x_4}=\left\lbrace\mu_{\phi}\dfrac{1}{(\Delta t)^2}-\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right]\right\rbrace sin\phi cos\phi,
+\end{equation*}
+\begin{equation*}
+a_{x_5}=\left\lbrace-\mu_{\phi}\dfrac{2}{(\Delta t)^2}-\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right]\right\rbrace sin\phi cos\phi,
+\end{equation*}
+\begin{equation*}
+a_{x_6}=\left\lbrace\mu_{\phi}\dfrac{1}{(\Delta t)^2}-\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right]\right\rbrace sin\phi cos\phi,
+\end{equation*}
+\begin{equation*}
+a_{x_7}=\mu_0\mu_{\phi}\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right],
+\end{equation*}
+\begin{equation*}
+a_{x_8}=\mu_0\mu_{\phi}\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right],
+\end{equation*}
+\begin{equation*}
+a_{x_9}=\mu_0\mu_{\phi}\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right].
+\end{equation*}
+\begin{equation}
+\begin{split}
+H_y^{n+1}=\left[a_{y_1}B_y^{n+1}+a_{y_2}B_y^{n}+a_{y_3}B_y^{n-1}\right.&\left.+a_{y_4}\overline{B_x}^{n+1}+a_{y_5}\overline{B_x}^{n}+a_{y_6}\overline{B_x}^{n-1}\right.\\
+&\left.-a_{y_7}H_y^{n}-a_{y_8}H_y^{n-1}\right]/a_{y_9}.
+\end{split}
+\label{eq:Hy-Cloak}
+\end{equation}
+\begin{equation*}
+a_{y_1}=cos^2\phi\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right]+\mu_{\phi} sin^2\phi\dfrac{1}{(\Delta t)^2},
+\end{equation*}
+\begin{equation*}
+a_{y_2}=cos^2\phi\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right]-\mu_{\phi} sin^2\phi\dfrac{2}{(\Delta t)^2},
+\end{equation*}
+\begin{equation*}
+a_{y_3}=cos^2\phi\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right]-\mu_{\phi} sin^2\phi\dfrac{2}{(\Delta t)^2},
+\end{equation*}
+\begin{equation*}
+a_{y_4}=\left\lbrace\mu_{\phi}\dfrac{1}{(\Delta t)^2}-\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right]\right\rbrace sin\phi cos\phi,
+\end{equation*}
+\begin{equation*}
+a_{y_5}=\left\lbrace-\mu_{\phi}\dfrac{2}{(\Delta t)^2}-\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right]\right\rbrace sin\phi cos\phi,
+\end{equation*}
+\begin{equation*}
+a_{y_6}=\left\lbrace\mu_{\phi}\dfrac{1}{(\Delta t)^2}-\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right]\right\rbrace sin\phi cos\phi,
+\end{equation*}
+\begin{equation*}
+a_{y_7}=\mu_0\mu_{\phi}\left[-\dfrac{2}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{2}\right],
+\end{equation*}
+\begin{equation*}
+a_{y_8}=\mu_0\mu_{\phi}\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right],
+\end{equation*}
+\begin{equation*}
+a_{y_9}=\mu_0\mu_{\phi}\left[\dfrac{1}{(\Delta t)^2}+\dfrac{\omega_{pm}^2}{4}\right].
+\end{equation*}
+Notice, while magnetic collision frequency\index{collision!frequency ($\gamma$)} ($\gamma_{pm}$) is set to zero, electric collision frequency ($\gamma_{pe}$) is accounted for in the update equation for $E_z$. Also, averaged\index{averaged fields} values of $B_x$ and $B_y$ are required to compute $H_x$ and $H_y$, respectively since $x$ and $y$ components of fields are not located at same location in the grid. With the meshing\index{meshing} scheme and arrangement of field nodes given in figure \ref{fig:2D-DNG-Field-Nodes}, the expressions for averaged $B_x$ and $B_y$ are
+\begin{equation}
+\overline{B_x}(i,j) = \left(B_x(i,j)+B_x(i+1,j)+B_x(i,j+1)+B_x(i+1,j+1)\right)/4
+\end{equation}
+and
+\begin{equation}
+\overline{B_y}(i,j) = \left(B_y(i,j)+B_y(i-1,j)+B_y(i,j-1)+B_y(i-1,j-1)\right)/4.
+\end{equation}
+Matlab, C++ and CUDA implementations of actual simulation are given in appendices \ref{App:Matlab-Simulation-Cloak}, \ref{App:C++-Simulation-Cloak} and \ref{App:CUDA-Cloak-Simulation-Kernels}, respectively.
+\section{Simulation Results}
+Figure \ref{fig:Ez-Cloak-SteadyStateLossless} shows $E_z$ under steady--state.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{Figures/FigCh05_Ez_Cloak_SteadyStateLossless.png}
+\caption{Ez under steady state for lossless cloak}
+\label{fig:Ez-Cloak-SteadyStateLossless}
+\end{figure}

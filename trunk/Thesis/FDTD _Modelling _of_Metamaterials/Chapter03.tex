@@ -58,12 +58,13 @@ Here, the approach outlined in~\cite{Radial-Zhao} for derivation of FDTD auxilia
 \label{B-mu-H}
 \end{equation}
 Where, $\mu = \mu_0 \mu_r$. For a lossless, homogeneous, anisotropic and dispersion--less material, relative permeability or $\mu_r$ is a scalar constant. For dispersive material $\mu_r$ is a function of frequency. Similar to equation~\ref{er-Drude}, relative permeability for Drude model\index{Drude model $\mu_r(\omega)$} is given by
-\begin{eqnarray}
-%\centering
-\nonumber \hat{\mu_r}(\omega)&=&\mu_\infty-\dfrac{\omega^2_p}{\omega^2-jg\omega}\\
-&=&\dfrac{\mu_\infty(\omega^2-jg\omega)-\omega^2_p}{\omega^2-jg\omega}.
+\begin{equation}
+\begin{split}
+\hat{\mu_r}(\omega)&=\mu_\infty-\dfrac{\omega^2_p}{\omega^2-jg\omega}\\
+&=\dfrac{\mu_\infty(\omega^2-jg\omega)-\omega^2_p}{\omega^2-jg\omega}.
+\end{split}
 \label{ur-Drude}
-\end{eqnarray}
+\end{equation}
 From equation~\ref{B-mu-H} and~\ref{ur-Drude},
 \begin{equation}
 \centering
@@ -76,14 +77,16 @@ and
 \omega^2\textbf{B}-g(j\omega)\textbf{B} = \mu_\infty\omega^2\textbf{H}-\omega^2_p\textbf{H}-\mu_\infty g(j\omega)\textbf{H}.
 \label{B-muomega-H-frequency-domain}
 \end{equation}
-Frequency domain quantities can be converted to time--domain using the relationships $j\omega \rightarrow \partial/\partial t$ and $\omega^2 \rightarrow - \partial^2/\partial t^2$. Moreover, fields multiplying with $\omega^2_p$ are averaged in time. Second--order difference scheme is used, both for single and double derivatives to keep all the terms in accordance with the second--order nature of whole expression. That would result in easier implementation. Assuming anisotropic nature of material, only $H_y$ and $B_y$ can be considered. Also, $\omega_{pm}$ and $\omega_{pe}$ are used for magnetic and electric field expressions instead of $\omega_p$, whereas, $g_m$ and $g_e$ are used for magnetic and electric collision frequencies\index{collision!frequency ($\gamma$)}, respectively.
-\begin{eqnarray}
-\nonumber \left(\dfrac{B^{n+1}_y-2B^n_y+B^{n-1}_y}{(\Delta t)^2}\right) &+& g_m\left(\dfrac{B^{n+1}_y-B^{n-1}_y}{2\Delta t}\right) =\\
-\nonumber &&\mu_0\mu_\infty\left(\dfrac{H^{n+1}_y-2H^n_y+H^{n-1}_y}{(\Delta t)^2}\right)\\
-\nonumber &&+\mu_0\omega^2_{pm}\left(\dfrac{H^{n+1}_y+2H^n_y+H^{n-1}_y}{4}\right)\\
-&&+\mu_0\mu_\infty g_m\left(\dfrac{H^{n+1}_y-H^{n-1}_y}{2\Delta t}\right).
+Frequency domain quantities can be converted to time--domain using the relationships $j\omega \rightarrow \partial/\partial t$ and $\omega^2 \rightarrow - \partial^2/\partial t^2$. Moreover, fields multiplying with $\omega^2_p$ are averaged in time. Second--order difference scheme is used, both for single and double derivatives to keep all the terms in accordance with the second--order nature of whole expression. That would result in easier implementation. Assuming anisotropic nature of material, only $H_y$ and $B_y$ can be considered. Also, $\omega_{pm}$ and $\omega_{pe}$ are used for magnetic and electric field expressions instead of $\omega_p$, whereas, $\gamma_m$ and $\gamma_e$ are used for magnetic and electric collision frequencies\index{collision!frequency ($\gamma$)}, respectively.
+\begin{equation}
+\begin{split}
+\left(\dfrac{B^{n+1}_y-2B^n_y+B^{n-1}_y}{(\Delta t)^2}\right)&+\gamma_m\left(\dfrac{B^{n+1}_y-B^{n-1}_y}{2\Delta t}\right) =\\
+&\mu_0\mu_\infty\left(\dfrac{H^{n+1}_y-2H^n_y+H^{n-1}_y}{(\Delta t)^2}\right)\\
+&+\mu_0\omega^2_{pm}\left(\dfrac{H^{n+1}_y+2H^n_y+H^{n-1}_y}{4}\right)\\
+&+\mu_0\mu_\infty \gamma_m\left(\dfrac{H^{n+1}_y-H^{n-1}_y}{2\Delta t}\right).
+\end{split}
 \label{2nd-order-B-H}
-\end{eqnarray}
+\end{equation}
 By separating $H^{n+1}_y$, the final form of equation is
 \begin{eqnarray}
 \nonumber H^{n+1}_y &=& a_m\left(B^{n+1}_y-2B^n_y+B^{n-1}_y\right)+b_m\left(B^{n+1}_y-B^{n-1}_y\right)\\
@@ -92,11 +95,11 @@ By separating $H^{n+1}_y$, the final form of equation is
 \end{eqnarray}
 Where,
 \begin{eqnarray}
-\nonumber & a_m=\dfrac{4}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty g_m \left(2\Delta t\right)},\\
-\nonumber & b_m=\dfrac{g_m\left(2\Delta t\right)}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty g_m \left(2\Delta t\right)},\\
-\nonumber & c_m=\dfrac{4\mu_0\mu_\infty}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty g_m \left(2\Delta t\right)},\\
-\nonumber & d_m=\dfrac{-\mu_0\omega^2_{pm}\left(\Delta t\right)^2}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty g_m \left(2\Delta t\right)},\\
-\nonumber & e_m=\dfrac{\mu_0\mu_\infty g_m\left(2\Delta t\right)}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty g_m \left(2\Delta t\right)}.
+\nonumber & a_m=\dfrac{4}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty \gamma_m \left(2\Delta t\right)},\\
+\nonumber & b_m=\dfrac{\gamma_m\left(2\Delta t\right)}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty \gamma_m \left(2\Delta t\right)},\\
+\nonumber & c_m=\dfrac{4\mu_0\mu_\infty}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty \gamma_m \left(2\Delta t\right)},\\
+\nonumber & d_m=\dfrac{-\mu_0\omega^2_{pm}\left(\Delta t\right)^2}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty \gamma_m \left(2\Delta t\right)},\\
+\nonumber & e_m=\dfrac{\mu_0\mu_\infty \gamma_m\left(2\Delta t\right)}{4\mu_0\mu_\infty+\mu_0\omega^2_{pm}\left(\Delta t\right)^2+\mu_0\mu_\infty \gamma_m \left(2\Delta t\right)}.
 \label{1D-Drude-H-scalars}
 \end{eqnarray}
 A similar derivation can be carried out to obtain the auxiliary update equation\index{FDTD!auxiliary update equation} for electric field given by
@@ -107,11 +110,11 @@ A similar derivation can be carried out to obtain the auxiliary update equation\
 \end{eqnarray}
 Where
 \begin{eqnarray}
-\nonumber & a_e=\dfrac{4}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty g_e \left(2\Delta t\right)},\\
-\nonumber & b_e=\dfrac{g_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty g_e \left(2\Delta t\right)},\\
-\nonumber & c_e=\dfrac{4\epsilon_0\epsilon_\infty}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty g_e \left(2\Delta t\right)},\\
-\nonumber & d_e=\dfrac{-\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty g_e \left(2\Delta t\right)},\\
-\nonumber & e_e=\dfrac{\epsilon_0\epsilon_\infty g_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty g_e \left(2\Delta t\right)}.
+\nonumber & a_e=\dfrac{4}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},\\
+\nonumber & b_e=\dfrac{\gamma_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},\\
+\nonumber & c_e=\dfrac{4\epsilon_0\epsilon_\infty}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},\\
+\nonumber & d_e=\dfrac{-\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)},\\
+\nonumber & e_e=\dfrac{\epsilon_0\epsilon_\infty \gamma_e\left(2\Delta t\right)}{4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{pe}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma_e \left(2\Delta t\right)}.
 \label{1D-Drude-E-scalars}
 \end{eqnarray}
 For a wave propagating in $z$ direction, FDTD update equations\index{FDTD!update equations} are
@@ -137,7 +140,7 @@ There are three main phases in the implementation:
 \end{enumerate}
 Figure \ref{1D-DNG-Algorithm} depicts the flow of program.
 \subsection{Initialisation}
-In this phase, simulation parameters are specified. Simulation parameters are total number of spatial steps, time steps, wavelength and frequency of operation etc. Field arrays are then allocated and initialised. Any additional fields that are required for post--processing\index{post--processing} are also initialised. Arrays containing $g_m$, $g_e$, $\omega^2_{pm}$ and $\omega^2_{pe}$ must be initialised with values specified for each location in the domain.
+In this phase, simulation parameters are specified. Simulation parameters are total number of spatial steps, time steps, wavelength and frequency of operation etc. Field arrays are then allocated and initialised. Any additional fields that are required for post--processing\index{post--processing} are also initialised. Arrays containing $\gamma_m$, $\gamma_e$, $\omega^2_{pm}$ and $\omega^2_{pe}$ must be initialised with values specified for each location in the domain.
 \subsection{Simulation}
 A dry run\index{dry run} must be carried out without any obstacle if reflection coefficient is to be calculated in order to record the incident field where obstacle is to be placed. The actual simulation consists of five steps:
 \begin{enumerate}

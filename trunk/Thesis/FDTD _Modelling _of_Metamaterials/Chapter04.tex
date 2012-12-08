@@ -236,9 +236,9 @@ checkCudaErrors(cudaMalloc((void **)&d_Hy_, sizeof(PRECISION)*Size*3));
 \label{lst:OpenCL-Device-Memory-Buffers}
 \begin{lstlisting}[caption={Device memory allocation in OpenCL}]
 d_Ez_ = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_USE_HOST_PTR, sizeof(PRECISION)*IEz*JEz*3, Ez_, &status);
-SafeCall(status, "Error: clCreateBuffer() cannot creae input buffer for Ex_");
+SafeCall(status, "Error: clCreateBuffer() cannot create input buffer for Ex_");
 d_ee_ = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_USE_HOST_PTR, sizeof(PRECISION)*IHx*JHx, ee_, &status);
-SafeCall(status, "Error: clCreateBuffer() cannot creae input buffer for ee");
+SafeCall(status, "Error: clCreateBuffer() cannot create input buffer for ee");
 \end{lstlisting}
 \subsubsection{\texttt{InitialiseCLKernelsGPU()}\index{kernel!OpenCL!initialisation}}
 OpenCL implementation needs to associate all the kernels defined in the .cl file with their respective handles. These handles are variables that are used to call kernel from host. The .cl code file is loaded and compiled\index{kernel!OpenCL!compilation} first. Errors and warnings in kernel code are output on console if kernel compiler is unsuccessful in building the program. Kernel arguments\index{kernel!OpenCL!arguments} must be specified before a kernel launch. This will bind the OpenCL memory buffers for data exchange between host and device.
@@ -295,8 +295,6 @@ status = clEnqueueNDRangeKernel(
 					NULL,
 					&events[0]);
 \end{lstlisting}
-\section{Results}
-
 \section{Performance Analysis\index{performance analysis}}
 \subsection{Hardware and Software Set--up}
 Matlab, C++, CUDA and OpenCL implementations are tested with respect to space, time and space--time. Operating system, platform/configuration and compiler/toolchain for these implementations are listed in table \ref{Tab:OS-Platform/Configuration-Compiler/Toolchain-for-Testing}. Simulations use \verb|double| data type for arrays on 64 bit optimised platform. The CPU is an Intel Core 2 Duo E8400 @3.00 GHz with 4 GB RAM. For CUDA simulations, GPU is GTX 500 Ti with 192 shaders and 1 GB of memory. Visual C++ 2010 Express is the IDE used on 64 bit Windows 7. The flavour of linux is Fedora 14 64 bit. Hardware and software configuration is listed in table \ref{Tab:Hardware-Software-Configuration-for-Testing}.
@@ -337,7 +335,7 @@ Matlab, C++, CUDA and OpenCL implementations are tested with respect to space, t
 \label{Tab:Hardware-Software-Configuration-for-Testing}
 \end{table}
 \subsection{Spatial Performance Analysis\index{performance analysis!spatial}}
-Spatial performance of different CPU and GPU configurations are analysed in this section. The number of time steps are kept constant and size of simulation domain is increased. Time taken by each configuration is recorded. The data is presented with the help of graphs. Typical performances for 1D and 2D simulations are listed in tables \ref{Tab:Performance-1D-space-65536-elements} and \ref{Tab:Performance-2D-space-1024^2-elements}.
+Spatial performance of different CPU and GPU configurations are analysed in this section. The total number of time steps is kept constant and size of simulation domain is increased. Time taken by each configuration is recorded. The data is presented with the help of graphs. Typical performances for 1D and 2D simulations are listed in tables \ref{Tab:Performance-1D-space-65536-elements} and \ref{Tab:Performance-2D-space-1024^2-elements}.
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}

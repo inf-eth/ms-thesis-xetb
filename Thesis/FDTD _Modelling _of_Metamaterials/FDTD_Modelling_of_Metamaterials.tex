@@ -1,4 +1,4 @@
-\documentclass[10pt,A4paper]{report}
+\documentclass[12pt,A4paper]{report}
 \usepackage{amsmath}
 \usepackage{microtype}	% Font improvement for pdflatex.
 \usepackage{pgf}
@@ -47,6 +47,19 @@
 %13. Performance Analysis
 %Conclusion
 
+% Page format and spacing directives taken from utepcsthesis.sty
+\setlength{\oddsidemargin}{0.05in}
+\setlength{\topmargin}{0.05in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textwidth}{6.4in}
+\setlength{\textheight}{8.9in}
+\setlength{\footskip}{0in}
+
+% Line spacing.
+\def\SingleSpacing{\def\baselinestretch{1}\large\normalsize}
+\def\DoubleSpacing{\def\baselinestretch{1.5}\large\normalsize}
+
 \begin{document}
 
 \pagenumbering{roman}
@@ -61,6 +74,9 @@ Attique Dawood\\[0.2in]
 2012
 \end{center}
 
+\DoubleSpacing
+\setlength{\footskip}{0.5in}
+
 \include{FDTDCertification}
 
 \tableofcontents
@@ -68,7 +84,7 @@ Attique Dawood\\[0.2in]
 \listoffigures
 
 \begin{abstract}
-\setcounter{page}{6}
+\setcounter{page}{8}
 \thispagestyle{plain}
 The Finite Difference Time--Domain\index{FDTD} method is a differential numerical technique for solving electromagnetic wave scattering problems. In order to model metamaterials\index{metamaterial} with negative refractive index the standard algorithm is modified and Drude\index{dispersive model!Drude} dispersion model is incorporated. The dispersive nature of resulting Drude material can effectively model negative permittivity and permeability. This is demonstrated by simulation of a DNG (double negative medium) slab. A Gaussian pulse incident on this slab will undergo dispersion resulting in different frequency components travelling at different velocities. Evanescent nature of fields in the slab can also be observed. There is a phase reversal at the air--slab interface as the pulse enters or leaves the DNG medium. Refractive index and transmission and reflection coefficients are numerically computed. Suitable values of plasma frequency ($\omega_p$) are then chosen to model the metamaterial cloaking\index{cloak} structure following the treatment of~\cite{Radial-Zhao}. The lossless case of electromagnetic cloak is implemented using a graphics processing unit\index{GPU} (GPU). Simulation performance on Matlab\index{Matlab}, C++\index{C++} and GPU\index{GPU} is analysed. GPU implementation is about 10--20 times faster than equivalent CPU implementation.
 \end{abstract}
@@ -88,7 +104,9 @@ The Finite Difference Time--Domain\index{FDTD} method is a differential numerica
 \bibliography{FDTDRef}
 
 \appendix
+\SingleSpacing
 \include{Appendix}
+\DoubleSpacing
 \printindex
 
 \end{document}

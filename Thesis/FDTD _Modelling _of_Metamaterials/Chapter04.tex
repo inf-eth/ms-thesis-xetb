@@ -6,6 +6,7 @@ With the evolution of 3D graphics arose a need for faster computing means to han
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{lccc}
 	\hline \hline
 		\rule{0pt}{2.6ex} & \textbf{GeForce 6200} & \textbf{GeForce 6600} & \textbf{ATi x850}\\
@@ -143,7 +144,7 @@ In data--parallelism same operation is performed on individual elements of data.
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\newcommand{\Xdisp}{0cm}
 	\newcommand{\Ydisp}{0cm}
 	% Array A.
@@ -194,24 +195,33 @@ An object--oriented approach\index{object--oriented} requires dividing the probl
 \subsubsection{Array Allocation and Indexing}
 Space for 2D or 3D array can be allocated as a 1D array where amount of space allocated is equal to product of dimensions of array. Position of an element in 1D array is a function of dimensions and indices. For example, space for a 3D array with dimensions \texttt{I}, \texttt{J} and \texttt{K} can be allocated as
 \lstset{language=[ISO]C++, commentstyle=\color{green!50!black}, keywordstyle=\color{blue}, stringstyle=\color{red!60!black}}
+
 \label{lst:3D-Array-Allocation}\index{array!allocation}
+\SingleSpacing
 \begin{lstlisting}[caption={3D array allocation}]
 int *Array3D;
 Array3D = new int[I*J*K];
 \end{lstlisting}
+\DoubleSpacing
 Index \texttt{(i,j,k)} can be accessed as
+
 \label{lst:3D-Array-Access}\index{array!access}
+\SingleSpacing
 \begin{lstlisting}[caption={Accessing elements of 3D array}]
 int Value = Array3D[i+(j*I)+(k*I*J)];
 \end{lstlisting}
+\DoubleSpacing
 \subsubsection{Using Macros for Array Indexing\index{macro}}
 Macros make it easier to write equations and also increases readability of code.
+
 \label{lst:Array-Access-Macro}
+\SingleSpacing
 \begin{lstlisting}[caption={Macro to access array elements}]
 #define Hy(i,j,n) Hy_[(i)+IHy*(j)+IHy*JHy*(n)]
 #define am0(i,j) am0_[(i)+IHx*(j)]
 #define PsiEzY(i,j) PsiEzY_[(i)+IEz*(j)]
 \end{lstlisting}
+\DoubleSpacing
 \subsubsection{Constant Member Initialisation}
 The constructor\index{constructor} initialises constant data members. The constructor can take some simulation parameters when the object is created. These parameters are optional and will be initialised with default values if the input fields are left empty. Some of the  basic parameters are simulation size, choice of source and interval between saving field data. The field data saved to hard disk is referred to as a snapshot\index{field snapshot}.
 \subsubsection{\texttt{AllocateMemoryCPU()}}
@@ -220,33 +230,45 @@ On host, electric and magnetic fields are dynamically allocated according to siz
 Field arrays, permittivity, permeability, Drude and PML parameter arrays are initialised on host.
 \subsubsection{\texttt{InitialiseCL()}}
 This is only for OpenCL. It first searches for a suitable device which can be CPU or GPU. OpenCL provides CPU emulation in case a GPU is not present. This is useful for debugging purposes.
+
 \label{lst:OpenCL-Device-Search}
+\SingleSpacing
 \begin{lstlisting}[caption={Device selection in OpenCL}]
 devices = new cl_device_id[deviceListSize/sizeof(cl_device_id)];
 SafeCall(!devices, "Error: No devices found.");
 SafeCall(clGetContextInfo(context, CL_CONTEXT_DEVICES, deviceListSize, devices, NULL), "Error: Getting Context Info (device list, clGetContextInfo)");
 \end{lstlisting}
+\DoubleSpacing
 \subsubsection{\texttt{AllocateMemoryGPU()} and \texttt{CopyDataCPUtoGPU()}}
 Space is allocated for data arrays on the GPU device and data arrays initialised on host are copied onto GPU. GPU should have enough memory to store the data arrays otherwise an error will be returned. In case of CUDA this is done explicitly with \texttt{cudaMalloc()} followed by \texttt{cudaMemcpy()}. On OpenCL special data exchange buffers of type \verb|cl_mem| are created that are associated with host pointers. Data transfer from host to device is implicit in this case.
+
 \label{lst:CUDA-Host-Memory-Allocation}
+\SingleSpacing
 \begin{lstlisting}[caption={Device memory allocation in CUDA}]
 checkCudaErrors(cudaMalloc((void **)&d_Ex_, sizeof(PRECISION)*Size*3));
 checkCudaErrors(cudaMalloc((void **)&d_Hy_, sizeof(PRECISION)*Size*3));
 \end{lstlisting}
+\DoubleSpacing
+
 \label{lst:OpenCL-Device-Memory-Buffers}
+\SingleSpacing
 \begin{lstlisting}[caption={Device memory allocation in OpenCL}]
 d_Ez_ = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_USE_HOST_PTR, sizeof(PRECISION)*IEz*JEz*3, Ez_, &status);
 SafeCall(status, "Error: clCreateBuffer() cannot create input buffer for Ex_");
 d_ee_ = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_USE_HOST_PTR, sizeof(PRECISION)*IHx*JHx, ee_, &status);
 SafeCall(status, "Error: clCreateBuffer() cannot create input buffer for ee");
 \end{lstlisting}
+\DoubleSpacing
 \subsubsection{\texttt{InitialiseCLKernelsGPU()}\index{kernel!OpenCL!initialisation}}
 OpenCL implementation needs to associate all the kernels defined in the .cl file with their respective handles. These handles are variables that are used to call kernel from host. The .cl code file is loaded and compiled\index{kernel!OpenCL!compilation} first. Errors and warnings in kernel code are output on console if kernel compiler is unsuccessful in building the program. Kernel arguments\index{kernel!OpenCL!arguments} must be specified before a kernel launch. This will bind the OpenCL memory buffers for data exchange between host and device.
+
 \label{lst:OpenCL-Setting-Kernel-Arguments}
+\SingleSpacing
 \begin{lstlisting}[caption={Setting kernel arguments in OpenCL}]
 SafeCall(clSetKernelArg(DryRun_kernel_M, 30, sizeof(cl_mem), (void *)&d_By_), "Error: Setting kernel argument d_By_");
 SafeCall(clSetKernelArg(DryRun_kernel_M, 31, sizeof(cl_mem), (void *)&d_PsiEzX_), "Error: Setting kernel argument d_PsiEzX_");
 \end{lstlisting}
+\DoubleSpacing
 \subsubsection{\texttt{DryRun()}\index{dry run} and \texttt{Simulation()}}
 A dry run is meant to record incident fields in the absence of an obstacle or scatterer\index{scatterer}. Transmitted fields in the presence of scatterer are recorded in actual simulation. Incident and transmitted fields are used to calculate the transmission\index{coefficient!transmission ($\tau$)} and reflection\index{coefficient!reflection ($\Gamma$)} coefficients. The simulation function call takes an optional boolean argument to specify if field snapshots should be saved to hard disk.
 \subsubsection{\texttt{CompleteRun()}}
@@ -255,7 +277,9 @@ A complete run method for CPU or GPU is meant to encapsulate all the underlying 
 It is necessary to synchronise all the threads calculating magnetic field before electric field calculation. Therefore, for each time step there are two kernel calls, one for magnetic and one for electric field computation. The ABC for 1D simulation requires threads at end--points to be synchronised. This is achieved in CUDA kernel with a \verb|__synchrnoizeThreads()|\index{thread synchronisation!CUDA} directive while in OpenCL the equivalent function is \verb|barrier()|\index{thread synchronisation!OpenCL}.
 
 In CUDA, kernels are invoked\index{kernel!invocation} with a special directive wrapped in \verb|<<< >>>| while in OpenCL kernels are called by their respective handles. Examples of CUDA and OpenCL kernel invocations are given below. CUDA and OpenCL kernel code of 1D and 2D DNG simulations is given in appendices \ref{App:CUDA-1D-DNG-Kernels} and \ref{App:OpenCL-2D-DNG-Kernels}, respectively.
+
 \label{lst:CUDA-Kernel-Call}
+\SingleSpacing
 \begin{lstlisting}[caption={CUDA Kernel Call}]
 FDTD1DDNGKernel_Simulation_E <ThreadsX, ThreadsY> <<<Blocks, Threads>>>(
 					Size,
@@ -282,7 +306,10 @@ FDTD1DDNGKernel_Simulation_E <ThreadsX, ThreadsY> <<<Blocks, Threads>>>(
 					n0,
 					nf);
 \end{lstlisting}
+\DoubleSpacing
+
 \label{lst:OpenCL-Kernel-Call}
+\SingleSpacing
 \begin{lstlisting}[caption={OpenCL Kernel Call}]
 status = clEnqueueNDRangeKernel(
 					commandQueue,
@@ -295,12 +322,14 @@ status = clEnqueueNDRangeKernel(
 					NULL,
 					&events[0]);
 \end{lstlisting}
+\DoubleSpacing
 \section{Performance Analysis\index{performance analysis}}
 \subsection{Hardware and Software Set--up}
 Matlab, C++, CUDA and OpenCL implementations are tested with respect to space, time and space--time. Operating system, platform/configuration and compiler/toolchain for these implementations are listed in table \ref{Tab:OS-Platform/Configuration-Compiler/Toolchain-for-Testing}. Simulations use \verb|double| data type for arrays on 64 bit optimised platform. The CPU is an Intel Core 2 Duo E8400 @3.00 GHz with 4 GB RAM. For CUDA simulations, GPU is GTX 500 Ti with 192 shaders and 1 GB of memory. Visual C++ 2010 Express is the IDE used on 64 bit Windows 7. The flavour of linux is Fedora 14 64 bit. Hardware and software configuration is listed in table \ref{Tab:Hardware-Software-Configuration-for-Testing}.
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{cccc}
 	\hline \hline
 		\rule{0pt}{2.6ex} & \multirow{2}{*}{\textbf{OS}} & \textbf{Platform/} & \textbf{Compiler/}\\
@@ -319,6 +348,7 @@ Matlab, C++, CUDA and OpenCL implementations are tested with respect to space, t
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{ll}
 	\hline \hline
 		\textbf{CPU} \rule{0pt}{2.6ex}& Intel Core 2 Duo E8400 @3.00 GHz\\
@@ -339,6 +369,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{cccc}
 	\hline \hline
 		\rule{0pt}{2.6ex} & \multirow{2}{*}{\textbf{OS}} & \multirow{2}{*}{\textbf{CPU/GPU}}  & \textbf{Time}\\
@@ -367,6 +398,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{cccc}
 	\hline \hline
 		\rule{0pt}{2.6ex} & \multirow{2}{*}{\textbf{OS}} & \multirow{2}{*}{\textbf{CPU/GPU}}  & \textbf{Time}\\
@@ -395,7 +427,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \subsubsection{1D Simulations\index{performance analysis!spatial!1D}}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -420,7 +452,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -446,7 +478,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -467,7 +499,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -488,7 +520,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \subsubsection{2D Simulations\index{performance analysis!spatial!2D}}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -513,7 +545,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -538,7 +570,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -560,7 +592,7 @@ Spatial performance of different CPU and GPU configurations are analysed in this
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{size}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -584,6 +616,7 @@ This section presents performance analysis graphs with respect to total number o
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{cccc}
 	\hline \hline
 		\rule{0pt}{2.6ex} & \multirow{2}{*}{\textbf{OS}} & \multirow{2}{*}{\textbf{CPU/GPU}}  & \textbf{Time}\\
@@ -612,6 +645,7 @@ This section presents performance analysis graphs with respect to total number o
 \begin{table}[H]
 \begin{center}
 \vspace{0.3cm}
+\SingleSpacing
 	\begin{tabular}{cccc}
 	\hline \hline
 		\rule{0pt}{2.6ex} & \multirow{2}{*}{\textbf{OS}} & \multirow{2}{*}{\textbf{CPU/GPU}}  & \textbf{Time}\\
@@ -640,7 +674,7 @@ This section presents performance analysis graphs with respect to total number o
 \subsubsection{1D Simulations\index{performance analysis!temporal!1D}}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -666,7 +700,7 @@ This section presents performance analysis graphs with respect to total number o
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -692,7 +726,7 @@ This section presents performance analysis graphs with respect to total number o
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -718,7 +752,7 @@ This section presents performance analysis graphs with respect to total number o
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -745,7 +779,7 @@ This section presents performance analysis graphs with respect to total number o
 \subsubsection{2D Simulations\index{performance analysis!temporal!2D}}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -771,7 +805,7 @@ This section presents performance analysis graphs with respect to total number o
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -796,7 +830,7 @@ This section presents performance analysis graphs with respect to total number o
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn
@@ -822,7 +856,7 @@ This section presents performance analysis graphs with respect to total number o
 \end{figure}
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\small]
 	\DrawAxes{steps}{time~(sec)}
 	\GridOn
 	\TicksOn

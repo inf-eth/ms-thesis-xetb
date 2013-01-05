@@ -199,7 +199,7 @@ After the simulation ends, reflection and transmission coefficients are calculat
 	\draw (6.8cm,-10.7cm) node {\textsf{No}};
 	% Yes?
 	\draw[line width=1pt, ->, >=stealth] (4.5cm,-11.8cm) -- (4.5cm,-12.7cm) -- (4.5cm,-12.7cm) -- (4.5cm,-13.5cm);
-	\draw (4.8cm,-12.0cm) node {\textsf{Yes}};
+	\draw (4.9cm,-12.0cm) node {\textsf{Yes}};
 
 	% Post-processing.
 	\draw (5cm,-13.9cm) node {\textsf{Post-Processing}};
@@ -355,7 +355,7 @@ The solution space is 512 cells in both $x$ and $y$ directions without taking in
 Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index\index{refractive index ($n$)} obtained for a range of frequencies with a Gaussian pulse excitation. Again, real part of refractive index at $f_0$ is close to -1, whereas, imaginary part is close to 0. Figure \ref{fig:2DDNG-SteadyState-Lossy} shows sinusoidal steady--state\index{steady--state} under lossy conditions where the source is located towards left and incident plane wave is moving rightwards. Under lossless conditions the slab can act as a perfect lens\index{perfect lens} (figure \ref{fig:2DDNG-Slab-lens}).
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[xscale=0.9,yscale=0.9]
 	\newcommand{\LeftX}{0cm}
 	\newcommand{\MidX}{4cm}
 	\newcommand{\RightX}{8cm}
@@ -395,6 +395,7 @@ Figure \ref{fig:2DDNG-Refractive-Index} shows the refractive index\index{refract
 \end{figure}
 \begin{figure}[H]
 \centering
+\vspace{-0.5cm}
 \begin{tikzpicture}
 	\newcommand{\LeftX}{0cm}
 	\newcommand{\RightX}{5cm}

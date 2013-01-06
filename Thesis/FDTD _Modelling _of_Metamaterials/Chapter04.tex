@@ -33,10 +33,6 @@ In task--parallelism computation consist of several independent tasks that run c
 e^x = 1+\dfrac{x^1}{1!}+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\dfrac{x^4}{4!}+\dfrac{x^5}{5!}+\dfrac{x^6}{6!}+...+\dfrac{x^n}{n!}
 \label{eq:ex-Taylor-Series}
 \end{equation}
-
-A single--threaded\index{threading!single} conventional implementation would have to calculate all the terms one--by--one and then sum up the result in the end. However, in a multi--threaded\index{threading!multi} implementation, each thread would calculate only one term. All the treads will perform their computation in parallel and the end result is then summed up. The computation--intensive task of calculating factorials and higher powers of $x$ is parallelised and results in significant reduction of computation time.
-\subsection{Data--Parallelism\index{parallelism!data}}
-In data--parallelism same operation is performed on individual elements of data. A simple example is that of scalar matrix multiplication. Consider an array of size $n$ being multiplied with a scalar constant $c$. The result of each multiplication can be calculated independently by assigning a separate thread for the task. This is illustrated in figure \ref{fig:Data-Parallelism} where input array is \texttt{A[]} and resultant array is \texttt{B[]}. Data--parallelism applies to any scenario where values in resultant data array only depends on values from input array. FDTD\index{FDTD!data--parallelism} is a good example of data--parallelism and a GPU implementation can take advantage of accelerated computing.
 \begin{figure}[H]
 \centering
 \subfigure[Single--threaded implementation]{
@@ -142,9 +138,13 @@ In data--parallelism same operation is performed on individual elements of data.
 \caption{Task--parallelism}
 \label{fig:Task-Parallelism}
 \end{figure}
+
+A single--threaded\index{threading!single} conventional implementation would have to calculate all the terms one--by--one and then sum up the result in the end. However, in a multi--threaded\index{threading!multi} implementation, each thread would calculate only one term. All the treads will perform their computation in parallel and the end result is then summed up. The computation--intensive task of calculating factorials and higher powers of $x$ is parallelised and results in significant reduction of computation time.
+\subsection{Data--Parallelism\index{parallelism!data}}
+In data--parallelism same operation is performed on individual elements of data. A simple example is that of scalar matrix multiplication. Consider an array of size $n$ being multiplied with a scalar constant $c$. The result of each multiplication can be calculated independently by assigning a separate thread for the task. This is illustrated in figure \ref{fig:Data-Parallelism} where input array is \texttt{A[]} and resultant array is \texttt{B[]}. Data--parallelism applies to any scenario where values in resultant data array only depends on values from input array. FDTD\index{FDTD!data--parallelism} is a good example of data--parallelism and a GPU implementation can take advantage of accelerated computing.
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[font=\small]
+\begin{tikzpicture}[xscale=1.2,yscale=1,font=\small]
 	\newcommand{\Xdisp}{0cm}
 	\newcommand{\Ydisp}{0cm}
 	% Array A.

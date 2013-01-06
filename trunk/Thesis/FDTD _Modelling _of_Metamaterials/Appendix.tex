@@ -1629,6 +1629,7 @@ template <unsigned int BlockX, unsigned int BlockY> __global__ void FDTD2DDNGKer
 \chapter{Cylindrical Cloak Implementations}
 \section{Matlab Simulation Code}
 \label{App:Matlab-Simulation-Cloak}
+\lstset{language=Octave, commentstyle=\color{gray}, stringstyle=\color{red!60!black}}
 \begin{lstlisting}
 for n = 0:MaxTime
     
@@ -1790,6 +1791,7 @@ end
 \end{lstlisting}
 \section{C++ Simulation Code}
 \label{App:C++-Simulation-Cloak}
+\lstset{language=[ISO]C++, commentstyle=\color{green!50!black}, keywordstyle=\color{blue}, stringstyle=\color{red!60!black}}
 \begin{lstlisting}
 int CFDTD2DCloak::RunSimulationCPU(bool SaveFields)
 {

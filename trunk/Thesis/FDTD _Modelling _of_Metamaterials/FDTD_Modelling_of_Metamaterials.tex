@@ -16,7 +16,7 @@
 
 % Listings for wrapping code.
 \usepackage{listings}
-\lstset{breaklines=true, basicstyle=\small\ttfamily, tabsize=4, numbers=left, stepnumber=1, frame=single, showstringspaces=false}
+\lstset{breaklines=true, basicstyle=\footnotesize\ttfamily, tabsize=4, numbers=left, stepnumber=1, frame=single, showstringspaces=false}
 
 % Links direct to top of figures.
 \usepackage[all]{hypcap}
@@ -26,6 +26,19 @@
 
 % Index directive.
 \makeindex
+
+% Page format and spacing directives taken from utepcsthesis.sty
+\setlength{\oddsidemargin}{0.05in}
+\setlength{\topmargin}{0.05in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textwidth}{6.4in}
+\setlength{\textheight}{8.9in}
+\setlength{\footskip}{0in}
+
+% Line spacing.
+\def\SingleSpacing{\def\baselinestretch{1}\large\normalsize}
+\def\DoubleSpacing{\def\baselinestretch{1.5}\large\normalsize}
 
 %Chapter 1 Introduction to FDTD
 %1. 1D Equations
@@ -46,19 +59,6 @@
 %12. Implementation details
 %13. Performance Analysis
 %Conclusion
-
-% Page format and spacing directives taken from utepcsthesis.sty
-\setlength{\oddsidemargin}{0.05in}
-\setlength{\topmargin}{0.05in}
-\setlength{\headheight}{0in}
-\setlength{\headsep}{0in}
-\setlength{\textwidth}{6.4in}
-\setlength{\textheight}{8.9in}
-\setlength{\footskip}{0in}
-
-% Line spacing.
-\def\SingleSpacing{\def\baselinestretch{1}\large\normalsize}
-\def\DoubleSpacing{\def\baselinestretch{1.5}\large\normalsize}
 
 \begin{document}
 
@@ -106,7 +106,6 @@ The Finite Difference Time--Domain\index{FDTD} method is a differential numerica
 \appendix
 \SingleSpacing
 \include{Appendix}
-\DoubleSpacing
 \printindex
 
 \end{document}

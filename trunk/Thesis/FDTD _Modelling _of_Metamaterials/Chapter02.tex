@@ -3,44 +3,44 @@
 \section{The Yee Algorithm}
 The original algorithm was\index{Yee algorithm} proposed by K. S. Yee\index{Yee, K. S.} in 1966~\cite{Yee1966}. The derivatives in Faraday's Law\index{Faraday's Law} and Ampere's Law\index{Ampere's Law} are replaced with difference equations. The whole problem space is discretised and divided into cells such that electric and magnetic fields are staggered at half spatial steps in unit cell. By advancing the simulation in time, future values of electric and magnetic field components are computed using past values. This chapter gives provides a brief treatment of FDTD\index{FDTD} in 1D and 2D. Wave propagation in free space and with a homogeneous scatterer are discussed using conventional and dispersive FDTD\index{FDTD!dispersive} methods.
 \section{FDTD Update Equations in One Dimension (1D)}
-Faraday's Law\index{Faraday's Law} and Ampere's Law\index{Ampere's Law} in differential form are given by:
+Faraday's Law\index{Faraday's Law} and Ampere's Law\index{Ampere's Law} in differential form are given by
 \begin{equation}
 \centering
-\nabla \times \textbf{E} = - \dfrac{\partial \textbf{B}}{\partial t}
+\nabla \times \textbf{E} = - \dfrac{\partial \textbf{B}}{\partial t},
 \label{Faraday's Law}
 \end{equation}
 \begin{equation}
 \centering
-\nabla \times \textbf{H} = \dfrac{\partial \textbf{D}}{\partial t}
+\nabla \times \textbf{H} = \dfrac{\partial \textbf{D}}{\partial t}.
 \label{Ampere's Law}
 \end{equation}
-Assume electric field only has $x$--component, that is $E_x$, and magnetic field only has $y$--component $H_y$. The curl of electric field can be expanded as:
+Assume electric field only has $x$--component, that is $E_x$, and magnetic field only has $y$--component $H_y$. The curl of electric field can be expanded as
 \begin{equation}
 \centering
-\nabla \times \textbf{E} = - \mu \dfrac{\partial H_y}{\partial t} \hat{y} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ E_x & 0 & 0 \end{array} \right| = \dfrac{\partial E_x}{\partial z} \hat{y}
+\nabla \times \textbf{E} = - \mu \dfrac{\partial H_y}{\partial t} \hat{y} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ E_x & 0 & 0 \end{array} \right| = \dfrac{\partial E_x}{\partial z} \hat{y}.
 \label{Faraday's Law-Curl-Expansion}
 \end{equation}
-Similarly, the curl of magnetic field can be written as:
+Similarly, the curl of magnetic field can be written as
 \begin{equation}
 \centering
-\nabla \times \textbf{H} = \epsilon \dfrac{\partial E_x}{\partial t} \hat{x} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 0 & H_y & 0 \end{array} \right| = - \dfrac{\partial H_y}{\partial z} \hat{x}
+\nabla \times \textbf{H} = \epsilon \dfrac{\partial E_x}{\partial t} \hat{x} = \left| \begin{array}{ccc} \hat{x} & \hat{y} & \hat{z} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 0 & H_y & 0 \end{array} \right| = - \dfrac{\partial H_y}{\partial z} \hat{x}.
 \label{Ampere's Law-Curl-Expansion}
 \end{equation}
 Rearranging terms,
 \begin{equation}
 \centering
-\dfrac{\partial H_y}{\partial t} = - \dfrac{1}{\mu} \dfrac{\partial E_x}{\partial z}
+\dfrac{\partial H_y}{\partial t} = - \dfrac{1}{\mu} \dfrac{\partial E_x}{\partial z},
 \label{Faraday's Law-Curl-Expansion-1D}
 \end{equation}
 \begin{equation}
 \centering
-\dfrac{\partial E_x}{\partial t} = - \dfrac{1}{\epsilon} \dfrac{\partial H_y}{\partial z}
+\dfrac{\partial E_x}{\partial t} = - \dfrac{1}{\epsilon} \dfrac{\partial H_y}{\partial z}.
 \label{Ampere's Law-Curl-Expansion-1D}
 \end{equation}
 These two scalar equations drive the FDTD\index{FDTD} algorithm. First, magnetic field is calculated using equation~\ref{Faraday's Law-Curl-Expansion-1D} and then electric field (equation~\ref{Ampere's Law-Curl-Expansion-1D}) is calculated from the magnetic field obtained in~\ref{Faraday's Law-Curl-Expansion-1D}. Electric and magnetic fields are staggered at half time steps. Similarly, magnetic and electric fields in space are also spaced at half spatial steps. The algorithm is normally referred to as a leap--frog scheme\index{leap--frog}.
 \begin{figure}[here]
 \centering
-\begin{tikzpicture}
+\begin{tikzpicture}[xscale=1.2,yscale=1.2,font=\small]
 	\def\XD{0cm}
 	\def\YD{0cm}
 	\coordinate[label=left:$E^{n=0}$] (E0) at (\XD,\YD+0.3cm);
@@ -87,52 +87,52 @@ These two scalar equations drive the FDTD\index{FDTD} algorithm. First, magnetic
 \end{figure}
 By examining equations~\ref{Faraday's Law-Curl-Expansion-1D} and \ref{Ampere's Law-Curl-Expansion-1D} it can be intuitively observed that a wave with $E_x$ and $H_y$ components will propagate in $\hat{z}$ direction and space derivatives with respect to $z$ indicate variation of electric and magnetic fields in space along $z$--axis.
 
-These equations need to be discretised before they can be implemented as a computer simulation. Both the time and space derivatives are discretised to obtain difference equations. The difference equations for space and time derivatives use central difference\index{central difference} scheme and expressed as,
+These equations need to be discretised before they can be implemented as a computer simulation. Both the time and space derivatives are discretised to obtain difference equations. The difference equations for space and time derivatives use central difference\index{central difference} scheme and expressed as
 \begin{equation}
 \centering
-\dfrac{\partial F^n(x)}{\partial t} \equiv \dfrac{F^{n+\frac{1}{2}}(x)-F^{n-\frac{1}{2}}(x)}{\Delta t}
+\dfrac{\partial F^n(x)}{\partial t} \equiv \dfrac{F^{n+\frac{1}{2}}(x)-F^{n-\frac{1}{2}}(x)}{\Delta t},
 \label{central-difference-time}
 \end{equation}
 \begin{equation}
 \centering
-\dfrac{\partial F^n(x)}{\partial x} \equiv \dfrac{F^n(x+\frac{1}{2})-F^n(x-\frac{1}{2})}{\Delta x}
+\dfrac{\partial F^n(x)}{\partial x} \equiv \dfrac{F^n(x+\frac{1}{2})-F^n(x-\frac{1}{2})}{\Delta x}.
 \label{central-difference-space}
 \end{equation}
-Following the treatment in chapter 3 of~\cite{JBSchneiderUFDTD}, electric and magnetic fields as functions of time and space can be written as,
+Following the treatment in chapter 3 of~\cite{JBSchneiderUFDTD}, electric and magnetic fields as functions of time and space can be written as
 \begin{equation}
 \centering
-H_y (z,t)=H_y (k\Delta _z,n\Delta _t)=H^n_y[k]
+H_y (z,t)=H_y (k\Delta _z,n\Delta _t)=H^n_y[k],
 \label{Hy-of-z_and_t}
 \end{equation}
 \begin{equation}
 \centering
-E_x (z,t)=E_x (k\Delta _z,n\Delta _t)=E^n_x[k]
+E_x (z,t)=E_x (k\Delta _z,n\Delta _t)=E^n_x[k].
 \label{Ex-of-z_and_t}
 \end{equation}
 The final equations for electric and magnetic fields driving the FDTD algorithm are\index{FDTD!update equations}
 \begin{equation}
 \centering
-H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right]=H^{n-\frac{1}{2}}_y \left[k+\frac{1}{2}\right] + \dfrac{\Delta t}{\mu \Delta x} \left( E^{n}_x \left[k\right] - E^{n}_x \left[k+1\right] \right)
+H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right]=H^{n-\frac{1}{2}}_y \left[k+\frac{1}{2}\right] + \dfrac{\Delta t}{\mu \Delta x} \left( E^{n}_x \left[k\right] - E^{n}_x \left[k+1\right] \right),
 \label{Hy-1D-Simple-FDTD-Driver}
 \end{equation}
 \begin{equation}
 \centering
-E^{n+1}_x \left[k\right]=E^{n}_x \left[k\right] + \dfrac{\Delta t}{\epsilon \Delta x} \left( H^{n+\frac{1}{2}}_y \left[k-\frac{1}{2}\right] - H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right] \right)
+E^{n+1}_x \left[k\right]=E^{n}_x \left[k\right] + \dfrac{\Delta t}{\epsilon \Delta x} \left( H^{n+\frac{1}{2}}_y \left[k-\frac{1}{2}\right] - H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right] \right).
 \label{Ex-1D-Simple-FDTD-Driver}
 \end{equation}
 The FDTD\index{FDTD} code for this 1D simulation is given in appendix \ref{App:1DFDTDFreeSpaceMatlab} and uses first order absorbing boundary condition (ABC)\index{boundary condition!absorbing (ABC)}.
 \section{Stability and Accuracy}
 \subsection{Courant Stability Criterion}
-Stability of the FDTD\index{FDTD} method is governed by the temporal time step $\Delta t$. If it is too large then the simulation would become unstable. In FDTD\index{FDTD} the fields exist at discrete locations. In one iteration or temporal step, energy should not propagate any further than the neighbouring field or node. This is known as the Courant Stability Criterion\index{Courant stability criterion} and is expressed as,
+Stability of the FDTD\index{FDTD} method is governed by the temporal time step $\Delta t$. If it is too large then the simulation would become unstable. In FDTD\index{FDTD} the fields exist at discrete locations. In one iteration or temporal step, energy should not propagate any further than the neighbouring field or node. This is known as the Courant Stability Criterion\index{Courant stability criterion} and is expressed as
 \begin{equation}
 \centering
-c \Delta t \leq \left[ \dfrac{1}{\Delta x^2} + \dfrac{1}{\Delta y^2} + \dfrac{1}{\Delta z^2} \right]^{-\frac{1}{2}}
+c \Delta t \leq \left[ \dfrac{1}{\Delta x^2} + \dfrac{1}{\Delta y^2} + \dfrac{1}{\Delta z^2} \right]^{-\frac{1}{2}}.
 \label{Courant-Stability-Criterion}
 \end{equation}
-For the case where spatial differentials are equal (denoted by $\delta$), this reduces to,
+For the case where spatial differentials are equal (denoted by $\delta$), this reduces to
 \begin{equation}
 \centering
-S_c = \dfrac{c \Delta t}{\delta} \leq 1
+S_c = \dfrac{c \Delta t}{\delta} \leq 1.
 \label{Courant-Stability-Criterion-Equal-Differentials}
 \end{equation}
 Here $S_c$ is known as the Courant number\index{Courant number ($S_c$)}. It should be less than unity in order for a stable solution.

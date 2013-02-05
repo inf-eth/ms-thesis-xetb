@@ -10,14 +10,14 @@
 \sloppy
 
 
-\title{Paper Template of \LaTeX\ for META Proceedings} % Please input your paper Title
+\title{Finite Difference Time--Domain Modelling of Metamaterials: GPU Implementation of Cylindrical Cloak} % Please input your paper Title
 
-\name{Firstname Lastname} % Please input your name if single author. 
+\name{Attique Dawood} % Please input your name if single author. 
 
 \address{
-Department of Mechanical Engineering, \\
-University of Heat Transfer and Fluid Flow, Kyoto, Japan \\
-*corresponding author, E-mail: {\tt author@xx.yyy.zzz}
+Department of Electrical Engineering, \\
+National University of Computer and Emerging Sciences (FAST), Islamabad, Pakistan \\
+*corresponding author, E-mail: {\tt attique.dawood@nu.edu.pk}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,19 +57,15 @@ University of Heat Transfer and Fluid Flow, Kyoto, Japan \\
 
 %
 \begin{abstract}
-This is the layout specification and template definition for a full paper to be submitted to META Conference.
+Finite difference time--domain (FDTD) technique can be used to model metamaterials by treating them as dispersive material. Drude or Lorentz model can be incorporated into the standard FDTD algorithm for modelling negative permittivity and permeability. FDTD algorithm is readily parallelisable and can take advantage of GPU acceleration to achieve speed--ups of 5x--50x depending on hardware setup. Metamaterial scattering problems are implemented using dispersive FDTD technique on GPU resulting in performance gain of 10x--15x compared to conventional CPU implementation.
 \end{abstract}
 
 %
 \section{Introduction}
 
-This template can be found on the META website. 
-Please use either a MS-Word\textregistered\ or a \LaTeX\ format file when preparing your full-paper submission. 
-If another word processor than \LaTeX\ is used, please make sure that the appearance is similar to that of this sample.
-Information for full-paper submission is available on the web at {\tt \small http://metaconferences.org/} under which you also will find instructions for paper preparation and usage of templates.
+Standard FDTD algorithm cannot cater for negative values of permittivity or permeability. This is because of the Courant stability criterion. As soon as the permeability or permittivity becomes less than unity the algorithm will not be stable. A metamaterial object can be modelled as a dispersive substance using either the Lorentz or Drude dispersive models. These models can yield negative values of permittivity (or permeability) for certain frequency ranges~\cite{NumericalFDTD-Sibel}. Using these dispersive models, FDTD update equations are modified and permittivity and permeabilities are replaced with terms dependent on frequency of operation.
 
-Full paper should be submitted electronically via {\tt \small http://metaconferences.org/} as a processed PDF. 
-Acknowledgement of receipt of the submission will be sent to the contact-author e-mail address.
+Two problems are chosen for GPU implementation. First is the electromagnetic wave scattering by a slab with negative permittivity and permeability; also known as DNG (double negative) medium. Second problem is the simulation of cylindrical cloak. An incident Gaussian pulse on DNG slab will undergo dispersion resulting in different frequency components being separated. Refractive index and transmission coefficient are calculated numerically to ascertain the validity of implementation. The cylindrical cloak was first proposed and tested by Pendry et. al. \cite{PendryShurig-MicrowaveCloak}. The first FDTD implementation was by Zhao et. al \cite{Radial-Zhao} and implemented on Comsol, a commercial electromagnetic simulation software. Simulations are implemented on Matlab, C++ and GPU. Performance comparison reveals a 10--15 times increase in performance with GPU implementations. Performance gain is greater for larger problem sizes and greater simulation times.
 
 \section{Page layout and style}
 
@@ -195,28 +191,29 @@ Acknowledgements belong here.
 
 
 \bibliographystyle{IEEEtran}
-\begin{thebibliography}{10}
-%%---
-\bibitem[1]{Zhang10} 
-A.-B. Zhang, C.-D. Kim, E. Yamada, F.G. Smith, 
-The numerical investigation on the turbulent heat transfer, 
-{\em Int. J. Heat Mass Transfer} 12: 345--365, 2010.
-%%---
-\bibitem[2]{Patankar80} 
-S.V. Patankar, 
-{\em Numerical Heat Transfer and Fluid Flow}, 
-Hemisphere Publishers, New York, 1980.
-%%---
-\bibitem[3]{Kays90} 
-W.M. Kays, M.E. Crawford, 
-{\em Heat transfer}, 
-Wiley, New York, pp.256-258, 1990.
-%%---
-\bibitem[4]{Kawa09} 
-Y. Kawaguchi, T. Tsukahara, M. Motozawa, 
-Experimental and numerical investigations of turbulent drag reduction phenomena by additives,
-{\em Proc. aes09},
-Jeju, Korea, pp. 23--32, 2009.
-%%---
-\end{thebibliography}
+\bibliography{FDTDMETARef}
+%\begin{thebibliography}{10}
+%%%---
+%\bibitem[1]{Zhang10} 
+%A.-B. Zhang, C.-D. Kim, E. Yamada, F.G. Smith, 
+%The numerical investigation on the turbulent heat transfer, 
+%{\em Int. J. Heat Mass Transfer} 12: 345--365, 2010.
+%%%---
+%\bibitem[2]{Patankar80} 
+%S.V. Patankar, 
+%{\em Numerical Heat Transfer and Fluid Flow}, 
+%Hemisphere Publishers, New York, 1980.
+%%%---
+%\bibitem[3]{Kays90} 
+%W.M. Kays, M.E. Crawford, 
+%{\em Heat transfer}, 
+%Wiley, New York, pp.256-258, 1990.
+%%%---
+%\bibitem[4]{Kawa09} 
+%Y. Kawaguchi, T. Tsukahara, M. Motozawa, 
+%Experimental and numerical investigations of turbulent drag reduction phenomena by additives,
+%{\em Proc. aes09},
+%Jeju, Korea, pp. 23--32, 2009.
+%%%---
+%\end{thebibliography}
 \end{document}

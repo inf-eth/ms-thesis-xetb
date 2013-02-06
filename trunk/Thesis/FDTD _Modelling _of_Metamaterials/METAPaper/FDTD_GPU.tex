@@ -17,7 +17,7 @@
 \address{
 Department of Electrical Engineering, \\
 National University of Computer and Emerging Sciences (FAST), Islamabad, Pakistan \\
-*corresponding author, E-mail: {\tt attique.dawood@nu.edu.pk}
+E-mail: {\tt attique.dawood@nu.edu.pk}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -67,13 +67,29 @@ Standard FDTD algorithm cannot cater for negative values of permittivity or perm
 
 Two problems are chosen for GPU implementation. First is the electromagnetic wave scattering by a slab with negative permittivity and permeability; also known as DNG (double negative) medium. Second problem is the simulation of cylindrical cloak. An incident Gaussian pulse on DNG slab will undergo dispersion resulting in different frequency components being separated. Refractive index and transmission coefficient are calculated numerically to ascertain the validity of implementation. The cylindrical cloak was first proposed and tested by Pendry et. al. \cite{PendryShurig-MicrowaveCloak}. The first FDTD implementation was by Zhao et. al \cite{Radial-Zhao} and implemented on Comsol, a commercial electromagnetic simulation software. Simulations are implemented on Matlab, C++ and GPU. Performance comparison reveals a 10--15 times increase in performance with GPU implementations. Performance gain is greater for larger problem sizes and greater simulation times.
 
-\section{Page layout and style}
+\section{Drude Dispersion Model}
 
-Authors should observe the following rules for page layout. 
-A highly recommended way to meet these requirements is to use a given template (MS-Word or \LaTeX) and check details against the corresponding example file.
+In ideal conditions the permittivity (and permeability) of a material remain constant for any frequency and throughout the structure of that material. Speed of electromagnetic waves in such a medium remain constant if frequency changes. Additionally, there is no loss in energy as the waves pass through the medium.
 
-\subsection{Basic layout features}
+In reality, such a material does not exist. Speed of EM waves varies with frequency of operation. Also, there is a loss associated with the material. A material is dispersive\index{dispersive material} if its permittivity or permeability is dependent on frequency~\cite[Ch. 10]{JBSchneiderUFDTD}.
 
+The relative permittivity in Drude model\index{Drude model $\epsilon_r(\omega)$} is given by
+\begin{equation}
+\centering
+\hat{\epsilon_r}(\omega)=\epsilon_\infty-\dfrac{\omega^2_p}{\omega^2-j\gamma\omega}.
+\label{er-Drude}
+\end{equation}
+Where, $\omega_p$ is plasma frequency and $\gamma$ is collision frequency. Setting $\gamma=0$ and $\epsilon_\infty=1$, relative permittivity comes out to be negative for $\omega/\omega_p > 1$ (figure~\ref{DrudeModel_er}). Thus, Drude model can be effectively used to model metamaterials\index{metamaterial} with permittivity or permeability less than one by incorporating it into FDTD update equations.
+\begin{figure}[t!]
+\centering
+\includegraphics[scale=0.55, trim=4cm 8.5cm 4cm 8.5cm, clip]{FigCh03_DrudeModel_er.pdf}
+\caption{$\epsilon_r$ plotted against $\omega/\omega_p$ for $\epsilon_\infty=1$ and $\gamma=0$}
+\label{DrudeModel_er}
+\end{figure}
+
+\subsection{FDTD Update Equations Based on Drude Model}
+
+In the conventional FDTD algorithm future magnetic field components are first computed from past electric field components. Using the updated magnetic field components, electric field components are then calculated.
 \begin{itemize}
 \setlength{\itemsep}{-1mm}
 \item Paper length is maximum ten pages ({\bf A4} format)
@@ -189,7 +205,7 @@ xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx xxxxx
 Acknowledgements belong here.
 \end{acknowledgement}
 
-
+\nocite{*}
 \bibliographystyle{IEEEtran}
 \bibliography{FDTDMETARef}
 %\begin{thebibliography}{10}

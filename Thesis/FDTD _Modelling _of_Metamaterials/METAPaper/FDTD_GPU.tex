@@ -87,9 +87,85 @@ Where, $\omega_p$ is plasma frequency and $\gamma$ is collision frequency. Setti
 \label{DrudeModel_er}
 \end{figure}
 
-\subsection{FDTD Update Equations Based on Drude Model}
+\section{FDTD Update Equations}
 
-In the conventional FDTD algorithm future magnetic field components are first computed from past electric field components. Using the updated magnetic field components, electric field components are then calculated.
+Faraday's Law\index{Faraday's Law} and Ampere's Law\index{Ampere's Law} in differential form are given by
+\begin{equation}
+\centering
+\nabla \times \textbf{E} = - \dfrac{\partial \textbf{B}}{\partial t},
+\label{Faraday's Law}
+\end{equation}
+\begin{equation}
+\centering
+\nabla \times \textbf{H} = \dfrac{\partial \textbf{D}}{\partial t}.
+\label{Ampere's Law}
+\end{equation}
+From \cite{Yee1966}, the update equations for a wave propagating in $z$ direction are given by
+\begin{equation}
+\begin{split}
+H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right]&=H^{n-\frac{1}{2}}_y \left[k+\frac{1}{2}\right]\\ &+
+\dfrac{\Delta t}{\mu \Delta x} \left( E^{n}_x \left[k\right] - E^{n}_x \left[k+1\right] \right),
+\end{split}
+\label{Hy-1D-Simple-FDTD-Driver}
+\end{equation}
+\begin{equation}
+\begin{split}
+E^{n+1}_x \left[k\right]&=E^{n}_x \left[k\right]\\&+ \dfrac{\Delta t}{\epsilon \Delta x} \left( H^{n+\frac{1}{2}}_y \left[k-\frac{1}{2}\right] - H^{n+\frac{1}{2}}_y \left[k+\frac{1}{2}\right] \right).
+\end{split}
+\label{Ex-1D-Simple-FDTD-Driver}
+\end{equation}
+In the conventional FDTD algorithm future magnetic field components are first computed from past electric field components (eq. \ref{Hy-1D-Simple-FDTD-Driver}). Using the updated magnetic field components, future electric field components are then calculated (eq. \ref{Ex-1D-Simple-FDTD-Driver}) and the simulation proceeds in a leap--frog manner \cite{Yee1966}.
+
+\section{FDTD Update Equations Based on Drude Model}
+
+Electric flux density and electric field are related by
+\begin{equation}
+\centering
+\textbf{D} = \epsilon \textbf{E}.
+\label{D-epsilon-E}
+\end{equation}
+Where $\epsilon = \epsilon_r\epsilon_0$ and $\epsilon_r$ for Drude model is given by equation \ref{er-Drude}. Substituting Drude model $\epsilon_r$, equation \ref{D-epsilon-E} can be written as
+\begin{equation}
+\centering
+\omega^2\textbf{D}-\gamma(j\omega)\textbf{D} = \epsilon_\infty\omega^2\textbf{E}-\omega^2_p\textbf{E}-\epsilon_\infty \gamma(j\omega)\textbf{E}.
+\label{D-epsilonomega-E-frequency-domain}
+\end{equation}
+Following the treatment of \cite{Radial-Zhao} and \cite{JBSchneiderUFDTD}, frequency domain quantities can be converted to time--domain using the relationships $j\omega \rightarrow \partial/\partial t$ and $\omega^2 \rightarrow - \partial^2/\partial t^2$. Moreover, fields multiplying with $\omega^2_p$ are averaged in time. Second--order difference scheme is used, both for single and double derivatives to keep all the terms in accordance with the second--order nature of whole expression. This will result in easier implementation. The final form is given by
+\begin{equation}
+\begin{split}
+E^{n+1}_x&=a_e\left(D^{n+1}_x-2D^n_x+D^{n-1}_x\right)\\&+b_e\left(D^{n+1}_x-D^{n-1}_x\right)
++c_e\left(2E^n_x-E^{n-1}_x\right)\\&+d_e\left(2E^n_x+E^{n-1}_x\right)+e_e E^{n-1}_x.
+\end{split}
+\label{2nd-order-D-E-final-form}
+\end{equation}
+This is also known as the auxiliary update equation for electric field where $a_e$--$e_e$ are scalars given by
+\begin{equation}
+\begin{split}
+\nonumber & a_e=4/g,~b_e=\gamma\left(2\Delta t\right)/g,~c_e=4\epsilon_0\epsilon_\infty/g,\\
+\nonumber & d_e=-\epsilon_0\omega^2_{p}\left(\Delta t\right)^2/g,~e_e=\epsilon_0\epsilon_\infty \gamma_e\left(2\Delta t\right)/g,\\
+\nonumber & g=4\epsilon_0\epsilon_\infty+\epsilon_0\omega^2_{p}\left(\Delta t\right)^2+\epsilon_0\epsilon_\infty \gamma \left(2\Delta t\right)
+\end{split}
+\label{1D-Drude-E-scalars}
+\end{equation}
+A similar procedure can be carried out to obtain auxiliary update equation for magnetic field.
+\begin{equation}
+\begin{split}
+H^{n+1}_y&=a_m\left(B^{n+1}_y-2B^n_y+B^{n-1}_y\right)\\&+b_m\left(B^{n+1}_y-B^{n-1}_y\right)
++c_m\left(2H^n_y-H^{n-1}_y\right)\\&+d_m\left(2H^n_y+H^{n-1}_y\right)+e_m H^{n-1}_y.
+\end{split}
+\label{2nd-order-B-H-final-form}
+\end{equation}
+For a wave propagating in $z$ direction, FDTD update equations\index{FDTD!update equations} are
+\begin{equation}
+B^{n+1}_y(k)=B^n_y(k)+\dfrac{\Delta t}{\Delta z}\left(E^n_x(k)-E^n_x(k+1)\right)
+\label{1D-B-Update-Equation}
+\end{equation}
+and
+\begin{equation}
+D^{n+1}_x(k)=D^n_x(k)+\dfrac{\Delta t}{\Delta z}\left(H^{n+1}_y(k-1)-H^{n+1}_y(k)\right).
+\label{1D-D-Update-Equation}
+\end{equation}
+Equations \ref{1D-B-Update-Equation} and \ref{1D-D-Update-Equation} drive the FDTD algorithm which give future values of $By$ and $Dx$ from past fields. Equations \ref{2nd-order-B-H-final-form} and \ref{2nd-order-D-E-final-form} are auxiliary equations which give future fields $H_y$ and $E_x$ at $n+1$.
 \begin{itemize}
 \setlength{\itemsep}{-1mm}
 \item Paper length is maximum ten pages ({\bf A4} format)

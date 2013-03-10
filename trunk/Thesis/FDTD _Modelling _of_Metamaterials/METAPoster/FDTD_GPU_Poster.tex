@@ -132,11 +132,12 @@
   headerborder=closed,
   headerheight=0.1\textheight,
 %  textfont=\sc, An example of changing the text font
-  headershape=roundedright,
+  headershape=rectangle,
   headershade=shadelr,
   headerfont=\Large\bf\textsc, %Sans Serif
   textfont={\setlength{\parindent}{1.5em}},
-  boxshade=plain,
+  textborder=rectangle,
+  boxshade=none,
 %  background=shade-tb,
   background=plain,
   linewidth=2pt
@@ -271,7 +272,7 @@
 	\draw[line width=1.1pt, ->, >=stealth] (\MidX,\PMLw+0.6cm) -- (\MidX,\PMLw+1.6cm);
 	\coordinate [label=right:\textsf{Plane Wave}] (PlaneWave) at (\MidX+0.5cm,\PMLw+0.8cm);
 \end{tikzpicture}
-\vspace{1em}DNG slab and cylindrical cloak problem geometries.\vspace{-2em}
+\vspace{1em}DNG slab and cylindrical cloak problem geometries.\vspace{-1em}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  {
 %\smaller\centering
@@ -363,12 +364,15 @@ DNG slab and cylindrical cloak under steady--state conditions.
   {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Electric flux density and electric field are related by
+\vspace{-0.1cm}
 \begin{equation}
 \centering
 \textbf{D} = \epsilon \textbf{E}.
 \label{D-epsilon-E}
 \end{equation}
+\vspace{-0.1cm}
 Where $\epsilon = \epsilon_r\epsilon_0$ and $\epsilon_r$ for Drude model is given by equation \ref{er-Drude}. Substituting Drude model $\epsilon_r$, equation \ref{D-epsilon-E} can be written as
+\vspace{-0.1cm}
 \begin{equation}
 \centering
 \omega^2\textbf{D}-\gamma(j\omega)\textbf{D} = \epsilon_\infty\omega^2\textbf{E}-\omega^2_p\textbf{E}-\epsilon_\infty \gamma(j\omega)\textbf{E}.
@@ -446,12 +450,12 @@ B^{n+\frac{1}{2}}_y \left[i+\frac{1}{2},j\right]=&B^{n-\frac{1}{2}}_y \left[i+\f
 			\draw[line width=1.2pt,color=green!50!black] (0.31cm,0.0012cm) -- (0.63cm,0.0014cm) -- (1.3cm,0.0021cm) -- (2.5cm,0.0068cm) -- (3.8cm,0.013cm) -- ( 5cm,0.024cm) -- (6.3cm,0.035cm) -- (7.5cm,0.051cm) -- (8.8cm,0.068cm) -- (10cm,0.089cm);
 			\draw[line width=1.2pt,color=green] (0.31cm,0.005cm) -- (0.63cm,0.005cm) -- (1.3cm,0.0067cm) -- (2.5cm,0.011cm) -- (3.8cm,0.019cm) -- ( 5cm,0.03cm) -- (6.3cm,0.043cm) -- (7.5cm,0.06cm) -- (8.8cm,0.081cm) -- (10cm,0.1cm);
 		\end{tikzpicture}
-		\begin{tikzpicture}
+		\begin{tikzpicture}[remember picture, overlay,shift={(-10cm,1cm)}]
 		\draw[color=white] (0cm,-0.5cm)--(0cm,-0.5cm);
 		\DrawLegend
 		\end{tikzpicture}
 		
-		\begin{tikzpicture}[remember picture, overlay,shift={(-3.5cm,8.25cm)},xscale=0.4,yscale=0.4,font=\tiny]
+		\begin{tikzpicture}[remember picture, overlay,shift={(-3.5cm,5.25cm)},xscale=0.4,yscale=0.4,font=\tiny]
 					\filldraw[color=white] (-2cm,-1cm)rectangle(11.25cm,11.5cm);
 					\DrawAxes{size}{time~(sec)}
 						\GridOn

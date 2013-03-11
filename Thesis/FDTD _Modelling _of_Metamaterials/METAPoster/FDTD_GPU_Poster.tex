@@ -147,12 +147,13 @@
   \includegraphics[height=6.0em]{Figures/FigCh03_2DDNGSteadyStateLossy}
   } 
   % Title
-  {\bf\textsc{Finite Difference Time--Domain Modelling of Metamaterials: GPU Implementation of Cylindrical Cloak}\vspace{0.2em}}
+  {\bf\textsc{Finite Difference Time--Domain Modelling of Metamaterials: GPU Implementation of Cylindrical Cloak}\vspace{0.4em}}
   % Authors
-  {\textsc{Attique.Dawood@nu.edu.pk}\vspace{-0.4em}}
+  {\textsc{Attique.Dawood@nu.edu.pk}\vspace{-0.8em}}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
     \includegraphics[height=7.0em]{Figures/NU_Logo}
+    \hspace*{-1.675cm}\raisebox{-1.0em}{\includegraphics[height=1.0em]{Figures/FAST-NU}}
   }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -175,7 +176,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   Finite difference time--domain (FDTD) technique can be used to model metamaterials by treating them as dispersive material. Drude or Lorentz model can be incorporated into the standard FDTD algorithm for modelling negative permittivity and permeability.
   
-  FDTD algorithm is readily parallelisable and can take advantage of GPU acceleration to achieve speed--ups of 5x--50x depending on hardware setup. Metamaterial scattering problems are implemented using dispersive FDTD technique on GPU resulting in performance gain of 10x--15x compared to conventional CPU implementation.
+  FDTD algorithm is readily parallelisable and can take advantage of GPU acceleration achieving speed--ups of 5x--50x depending on hardware setup. \textbf{Metamaterial scattering problems are implemented using dispersive FDTD technique on GPU resulting in performance gain of 10x--15x compared to conventional CPU implementation}.
  }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -431,7 +432,7 @@ B^{n+\frac{1}{2}}_y \left[i+\frac{1}{2},j\right]=&B^{n-\frac{1}{2}}_y \left[i+\f
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\centering
 	\begin{tikzpicture}[xscale=0.85,yscale=0.85,font=\small]
-			\draw[color=white] (0cm,0cm)--(-0cm,11.5cm);
+			%\draw[color=white] (0cm,0cm)--(-0cm,11.5cm);
 			\DrawAxes{size}{time~(sec)}
 			\GridOn
 			\TicksOn
@@ -449,14 +450,14 @@ B^{n+\frac{1}{2}}_y \left[i+\frac{1}{2},j\right]=&B^{n-\frac{1}{2}}_y \left[i+\f
 			\draw[line width=1.2pt,color=red] (0.31cm,0.0067cm) -- (0.63cm,0.0067cm) -- (1.3cm,0.0078cm) -- (2.5cm,0.012cm) -- (3.8cm,0.02cm) -- ( 5cm,0.03cm) -- (6.3cm,0.043cm) -- (7.5cm,0.058cm) -- (8.8cm,0.075cm) -- (10cm,0.097cm);
 			\draw[line width=1.2pt,color=green!50!black] (0.31cm,0.0012cm) -- (0.63cm,0.0014cm) -- (1.3cm,0.0021cm) -- (2.5cm,0.0068cm) -- (3.8cm,0.013cm) -- ( 5cm,0.024cm) -- (6.3cm,0.035cm) -- (7.5cm,0.051cm) -- (8.8cm,0.068cm) -- (10cm,0.089cm);
 			\draw[line width=1.2pt,color=green] (0.31cm,0.005cm) -- (0.63cm,0.005cm) -- (1.3cm,0.0067cm) -- (2.5cm,0.011cm) -- (3.8cm,0.019cm) -- ( 5cm,0.03cm) -- (6.3cm,0.043cm) -- (7.5cm,0.06cm) -- (8.8cm,0.081cm) -- (10cm,0.1cm);
+			\coordinate [label=below:Performance comparison of different CPU and GPU implementations] (caption) at (5.45cm,-0.8cm);
 		\end{tikzpicture}
 		\begin{tikzpicture}[remember picture, overlay,shift={(-10cm,1cm)}]
 		\draw[color=white] (0cm,-0.5cm)--(0cm,-0.5cm);
 		\DrawLegend
-		\end{tikzpicture}
-		
-		\begin{tikzpicture}[remember picture, overlay,shift={(-3.5cm,5.25cm)},xscale=0.4,yscale=0.4,font=\tiny]
-					\filldraw[color=white] (-2cm,-1cm)rectangle(11.25cm,11.5cm);
+		\end{tikzpicture}		
+		\begin{tikzpicture}[remember picture, overlay,shift={(-8.85cm,5.15cm)},xscale=0.425,yscale=0.425,font=\tiny]
+					\filldraw[color=white] (-2cm,-1.25cm)rectangle(11.25cm,11.5cm);
 					\DrawAxes{size}{time~(sec)}
 						\GridOn
 						\TicksOn
@@ -469,8 +470,8 @@ B^{n+\frac{1}{2}}_y \left[i+\frac{1}{2},j\right]=&B^{n-\frac{1}{2}}_y \left[i+\f
 						\draw[line width=1.2pt,color=red] (0.19cm,0.27cm) -- (0.38cm,0.27cm) -- (0.77cm,0.31cm) -- (1.5cm,0.47cm) -- (2.3cm,0.79cm) -- (3.1cm,1.2cm) -- (3.8cm,1.7cm) -- (4.6cm,2.3cm) -- (5.4cm, 3cm) -- (6.2cm,3.9cm) -- (6.9cm,4.9cm) -- (7.7cm,6.2cm) -- (8.5cm,7.3cm) -- (9.2cm,8.7cm);
 						\draw[line width=1.2pt,color=green!50!black] (0.19cm,0.047cm) -- (0.38cm,0.054cm) -- (0.77cm,0.085cm) -- (1.5cm,0.27cm) -- (2.3cm,0.53cm) -- (3.1cm,0.94cm) -- (3.8cm,1.4cm) -- (4.6cm, 2cm) -- (5.4cm,2.7cm) -- (6.2cm,3.6cm) -- (6.9cm,4.5cm) -- (7.7cm,5.5cm) -- (8.5cm,6.7cm) -- (9.2cm,8.1cm) -- (10cm,9.7cm);
 						\draw[line width=1.2pt,color=green] (0.19cm,0.2cm) -- (0.38cm,0.2cm) -- (0.77cm,0.27cm) -- (1.5cm,0.44cm) -- (2.3cm,0.77cm) -- (3.1cm,1.2cm) -- (3.8cm,1.7cm) -- (4.6cm,2.4cm) -- (5.4cm,3.2cm) -- (6.2cm,4.1cm) -- (6.9cm,5.1cm) -- (7.7cm,6.3cm) -- (8.5cm,7.7cm) -- (9.2cm,9.1cm);
+						\coordinate [label=below:GPU performance comparison] (caption) at (5cm,-0.8cm);
 				\end{tikzpicture}
-
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\headerbox{Dispersive FDTD Algorithm}{name=algorithm,column=1,row=0,below=geometry,above=performance}{
